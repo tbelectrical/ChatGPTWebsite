@@ -205,6 +205,17 @@ html[data-home-variant="split"] .split-only { display: block; }
 .form-success { margin: 16px 0 0; padding: 12px; background: #edf7ed; color: #286631; font-size: 12px; }
 
 .site-footer { background: #0e0d0c; color: var(--white); }
+.credential-banner { position: relative; overflow: hidden; border-top: 1px solid rgba(23,22,20,.14); background: #e9e7df; color: var(--ink); }
+.credential-banner::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 7px; background: var(--yellow); }
+.credential-banner-inner { display: grid; grid-template-columns: minmax(190px,.65fr) minmax(0,2.35fr); align-items: center; gap: clamp(40px,6vw,95px); min-height: 190px; padding-block: 34px; }
+.credential-banner-inner > p { margin: 0; }
+.credential-banner-inner > p span { display: block; margin-bottom: 10px; color: #7a766e; font-size: 9px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+.credential-banner-inner > p strong { display: block; max-width: 220px; font-size: 22px; line-height: 1.08; letter-spacing: -.035em; }
+.credential-banner-logos { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); align-items: center; gap: clamp(24px,4vw,70px); }
+.credential-banner-logos a { display: flex; min-width: 0; height: 82px; align-items: center; justify-content: center; opacity: .72; transition: opacity .2s ease, transform .2s ease; }
+.credential-banner-logos a:hover { opacity: 1; transform: translateY(-2px); }
+.credential-banner-logos img { width: 100%; height: 58px; object-fit: contain; filter: grayscale(1) brightness(0); }
+.credential-banner-logos a:nth-child(3) img { height: 70px; }
 .footer-top { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; padding-block: 78px 64px; }
 .footer-brand img { width: 190px; height: 100px; object-fit: contain; }
 .footer-brand p { margin: 20px 0 0; color: rgba(255,255,255,.38); font-size: 11px; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
@@ -801,17 +812,17 @@ html[data-home-variant="split"] .split-only { display: block; }
   animation: ticker-loop 30s linear infinite;
 }
 .home-main .hero-ticker .ticker-group {
-  display: flex;
-  min-width: 100vw;
-  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(205px,1fr));
+  min-width: max(100vw, 1025px);
+  width: max(100vw, 1025px);
   align-items: stretch;
-  justify-content: space-around;
   padding: 0;
 }
 .home-main .hero-ticker .ticker-group > span {
   position: relative;
   display: flex;
-  min-width: 205px;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   padding: 18px 30px;
@@ -1013,8 +1024,8 @@ html[data-home-variant="split"] .split-only { display: block; }
 @media (max-width: 820px) {
   .home-main .hero-float-top { top: 26px; right: 24px; }
   .home-main .hero-ticker { margin-bottom: -24px; }
-  .home-main .hero-ticker .ticker-group { min-width: max-content; }
-  .home-main .hero-ticker .ticker-group > span { min-width: 190px; padding-inline: 24px; }
+  .home-main .hero-ticker .ticker-group { grid-template-columns: repeat(5,190px); min-width: 950px; width: 950px; }
+  .home-main .hero-ticker .ticker-group > span { min-width: 0; padding-inline: 24px; }
   .home-main .sector-section { padding-top: 150px; padding-bottom: 115px; }
   .sector-lines span { left: -70vw; width: 240vw; opacity: .34; }
   .sector-lines span:nth-child(4), .sector-lines span:nth-child(6) { opacity: .27; }
@@ -1040,12 +1051,15 @@ html[data-home-variant="split"] .split-only { display: block; }
   .home-main .about-photo { height: 600px; }
   .about-stamp { right: 18px; }
   .about-visual > p { right: 18px; }
+  .credential-banner-inner { grid-template-columns: 1fr; gap: 24px; padding-block: 42px; }
+  .credential-banner-inner > p strong { max-width: none; }
 }
 
 @media (max-width: 540px) {
   .home-main .hero-float-top { top: 18px; right: 18px; }
   .home-main .hero-ticker { margin-bottom: -21px; }
-  .home-main .hero-ticker .ticker-group > span { min-width: 178px; padding: 15px 20px; font-size: 10px; }
+  .home-main .hero-ticker .ticker-group { grid-template-columns: repeat(5,178px); min-width: 890px; width: 890px; }
+  .home-main .hero-ticker .ticker-group > span { min-width: 0; padding: 15px 20px; font-size: 10px; }
   .home-main .hero-ticker .ticker-group > span b { width: 23px; }
   .home-main .sector-section { padding-top: 125px; }
   .sector-lines span { border-width: 3px; opacity: .3; }
@@ -1069,4 +1083,11 @@ html[data-home-variant="split"] .split-only { display: block; }
   .about-credentials { gap: 12px; }
   .logo-credentials { grid-template-columns: 1fr; }
   .logo-credentials .credential-logo { min-height: 110px; }
+  .credential-banner { border-top-width: 5px; border-top-color: var(--yellow); }
+  .credential-banner::before { display: none; }
+  .credential-banner-inner { gap: 26px; }
+  .credential-banner-logos { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 38px; }
+  .credential-banner-logos a { height: 64px; }
+  .credential-banner-logos img { height: 44px; }
+  .credential-banner-logos a:nth-child(3) img { height: 56px; }
 }
