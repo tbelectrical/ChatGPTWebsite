@@ -35,9 +35,9 @@ h2 { font-size: clamp(50px, 5.5vw, 88px); margin-bottom: 26px; }
 .section-heading-light > p:last-child { color: rgba(255,255,255,.55); }
 .heading-row { display: flex; align-items: end; justify-content: space-between; gap: 32px; }
 
-.topbar { height: 34px; background: var(--yellow); color: var(--ink); font-size: 10px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.topbar { height: 38px; background: var(--yellow); color: var(--ink); font-size: 10px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
 .topbar .shell { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.topbar a { border-bottom: 1px solid var(--ink); }
+.topbar a { border-bottom: 1px solid var(--ink); font-size: 15px; letter-spacing: .06em; }
 .site-header { position: sticky; top: 0; z-index: 50; height: 86px; background: rgba(23,22,20,.96); color: var(--white); border-bottom: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(18px); }
 .header-inner { height: 100%; display: grid; grid-template-columns: 180px 1fr auto; align-items: center; gap: 36px; }
 .brand { width: 136px; }
@@ -82,7 +82,7 @@ h2 { font-size: clamp(50px, 5.5vw, 88px); margin-bottom: 26px; }
 .hero-float-bottom { left: -44px; bottom: 32px; flex-direction: column; gap: 5px; padding: 20px 24px; border-left: 5px solid var(--yellow); }
 .hero-float-bottom b { font-size: 15px; }
 .hero-float-bottom span { color: #77736b; font-size: 11px; }
-.hero-ticker { width: 100%; overflow: hidden; border-top: 1px solid rgba(255,255,255,.12); background: #0e0d0c; color: rgba(255,255,255,.22); white-space: nowrap; }
+.hero-ticker { width: 100%; overflow: hidden; border-top: 1px solid rgba(255,255,255,.12); background: #0e0d0c; color: var(--paper); white-space: nowrap; }
 .hero-ticker div { width: max-content; padding: 18px 0; font-size: 11px; font-weight: 800; letter-spacing: .16em; word-spacing: 25px; animation: ticker 26s linear infinite; }
 .hero-ticker i { color: var(--yellow); font-style: normal; }
 @keyframes ticker { to { transform: translateX(-35%); } }

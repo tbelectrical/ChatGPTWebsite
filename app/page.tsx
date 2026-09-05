@@ -50,9 +50,9 @@ export default function Home() {
                 <Link className="text-link" href="/projects">See our work <span>→</span></Link>
               </div>
               <div className="hero-proof" aria-label="Key business information">
+                <div><strong>Fully</strong><span>insured electrical contractor</span></div>
                 <div><strong>8+</strong><span>years’ experience</span></div>
                 <div><strong>12</strong><span>month workmanship guarantee</span></div>
-                <div><strong>3</strong><span>sectors covered</span></div>
               </div>
             </div>
             <div className="hero-visual reveal reveal-delay">
