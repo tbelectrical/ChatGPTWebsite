@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  ["01", "Rewires & alterations", "From one new circuit to a full rewire, we plan the work around your property."],
-  ["02", "Consumer units", "We replace and upgrade consumer units, add surge protection and put faults right."],
-  ["03", "Inspection & testing", "We carry out EICRs, find faults, issue certificates and handle regular checks."],
-  ["04", "Lighting & power", "Sockets, supplies and lighting for inside, outside, daily use or emergencies."],
-  ["05", "Commercial fit-outs", "We install practical systems that work for your team and keep the job on track."],
-  ["06", "Industrial electrical", "Three-phase power, distribution, maintenance and new site installations."],
+  ["01", "Rewires & alterations", "From one new circuit to a full rewire, we plan the work around your property.", "/services#domestic"],
+  ["02", "Consumer units", "We replace and upgrade consumer units, add surge protection and put faults right.", "/services#domestic"],
+  ["03", "Inspection & testing", "We carry out EICRs, find faults, issue certificates and handle regular checks.", "/services#domestic"],
+  ["04", "Lighting & power", "Sockets, supplies and lighting for inside, outside, daily use or emergencies.", "/services#domestic"],
+  ["05", "Commercial fit-outs", "We install practical systems that work for your team and keep the job on track.", "/services#commercial"],
+  ["06", "Industrial electrical", "Three-phase power, distribution, maintenance and new site installations.", "/services#industrial"],
 ];
 
 const projects = [
@@ -35,7 +35,7 @@ export default function Home() {
     <>
       <ExperimentGate />
       <Header />
-      <main>
+      <main className="home-main">
         <section className="hero" id="top">
           <div className="hero-grid shell">
             <div className="hero-copy reveal">
@@ -49,53 +49,51 @@ export default function Home() {
                 <a className="button button-primary" href="#quote">Get a free quote <span>↗</span></a>
                 <Link className="text-link" href="/projects">See our work <span>→</span></Link>
               </div>
-              <div className="hero-proof" aria-label="Key business information">
-                <div><strong>Fully</strong><span>insured electrical contractor</span></div>
-                <div><strong>8+</strong><span>years’ experience</span></div>
-                <div><strong>12</strong><span>month workmanship guarantee</span></div>
-              </div>
             </div>
             <div className="hero-visual reveal reveal-delay">
               <div className="hero-image-frame">
                 <img src="/media/TBE-56.webp" alt="Illuminated garden and swimming pool electrical project" />
               </div>
-              <div className="hero-float hero-float-top">
+              <div className="hero-orbit">
                 <span className="status-dot" />
-                Taking bookings
+                <b>Taking<br />bookings</b>
               </div>
-              <div className="hero-float hero-float-bottom">
-                <b>Based in Hitchin</b>
-                <span>Covering Herts, Beds & Bucks</span>
+              <div className="hero-location">
+                <span>Based in Hitchin</span>
+                <b>Herts · Beds · Bucks</b>
               </div>
+            </div>
+            <div className="hero-proof" aria-label="Key business information">
+              <div><strong>Fully</strong><span>insured electrical contractor</span></div>
+              <div><strong>8+</strong><span>years’ experience</span></div>
+              <div><strong>12</strong><span>month workmanship guarantee</span></div>
             </div>
           </div>
           <div className="hero-ticker" aria-hidden="true">
-            <div>DOMESTIC <i>✦</i> COMMERCIAL <i>✦</i> INDUSTRIAL <i>✦</i> EV CHARGING <i>✦</i> INSPECTION & TESTING <i>✦</i></div>
+            <div>DOMESTIC <i>●</i> COMMERCIAL <i>●</i> INDUSTRIAL <i>●</i> EV CHARGING <i>●</i> INSPECTION & TESTING <i>●</i> DOMESTIC <i>●</i> COMMERCIAL <i>●</i> INDUSTRIAL <i>●</i></div>
           </div>
         </section>
 
-        <section className="sector-section shell section" id="sectors">
-          <div className="section-heading">
+        <section className="sector-section section" id="sectors">
+          <div className="shell sector-intro">
             <p className="eyebrow dark"><span /> Homes, businesses and industrial sites</p>
-            <h2>From the front room<br />to the factory floor.</h2>
+            <h2>From the front room<br />to the <em>factory floor.</em></h2>
             <p>Whatever the size of the job, we work carefully, keep things tidy and tell you what is happening.</p>
           </div>
-          <div className="sector-grid">
-            <article className="sector-card sector-domestic">
-              <span className="sector-number">01</span>
-              <div><p>Homes</p><h3>Domestic</h3><span>Rewires, upgrades, lighting, extra power and fault finding.</span></div>
-              <Link href="/services#domestic" aria-label="View domestic electrical services">↗</Link>
-            </article>
-            <article className="sector-card sector-commercial">
-              <span className="sector-number">02</span>
-              <div><p>Businesses</p><h3>Commercial</h3><span>Fit-outs, maintenance and testing that works around your business.</span></div>
-              <Link href="/services#commercial" aria-label="View commercial electrical services">↗</Link>
-            </article>
-            <article className="sector-card sector-industrial">
-              <span className="sector-number">03</span>
-              <div><p>Sites</p><h3>Industrial</h3><span>Reliable power, distribution and maintenance for busy sites.</span></div>
-              <Link href="/services#industrial" aria-label="View industrial electrical services">↗</Link>
-            </article>
+          <div className="shell sector-flow">
+            <Link className="sector-story sector-domestic" href="/services#domestic" aria-label="View domestic electrical services">
+              <span className="sector-photo"><img src="/media/TBE-33.webp" alt="Feature lighting installed in a domestic property" /></span>
+              <span className="sector-copy"><i>01 / Homes</i><strong>Domestic</strong><small>Rewires, upgrades, lighting, extra power and fault finding.</small><b>View domestic services <span>→</span></b></span>
+            </Link>
+            <Link className="sector-story sector-commercial" href="/services#commercial" aria-label="View commercial electrical services">
+              <span className="sector-photo"><img src="/media/hero-img.webp" alt="Commercial electrical installation by TB Electrical" /></span>
+              <span className="sector-copy"><i>02 / Businesses</i><strong>Commercial</strong><small>Fit-outs, maintenance and testing that works around your business.</small><b>View commercial services <span>→</span></b></span>
+            </Link>
+            <Link className="sector-story sector-industrial" href="/services#industrial" aria-label="View industrial electrical services">
+              <span className="sector-photo"><img src="/media/consumer-unit.webp" alt="Industrial distribution equipment installed by TB Electrical" /></span>
+              <span className="sector-copy"><i>03 / Sites</i><strong>Industrial</strong><small>Reliable power, distribution and maintenance for busy sites.</small><b>View industrial services <span>→</span></b></span>
+            </Link>
+            <div className="sector-signoff" aria-hidden="true"><span>One team</span><b>Three sectors.</b></div>
           </div>
         </section>
 
@@ -107,10 +105,10 @@ export default function Home() {
               <p>Need a quick repair or a complete installation? We can help with both.</p>
             </div>
             <div className="service-list">
-              {services.map(([number, title, body]) => (
-                <article className="service-row" key={title}>
-                  <span>{number}</span><h3>{title}</h3><p>{body}</p><span className="service-arrow">↗</span>
-                </article>
+              {services.map(([number, title, body, href]) => (
+                <Link className="service-row" href={href} key={title}>
+                  <span>{number}</span><h3>{title}</h3><p>{body}</p><span className="service-arrow">→</span>
+                </Link>
               ))}
             </div>
             <div className="scope-note">
@@ -124,6 +122,7 @@ export default function Home() {
         </section>
 
         <section className="ev-spotlight section" id="ev-charging">
+          <div className="ev-wire" aria-hidden="true"><span /></div>
           <div className="shell ev-grid">
             <div className="ev-image-wrap">
               <img src="/media/tbelec-2.webp" alt="TB Electrical installing a modern electric vehicle charge point" />
