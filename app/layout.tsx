@@ -11,15 +11,15 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(origin),
     title: { default: "TB Electrical | Electrical Contractors", template: "%s | TB Electrical" },
-    description: "NAPIT registered domestic, commercial and industrial electrical contractors based in Hitchin.",
+    description: "Local, NAPIT registered electricians for homes, businesses and industrial sites across Hertfordshire and nearby counties.",
     icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
     openGraph: {
-      title: "TB Electrical — Electrical work, done properly.",
-      description: "Domestic, commercial and industrial electricians across Hertfordshire and beyond.",
+      title: "TB Electrical | Electrical work, done properly.",
+      description: "Local electricians for homes, businesses and industrial sites across Hertfordshire and nearby counties.",
       type: "website",
       locale: "en_GB",
       siteName: "TB Electrical",
-      images: [{ url: `${origin}/og.png`, width: 1731, height: 909, alt: "TB Electrical — Electrical work, done properly." }],
+      images: [{ url: `${origin}/og.png`, width: 1731, height: 909, alt: "TB Electrical | Electrical work, done properly." }],
     },
     twitter: { card: "summary_large_image", title: "TB Electrical", description: "Electrical work, done properly.", images: [`${origin}/og.png`] },
   };

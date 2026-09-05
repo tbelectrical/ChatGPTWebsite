@@ -34,12 +34,12 @@ export function ContactForm({ source = "website", evFocused = false }: ContactFo
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: "generate_lead", lead_source: source, homepage_variant: variant });
     setPrepared(true);
-    window.location.href = `mailto:tyler@tbelectrical.co.uk?subject=${encodeURIComponent(`Website enquiry — ${form.get("service")}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:tyler@tbelectrical.co.uk?subject=${encodeURIComponent(`Website enquiry: ${form.get("service")}`)}&body=${encodeURIComponent(body)}`;
   }
 
   return (
     <form className="contact-form" onSubmit={submitEnquiry}>
-      <div className="form-heading"><span>{evFocused ? "EV quote request" : "Quick enquiry"}</span><b>Usually replies within one working day</b></div>
+      <div className="form-heading"><span>{evFocused ? "EV quote request" : "Quick enquiry"}</span><b>We usually reply within one working day</b></div>
       <div className="form-grid">
         <label><span>Your name *</span><input name="name" autoComplete="name" required placeholder="e.g. Alex Smith" /></label>
         <label><span>Phone number *</span><input name="phone" type="tel" autoComplete="tel" required placeholder="07..." /></label>
@@ -51,11 +51,11 @@ export function ContactForm({ source = "website", evFocused = false }: ContactFo
             <option>EV charger installation</option><option>Consumer unit / fuse board</option><option>Rewire or alteration</option><option>Inspection / EICR</option><option>Lighting or power</option><option>Commercial project</option><option>Industrial project</option><option>Fault finding</option><option>Something else</option>
           </select>
         </label>
-        <label className="form-full"><span>Tell us a little about the job *</span><textarea name="message" required rows={4} placeholder={evFocused ? "Which vehicle/charger, where it will be fitted and your preferred timing…" : "What needs doing, the property type and your preferred timing…"} /></label>
+        <label className="form-full"><span>Tell us a little about the job *</span><textarea name="message" required rows={4} placeholder={evFocused ? "Which car or charger, where should we fit it, and when do you need it?" : "What needs doing, what type of property is it, and when do you need the work?"} /></label>
       </div>
-      <button className="button button-primary form-submit" type="submit">Prepare my enquiry <span>↗</span></button>
-      <p className="form-note">This opens your email app with the details pre-filled. Your information is not stored on this website.</p>
-      {prepared && <p className="form-success" role="status">Your enquiry is ready in your email app. Please press send to finish.</p>}
+      <button className="button button-primary form-submit" type="submit">Continue to email <span>↗</span></button>
+      <p className="form-note">This opens your email app and fills in the details for you. This website does not store your information.</p>
+      {prepared && <p className="form-success" role="status">Your email is ready. Just press send to finish.</p>}
     </form>
   );
 }

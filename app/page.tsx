@@ -8,16 +8,16 @@ import { Header } from "./components/Header";
 export const metadata: Metadata = {
   title: "Electricians in Hertfordshire",
   description:
-    "NAPIT registered electrical contractors for domestic, commercial and industrial work across Hertfordshire, Bedfordshire and Buckinghamshire.",
+    "Local, NAPIT registered electricians for homes, businesses and industrial sites across Hertfordshire, Bedfordshire and Buckinghamshire.",
 };
 
 const services = [
-  ["01", "Rewires & alterations", "Full and partial rewires, extensions, renovations and additional circuits."],
-  ["02", "Consumer units", "Modern replacements, upgrades, surge protection and remedial works."],
-  ["03", "Inspection & testing", "EICRs, fault finding, certification and planned maintenance."],
-  ["04", "Lighting & power", "Interior, exterior, emergency and feature lighting, sockets and supplies."],
-  ["05", "Commercial fit-outs", "Practical, compliant installations that keep projects moving."],
-  ["06", "Industrial electrical", "Installations, distribution, maintenance and three-phase work."],
+  ["01", "Rewires & alterations", "From one new circuit to a full rewire, we plan the work around your property."],
+  ["02", "Consumer units", "We replace and upgrade consumer units, add surge protection and put faults right."],
+  ["03", "Inspection & testing", "We carry out EICRs, find faults, issue certificates and handle regular checks."],
+  ["04", "Lighting & power", "Sockets, supplies and lighting for inside, outside, daily use or emergencies."],
+  ["05", "Commercial fit-outs", "We install practical systems that work for your team and keep the job on track."],
+  ["06", "Industrial electrical", "Three-phase power, distribution, maintenance and new site installations."],
 ];
 
 const projects = [
@@ -42,8 +42,8 @@ export default function Home() {
               <p className="eyebrow"><span /> NAPIT registered · TrustMark approved</p>
               <h1>Electrical work,<br /><em>done properly.</em></h1>
               <p className="hero-intro">
-                Straight-talking electrical contractors for homes, businesses and
-                industrial sites across Hertfordshire and beyond.
+                We handle electrical work for homes, businesses and industrial sites
+                across Hertfordshire and nearby counties. Big job or small, you get a clear answer.
               </p>
               <div className="button-row">
                 <a className="button button-primary" href="#quote">Get a free quote <span>↗</span></a>
@@ -76,24 +76,24 @@ export default function Home() {
 
         <section className="sector-section shell section" id="sectors">
           <div className="section-heading">
-            <p className="eyebrow dark"><span /> One contractor. Every environment.</p>
+            <p className="eyebrow dark"><span /> Homes, businesses and industrial sites</p>
             <h2>From the front room<br />to the factory floor.</h2>
-            <p>Considered work, clean finishes and clear communication—whatever the scale.</p>
+            <p>Whatever the size of the job, we work carefully, keep things tidy and tell you what is happening.</p>
           </div>
           <div className="sector-grid">
             <article className="sector-card sector-domestic">
               <span className="sector-number">01</span>
-              <div><p>Homes</p><h3>Domestic</h3><span>Rewires, upgrades, lighting, power and fault finding.</span></div>
+              <div><p>Homes</p><h3>Domestic</h3><span>Rewires, upgrades, lighting, extra power and fault finding.</span></div>
               <Link href="/services#domestic" aria-label="View domestic electrical services">↗</Link>
             </article>
             <article className="sector-card sector-commercial">
               <span className="sector-number">02</span>
-              <div><p>Businesses</p><h3>Commercial</h3><span>Fit-outs, maintenance, testing and compliant installations.</span></div>
+              <div><p>Businesses</p><h3>Commercial</h3><span>Fit-outs, maintenance and testing that works around your business.</span></div>
               <Link href="/services#commercial" aria-label="View commercial electrical services">↗</Link>
             </article>
             <article className="sector-card sector-industrial">
               <span className="sector-number">03</span>
-              <div><p>Sites</p><h3>Industrial</h3><span>Robust electrical systems, distribution and maintenance.</span></div>
+              <div><p>Sites</p><h3>Industrial</h3><span>Reliable power, distribution and maintenance for busy sites.</span></div>
               <Link href="/services#industrial" aria-label="View industrial electrical services">↗</Link>
             </article>
           </div>
@@ -103,8 +103,8 @@ export default function Home() {
           <div className="shell">
             <div className="section-heading section-heading-light">
               <p className="eyebrow"><span /> What we do</p>
-              <h2>Small fixes.<br /><em>Serious projects.</em></h2>
-              <p>All types of low-voltage electrical work, delivered safely and tidily.</p>
+              <h2>Small jobs.<br /><em>Bigger projects.</em></h2>
+              <p>Need a quick repair or a complete installation? We can help with both.</p>
             </div>
             <div className="service-list">
               {services.map(([number, title, body]) => (
@@ -114,12 +114,12 @@ export default function Home() {
               ))}
             </div>
             <div className="scope-note">
-              <span>Within scope</span>
-              <p>Domestic, commercial and industrial low-voltage work.</p>
-              <span>Outside scope</span>
+              <span>We can help with</span>
+              <p>Low-voltage work in homes, businesses and industrial sites.</p>
+              <span>Not our area</span>
               <p>Solar PV, battery storage and high-voltage work.</p>
             </div>
-            <div className="center-action"><Link className="button button-ghost" href="/services">Explore all services <span>→</span></Link></div>
+            <div className="center-action"><Link className="button button-ghost" href="/services">See all services <span>→</span></Link></div>
           </div>
         </section>
 
@@ -132,7 +132,7 @@ export default function Home() {
             <div className="ev-copy">
               <p className="eyebrow dark"><span /> EV charging spotlight</p>
               <h2>Park up.<br /><em>Plug in.</em><br />Wake up ready.</h2>
-              <p>Neat, compliant home and workplace charger installations—surveyed, fitted, tested and explained by one reliable team.</p>
+              <p>We check your supply, plan a neat cable route, fit the charger and test it. Then we show you how it all works. Simple, really.</p>
               <ul className="tick-list">
                 <li>Home and workplace installations</li>
                 <li>Supply and load assessment</li>
@@ -147,15 +147,15 @@ export default function Home() {
           <div className="split-links">
             <Link href="/projects"><span>Selected work</span><strong>See recent projects</strong><i>↗</i></Link>
             <Link href="/about"><span>Why TB Electrical</span><strong>Meet your contractor</strong><i>↗</i></Link>
-            <a href={googleMapsUrl} target="_blank" rel="noreferrer"><span>Independent feedback</span><strong>Read Google reviews</strong><i>↗</i></a>
+            <a href={googleMapsUrl} target="_blank" rel="noreferrer"><span>Customer reviews</span><strong>Read Google reviews</strong><i>↗</i></a>
           </div>
         </section>
 
         <div className="long-only">
           <section className="projects-section section shell" id="projects">
             <div className="section-heading heading-row">
-              <div><p className="eyebrow dark"><span /> Selected work</p><h2>Details make<br />the difference.</h2></div>
-              <Link className="text-link dark-link" href="/projects">View the portfolio <span>→</span></Link>
+              <div><p className="eyebrow dark"><span /> Selected work</p><h2>See how we<br />finish a job.</h2></div>
+              <Link className="text-link dark-link" href="/projects">See more projects <span>→</span></Link>
             </div>
             <div className="project-grid">
               {projects.map((project) => (
@@ -171,7 +171,7 @@ export default function Home() {
             <div className="shell reviews-grid">
               <div className="reviews-copy">
                 <p className="eyebrow"><span /> Customer feedback</p>
-                <h2>Known for the work.<br /><em>Remembered for the service.</em></h2>
+                <h2>Good work matters.<br /><em>So does good service.</em></h2>
                 <blockquote>“Friendly, reliable, and did a really great job. Turned up on time and explained everything clearly.”</blockquote>
                 <div className="review-source"><span>★★★★★</span><p>Verified customer review<br /><b>MyBuilder · May 2026</b></p></div>
               </div>
@@ -191,11 +191,11 @@ export default function Home() {
           <section className="about-section section shell" id="about">
             <div className="about-photo"><img src="/media/rewires1509-1.webp" alt="Electrical first-fix wiring during a property renovation" /></div>
             <div className="about-copy">
-              <p className="eyebrow dark"><span /> Built on doing things right</p>
-              <h2>Friendly people.<br />Professional standards.</h2>
-              <p>TB Electrical is a family-run, Hitchin-based electrical contractor. We bring the same care to a small repair as we do to a complete installation—turning up when agreed, keeping you informed and leaving a clean finish.</p>
+              <p className="eyebrow dark"><span /> Who you are hiring</p>
+              <h2>Friendly service.<br />Work done right.</h2>
+              <p>We are a family-run electrical business based in Hitchin. We turn up when we say we will, explain the work and leave a clean finish. Honestly, that should be the standard.</p>
               <div className="about-values">
-                <div><b>01</b><span>Clear, transparent quotes</span></div>
+                <div><b>01</b><span>Clear quotes with no guesswork</span></div>
                 <div><b>02</b><span>Safe, compliant workmanship</span></div>
                 <div><b>03</b><span>Tidy work and honest advice</span></div>
               </div>
@@ -208,8 +208,8 @@ export default function Home() {
           <div className="shell quote-grid">
             <div className="quote-copy">
               <p className="eyebrow"><span /> Tell us what you need</p>
-              <h2>Let’s get your<br />project <em>moving.</em></h2>
-              <p>Share a few details and we’ll prepare your enquiry. Prefer to talk? Call us directly.</p>
+              <h2>What needs<br /><em>sorting?</em></h2>
+              <p>Tell us a bit about the job and we will get back to you. Prefer a quick chat? Give us a call.</p>
               <a className="phone-link" href="tel:+447484605599"><span>Call</span> 07484 605 599</a>
               <div className="service-area"><span>Based in Hitchin</span><p>Hertfordshire · Bedfordshire · Buckinghamshire<br />Nationwide for selected commercial projects</p></div>
             </div>

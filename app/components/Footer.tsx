@@ -6,7 +6,7 @@ export function Footer() {
       <div className="shell footer-top">
         <div className="footer-brand">
           <img src="/media/tb-logo-white.webp" alt="TB Electrical" />
-          <p>Safe. considered. connected.</p>
+          <p>Safe. Tidy. Straightforward.</p>
         </div>
         <div className="footer-links">
           <div><span>Explore</span><Link href="/services">Services</Link><Link href="/projects">Projects</Link><Link href="/about">About</Link><Link href="/ev-chargers">EV charging</Link></div>
