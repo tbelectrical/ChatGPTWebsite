@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tb-electrical-herts",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-09-05",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "dist/client",
+    "not_found_handling": "none",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "CONTACT_TO_EMAIL": "tyler@tbelectrical.co.uk",
+    "CONTACT_FROM_EMAIL": "TB Electrical Website <enquiries@forms.tbelectrical.co.uk>"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
