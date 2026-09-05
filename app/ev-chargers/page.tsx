@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const faqs = [
   ["Can you install a charger I have already bought?", "Usually, yes. We first check the charger, your electrical supply, the cable route and the maker’s instructions. If anything looks wrong, we will tell you before we start."],
   ["Will my electrical supply cope?", "We check that as part of the job. We look at your current setup and how much power you already use, then suggest a safe option that suits the property."],
-  ["How long does an installation take?", "We can often finish a simple home installation in one day. A long cable route, groundwork or supply changes may take longer. Your quote will spell that out."],
+  ["How long does an installation take?", "We can often finish a simple home installation in one day. A long cable route, groundwork or supply changes may take longer. We will explain that before the work starts."],
   ["Do you install workplace chargers?", "Yes. We fit charge points at homes, workplaces and other commercial properties. We plan the job around your parking spaces, daily use and current electrical setup."],
 ];
 
@@ -58,7 +58,7 @@ export default function EvChargersPage() {
           <div className="section-heading"><p className="eyebrow dark"><span /> How it works</p><h2>From first message<br />to first charge.</h2></div>
           <ol className="process-list">
             <li><span>01</span><div><h3>Tell us about your setup</h3><p>Send your postcode, car or charger details, parking setup and a few clear photos.</p></div></li>
-            <li><span>02</span><div><h3>Get a clear quote</h3><p>We confirm the work and the price. If you need any extra work, we include it in the quote.</p></div></li>
+            <li><span>02</span><div><h3>Agree the job</h3><p>We confirm the work and the price. If anything extra is needed, we tell you before we start.</p></div></li>
             <li><span>03</span><div><h3>We fit the charger</h3><p>We install and test it, show you how it works and leave the area clean.</p></div></li>
           </ol>
         </section>

@@ -54,9 +54,9 @@ export default function Home() {
               <div className="hero-image-frame">
                 <img src="/media/TBE-56.webp" alt="Illuminated garden and swimming pool electrical project" />
               </div>
-              <div className="hero-orbit">
+              <div className="hero-float hero-float-top">
                 <span className="status-dot" />
-                <b>Taking<br />bookings</b>
+                Taking bookings
               </div>
               <div className="hero-location">
                 <span>Based in Hitchin</span>
@@ -73,11 +73,11 @@ export default function Home() {
             <div className="ticker-track">
               {[0, 1].map((copy) => (
                 <div className="ticker-group" key={copy}>
-                  <span><b>01</b> Domestic</span>
-                  <span><b>02</b> Commercial</span>
-                  <span><b>03</b> Industrial</span>
-                  <span><b>04</b> EV charging</span>
-                  <span><b>05</b> Inspection &amp; testing</span>
+                  <span>Domestic</span>
+                  <span>Commercial</span>
+                  <span>Industrial</span>
+                  <span>EV charging</span>
+                  <span>Inspection &amp; testing</span>
                 </div>
               ))}
             </div>
@@ -214,7 +214,7 @@ export default function Home() {
               <p>We are a family-run electrical business based in Hitchin. We turn up when we say we will, explain the work and leave a clean finish. Honestly, that should be the standard.</p>
               <div className="about-credentials" aria-label="Business credentials"><span>NAPIT registered</span><span>TrustMark approved</span><span>Fully insured</span></div>
               <div className="about-values">
-                <div><b>01</b><span>Clear quotes with no guesswork</span></div>
+                <div><b>01</b><span>The work agreed before we start</span></div>
                 <div><b>02</b><span>Safe, compliant workmanship</span></div>
                 <div><b>03</b><span>Tidy work and honest advice</span></div>
               </div>
