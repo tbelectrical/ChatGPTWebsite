@@ -70,11 +70,24 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-ticker" aria-hidden="true">
-            <div>DOMESTIC <i>●</i> COMMERCIAL <i>●</i> INDUSTRIAL <i>●</i> EV CHARGING <i>●</i> INSPECTION & TESTING <i>●</i> DOMESTIC <i>●</i> COMMERCIAL <i>●</i> INDUSTRIAL <i>●</i></div>
+            <div className="ticker-track">
+              {[0, 1].map((copy) => (
+                <div className="ticker-group" key={copy}>
+                  <span><b>01</b> Domestic</span>
+                  <span><b>02</b> Commercial</span>
+                  <span><b>03</b> Industrial</span>
+                  <span><b>04</b> EV charging</span>
+                  <span><b>05</b> Inspection &amp; testing</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         <section className="sector-section section" id="sectors">
+          <div className="sector-lines" aria-hidden="true">
+            <span /><span /><span /><span /><span /><span /><span />
+          </div>
           <div className="shell sector-intro">
             <p className="eyebrow dark"><span /> Homes, businesses and industrial sites</p>
             <h2>From the front room<br />to the <em>factory floor.</em></h2>
@@ -151,19 +164,21 @@ export default function Home() {
         </section>
 
         <div className="long-only">
-          <section className="projects-section section shell" id="projects">
-            <div className="section-heading heading-row">
-              <div><p className="eyebrow dark"><span /> Selected work</p><h2>See how we<br />finish a job.</h2></div>
-              <Link className="text-link dark-link" href="/projects">See more projects <span>→</span></Link>
+          <section className="projects-section section" id="projects">
+            <div className="shell section-heading heading-row project-heading">
+              <div><p className="eyebrow"><span /> Selected work</p><h2>Details matter.<br /><em>Here is the proof.</em></h2></div>
+              <div className="project-heading-side"><span>04 recent projects</span><Link className="text-link" href="/projects">See the full portfolio <b>→</b></Link></div>
             </div>
-            <div className="project-grid">
-              {projects.map((project) => (
-                <figure className={`project-card ${project.className}`} key={project.src}>
+            <div className="project-grid shell">
+              {projects.map((project, index) => (
+                <Link className={`project-card ${project.className}`} href="/projects" key={project.src} aria-label={`View project: ${project.title}`}>
                   <img src={project.src} alt={project.title} />
-                  <figcaption><span>{project.title}</span><i>TB / WORKS</i></figcaption>
-                </figure>
+                  <span className="project-number">0{index + 1}</span>
+                  <span className="project-caption"><strong>{project.title}</strong><i>View project →</i></span>
+                </Link>
               ))}
             </div>
+            <div className="shell project-footnote"><span>Homes</span><i /> <span>Businesses</span><i /> <span>Industrial sites</span></div>
           </section>
 
           <section className="reviews-section section" id="reviews">
@@ -188,11 +203,16 @@ export default function Home() {
           </section>
 
           <section className="about-section section shell" id="about">
-            <div className="about-photo"><img src="/media/rewires1509-1.webp" alt="Electrical first-fix wiring during a property renovation" /></div>
+            <div className="about-visual">
+              <div className="about-photo"><img src="/media/rewires1509-1.webp" alt="Electrical first-fix wiring during a property renovation" /></div>
+              <div className="about-stamp"><strong>TB</strong><span>Owner-led<br />Hitchin based</span></div>
+              <p>“You should know who is turning up and what the job involves.”</p>
+            </div>
             <div className="about-copy">
               <p className="eyebrow dark"><span /> Who you are hiring</p>
-              <h2>Friendly service.<br />Work done right.</h2>
+              <h2>A proper local<br />electrical contractor.</h2>
               <p>We are a family-run electrical business based in Hitchin. We turn up when we say we will, explain the work and leave a clean finish. Honestly, that should be the standard.</p>
+              <div className="about-credentials" aria-label="Business credentials"><span>NAPIT registered</span><span>TrustMark approved</span><span>Fully insured</span></div>
               <div className="about-values">
                 <div><b>01</b><span>Clear quotes with no guesswork</span></div>
                 <div><b>02</b><span>Safe, compliant workmanship</span></div>
