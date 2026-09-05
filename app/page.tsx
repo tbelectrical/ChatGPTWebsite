@@ -211,7 +211,11 @@ export default function Home() {
               <p className="eyebrow dark"><span /> Who you are hiring</p>
               <h2>A proper local<br />electrical contractor.</h2>
               <p>We are a family-run electrical business based in Hitchin. We turn up when we say we will, explain the work and leave a clean finish. Honestly, that should be the standard.</p>
-              <div className="about-credentials" aria-label="Business credentials"><span>NAPIT registered</span><span>TrustMark approved</span><span>Fully insured</span></div>
+              <div className="about-credentials logo-credentials" aria-label="Business credentials">
+                <a className="credential-logo credential-logo-napit" href="https://www.napit.org.uk/" target="_blank" rel="noreferrer"><img src="/media/napit-logo.svg" alt="NAPIT" /><span>Registered</span></a>
+                <a className="credential-logo credential-logo-trustmark" href="https://www.trustmark.org.uk/firms/TB%20Electrical%20Herts%20Ltd-4136741-SG5%204SN?id=6a0f78e4-068a-4311-bbf1-663f7f6bd737" target="_blank" rel="noreferrer"><img src="/media/trustmark-logo.svg" alt="TrustMark Government Endorsed Quality" /><span>Approved</span></a>
+                <a className="credential-logo credential-logo-rhino" href="https://www.rhinotradeinsurance.com/" target="_blank" rel="noreferrer"><img src="/media/rhino-trade-insurance-logo.svg" alt="Rhino Trade Insurance" /><span>Fully insured</span></a>
+              </div>
               <div className="about-values">
                 <div><b>01</b><span>The work agreed before we start</span></div>
                 <div><b>02</b><span>Safe, compliant workmanship</span></div>
