@@ -170,10 +170,9 @@ export default function Home() {
               <div className="project-heading-side"><span>04 recent projects</span><Link className="text-link" href="/projects">See the full portfolio <b>→</b></Link></div>
             </div>
             <div className="project-grid shell">
-              {projects.map((project, index) => (
+              {projects.map((project) => (
                 <Link className={`project-card ${project.className}`} href="/projects" key={project.src} aria-label={`View project: ${project.title}`}>
                   <img src={project.src} alt={project.title} />
-                  <span className="project-number">0{index + 1}</span>
                   <span className="project-caption"><strong>{project.title}</strong><i>View project →</i></span>
                 </Link>
               ))}
