@@ -1,11 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-workerUrl.searchParams.set("contact-test", `${process.pid}-${Date.now()}`);
-const { default: worker } = await import(workerUrl.href);
-
-const ctx = { waitUntil() {}, passThroughOnException() {} };
+import { handleContactRequest } from "../worker/contact.ts";
 const validPayload = {
   name: "Alex Smith",
   phone: "07123456789",
@@ -28,22 +24,40 @@ function request(payload = validPayload) {
 }
 
 test("rejects incomplete contact submissions", async () => {
-  const response = await worker.fetch(request({ ...validPayload, message: "Too short" }), {}, ctx);
+  const response = await handleContactRequest(request({ ...validPayload, message: "Too short" }), {});
   assert.equal(response.status, 400);
   assert.equal((await response.json()).ok, false);
 });
 
 test("does not email submissions caught by the spam trap", async () => {
-  const response = await worker.fetch(request({ ...validPayload, website: "spam.example" }), {}, ctx);
+  const response = await handleContactRequest(request({ ...validPayload, website: "spam.example" }), {});
   assert.equal(response.status, 200);
   assert.equal((await response.json()).ok, true);
 });
 
 test("reports missing email configuration without losing the browser fallback", async () => {
-  const response = await worker.fetch(request(), {}, ctx);
+  const response = await handleContactRequest(request(), {});
   assert.equal(response.status, 503);
   const body = await response.json();
   assert.equal(body.code, "FORM_NOT_CONFIGURED");
+});
+
+test("accepts the public host behind a proxy but rejects other sites", async () => {
+  const proxiedRequest = new Request("http://internal.local/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: "https://tbelectrical.co.uk", Host: "tbelectrical.co.uk", "Sec-Fetch-Site": "same-origin" },
+    body: JSON.stringify(validPayload),
+  });
+  const proxiedResponse = await handleContactRequest(proxiedRequest, {});
+  assert.equal(proxiedResponse.status, 503);
+
+  const crossSiteRequest = new Request("https://tbelectrical.co.uk/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Origin: "https://unrelated.example", Host: "tbelectrical.co.uk", "Sec-Fetch-Site": "cross-site" },
+    body: JSON.stringify(validPayload),
+  });
+  const crossSiteResponse = await handleContactRequest(crossSiteRequest, {});
+  assert.equal(crossSiteResponse.status, 403);
 });
 
 test("sends a validated enquiry through the email provider", async () => {
@@ -55,11 +69,11 @@ test("sends a validated enquiry through the email provider", async () => {
   };
 
   try {
-    const response = await worker.fetch(request(), {
+    const response = await handleContactRequest(request(), {
       RESEND_API_KEY: "re_test_key",
       CONTACT_TO_EMAIL: "tyler@tbelectrical.co.uk",
       CONTACT_FROM_EMAIL: "TB Electrical Website <enquiries@forms.tbelectrical.co.uk>",
-    }, ctx);
+    });
 
     assert.equal(response.status, 200);
     assert.equal((await response.json()).ok, true);

@@ -1,19 +1,56 @@
 import assert from "node:assert/strict";
-import test from "node:test";
+import { spawn } from "node:child_process";
+import { createServer } from "node:net";
+import { once } from "node:events";
+import { after, before, test } from "node:test";
+import { fileURLToPath } from "node:url";
 
-const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-const { default: worker } = await import(workerUrl.href);
+const root = fileURLToPath(new URL("..", import.meta.url));
+let origin;
+let server;
+let serverOutput = "";
 
-const env = {
-  ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
-};
-const ctx = { waitUntil() {}, passThroughOnException() {} };
+async function availablePort() {
+  const probe = createServer();
+  probe.listen(0, "127.0.0.1");
+  await once(probe, "listening");
+  const port = probe.address().port;
+  probe.close();
+  await once(probe, "close");
+  return port;
+}
+
+before(async () => {
+  const port = await availablePort();
+  origin = `http://127.0.0.1:${port}`;
+  server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--hostname", "127.0.0.1", "--port", String(port)], {
+    cwd: root,
+    env: { ...process.env, RESEND_API_KEY: "", CONTACT_TO_EMAIL: "", CONTACT_FROM_EMAIL: "" },
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  for (const stream of [server.stdout, server.stderr]) {
+    stream.on("data", chunk => { serverOutput += chunk.toString().slice(0, 2000); });
+  }
+
+  for (let attempt = 0; attempt < 100; attempt++) {
+    if (server.exitCode !== null) throw new Error(`Next.js exited early: ${serverOutput}`);
+    try {
+      const response = await fetch(origin, { signal: AbortSignal.timeout(1000) });
+      if (response.ok) return;
+    } catch { /* Wait for the server to finish starting. */ }
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  throw new Error(`Next.js did not start: ${serverOutput}`);
+});
+
+after(() => {
+  server?.kill("SIGKILL");
+  server?.stdout?.destroy();
+  server?.stderr?.destroy();
+});
 
 test("server-renders the TB Electrical homepage", async () => {
-  const response = await worker.fetch(new Request("http://localhost/", {
-    headers: { accept: "text/html" },
-  }), env, ctx);
+  const response = await fetch(origin);
 
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -32,9 +69,7 @@ test("server-renders the TB Electrical homepage", async () => {
 });
 
 test("server-renders the local EV charger landing page", async () => {
-  const response = await worker.fetch(new Request("http://localhost/ev-chargers", {
-    headers: { accept: "text/html" },
-  }), env, ctx);
+  const response = await fetch(`${origin}/ev-chargers`);
 
   assert.equal(response.status, 200);
   const html = await response.text();
@@ -44,10 +79,11 @@ test("server-renders the local EV charger landing page", async () => {
   assert.match(html, /Harpenden/);
 });
 
-test("serves search engine crawl files", async () => {
-  const [robotsResponse, sitemapResponse] = await Promise.all([
-    worker.fetch(new Request("http://localhost/robots.txt"), env, ctx),
-    worker.fetch(new Request("http://localhost/sitemap.xml"), env, ctx),
+test("serves search engine crawl files and approved images", async () => {
+  const [robotsResponse, sitemapResponse, imageResponse] = await Promise.all([
+    fetch(`${origin}/robots.txt`),
+    fetch(`${origin}/sitemap.xml`),
+    fetch(`${origin}/media/tyler-baker-tb-electrical-warm-v2.webp`),
   ]);
 
   assert.equal(robotsResponse.status, 200);
@@ -57,4 +93,17 @@ test("serves search engine crawl files", async () => {
   const sitemap = await sitemapResponse.text();
   assert.match(sitemap, /https:\/\/www\.tbelectrical\.co\.uk\/ev-chargers/);
   assert.match(sitemap, /https:\/\/www\.tbelectrical\.co\.uk\/contact/);
+
+  assert.equal(imageResponse.status, 200);
+  assert.match(imageResponse.headers.get("content-type") ?? "", /^image\/webp/);
+});
+
+test("contact endpoint validates enquiries on the Node.js server", async () => {
+  const response = await fetch(`${origin}/api/contact`, {
+    method: "POST",
+    headers: { "content-type": "application/json", origin },
+    body: JSON.stringify({ name: "A", message: "Too short" }),
+  });
+  assert.equal(response.status, 400);
+  assert.equal((await response.json()).ok, false);
 });

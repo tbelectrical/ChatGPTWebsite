@@ -46,7 +46,17 @@ export async function handleContactRequest(request: Request, env: ContactEnv): P
   const origin = request.headers.get("origin");
   const requestOrigin = new URL(request.url).origin;
   const fetchSite = request.headers.get("sec-fetch-site");
-  if ((origin && origin !== requestOrigin) || (fetchSite && !["same-origin", "none"].includes(fetchSite))) {
+  let sameOrigin = !origin || origin === requestOrigin;
+  if (origin && !sameOrigin) {
+    try {
+      // Node.js hosts can pass an internal URL to route handlers while keeping
+      // the visitor-facing host in the request headers.
+      sameOrigin = new URL(origin).host === request.headers.get("host");
+    } catch {
+      sameOrigin = false;
+    }
+  }
+  if (!sameOrigin || (fetchSite && !["same-origin", "none"].includes(fetchSite))) {
     return json({ ok: false, message: "This form must be sent from the TB Electrical website." }, 403);
   }
 
