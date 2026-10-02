@@ -9,7 +9,7 @@ export function Header() {
   return (
     <>
       <div className="topbar">
-        <div className="shell"><span>Hitchin-based · Covering Herts, Beds & Bucks</span><a href="tel:+447484605599">07484 605 599</a></div>
+        <div className="shell"><span>Hitchin-based · Stevenage, Letchworth, Welwyn, Bedford & nearby</span><a href="tel:+447484605599">07484 605 599</a></div>
       </div>
       <header className="site-header">
         <div className="shell header-inner">

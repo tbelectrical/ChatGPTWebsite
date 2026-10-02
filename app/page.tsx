@@ -6,9 +6,15 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 
 export const metadata: Metadata = {
-  title: "Electricians in Hertfordshire",
+  title: "Electrician in Hitchin & Hertfordshire",
   description:
-    "Local, NAPIT registered electricians for homes, businesses and industrial sites across Hertfordshire, Bedfordshire and Buckinghamshire.",
+    "NAPIT registered electricians serving Hitchin, Stevenage, Letchworth, Welwyn, Hatfield, Harpenden and Bedford. Domestic, commercial and industrial work.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Electrician in Hitchin & Hertfordshire | TB Electrical",
+    description: "Domestic, commercial and industrial electrical work across Hitchin and surrounding towns.",
+    url: "/",
+  },
 };
 
 const services = [
@@ -42,8 +48,8 @@ export default function Home() {
               <p className="eyebrow"><span /> NAPIT registered · TrustMark approved</p>
               <h1>Electrical work,<br /><em>done properly.</em></h1>
               <p className="hero-intro">
-                We handle electrical work for homes, businesses and industrial sites
-                across Hertfordshire and nearby counties. Big job or small, you get a clear answer.
+                Based in Hitchin, we handle electrical work for homes, businesses and industrial sites
+                across Hertfordshire and nearby Bedfordshire. Big job or small, you get a clear answer.
               </p>
               <div className="button-row">
                 <a className="button button-primary" href="#quote">Get a free quote <span>↗</span></a>
@@ -95,15 +101,15 @@ export default function Home() {
           </div>
           <div className="shell sector-flow">
             <Link className="sector-story sector-domestic" href="/services#domestic" aria-label="View domestic electrical services">
-              <span className="sector-photo"><img src="/media/TBE-33.webp" alt="Feature lighting installed in a domestic property" /></span>
+              <span className="sector-photo"><img src="/media/domestic-uk-house.webp" alt="British brick house with warm exterior lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
               <span className="sector-copy"><i>01 / Homes</i><strong>Domestic</strong><small>Rewires, upgrades, lighting, extra power and fault finding.</small><b>View domestic services <span>→</span></b></span>
             </Link>
             <Link className="sector-story sector-commercial" href="/services#commercial" aria-label="View commercial electrical services">
-              <span className="sector-photo"><img src="/media/hero-img.webp" alt="Commercial electrical installation by TB Electrical" /></span>
+              <span className="sector-photo"><img src="/media/commercial-shop-lighting.webp" alt="Modern shop interior with ceiling track lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
               <span className="sector-copy"><i>02 / Businesses</i><strong>Commercial</strong><small>Fit-outs, maintenance and testing that works around your business.</small><b>View commercial services <span>→</span></b></span>
             </Link>
             <Link className="sector-story sector-industrial" href="/services#industrial" aria-label="View industrial electrical services">
-              <span className="sector-photo"><img src="/media/consumer-unit.webp" alt="Industrial distribution equipment installed by TB Electrical" /></span>
+              <span className="sector-photo"><img src="/media/industrial-factory-lighting.webp" alt="Factory workshop with machinery, electrical distribution and high-bay lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
               <span className="sector-copy"><i>03 / Sites</i><strong>Industrial</strong><small>Reliable power, distribution and maintenance for busy sites.</small><b>View industrial services <span>→</span></b></span>
             </Link>
             <div className="sector-signoff" aria-hidden="true"><span>One team</span><b>Three sectors.</b></div>
@@ -138,19 +144,45 @@ export default function Home() {
           <div className="ev-wire" aria-hidden="true"><span /></div>
           <div className="shell ev-grid">
             <div className="ev-image-wrap">
-              <img src="/media/tbelec-2.webp" alt="TB Electrical installing a modern electric vehicle charge point" />
+              <img src="/media/ohme-home-pro.webp" alt="Ohme Home Pro EV charger mounted on dark timber cladding" width={1600} height={1466} loading="lazy" decoding="async" />
               <div className="ev-badge"><span>EV</span> charge point<br />installation</div>
             </div>
             <div className="ev-copy">
-              <p className="eyebrow dark"><span /> EV charging spotlight</p>
+              <p className="eyebrow dark"><span /> OZEV approved EV charger installer</p>
               <h2>Park up.<br /><em>Plug in.</em><br />Wake up ready.</h2>
               <p>We check your supply, plan a neat cable route, fit the charger and test it. Then we show you how it all works. Simple, really.</p>
               <ul className="tick-list">
+                <li>OZEV approved for home and workplace grant schemes</li>
                 <li>Home and workplace installations</li>
                 <li>Supply and load assessment</li>
                 <li>Testing, certification and handover</li>
               </ul>
               <Link className="button button-dark" href="/ev-chargers">Explore EV charging <span>↗</span></Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="areas-section section" id="areas">
+          <div className="shell areas-grid">
+            <div className="areas-title">
+              <p className="eyebrow dark"><span /> Areas we cover</p>
+              <h2>Local to Hitchin.<br /><em>Working across the area.</em></h2>
+            </div>
+            <div className="areas-copy">
+              <p>We regularly work in the towns below, as well as the villages in between. If you are nearby but cannot see your area, give us a call. There is a good chance we can help.</p>
+              <ul className="area-list" aria-label="Main service areas">
+                <li>Hitchin</li>
+                <li>Stevenage</li>
+                <li>Letchworth Garden City</li>
+                <li>Bedford</li>
+                <li>Welwyn Garden City</li>
+                <li>Hatfield</li>
+                <li>Harpenden</li>
+              </ul>
+              <div className="area-links">
+                <Link className="text-link dark-link" href="/services">Electrical services <span>→</span></Link>
+                <Link className="text-link dark-link" href="/ev-chargers">EV charger installation <span>→</span></Link>
+              </div>
             </div>
           </div>
         </section>
@@ -203,9 +235,7 @@ export default function Home() {
 
           <section className="about-section section shell" id="about">
             <div className="about-visual">
-              <div className="about-photo"><img src="/media/rewires1509-1.webp" alt="Electrical first-fix wiring during a property renovation" /></div>
-              <div className="about-stamp"><strong>TB</strong><span>Owner-led<br />Hitchin based</span></div>
-              <p>“You should know who is turning up and what the job involves.”</p>
+              <div className="about-photo"><img src="/media/tyler-baker-tb-electrical-warm-v2.webp" alt="Tyler Baker in his TB Electrical uniform beside his van and toolboxes" width={1448} height={1086} loading="lazy" decoding="async" /></div>
             </div>
             <div className="about-copy">
               <p className="eyebrow dark"><span /> Who you are hiring</p>
@@ -228,7 +258,7 @@ export default function Home() {
               <h2>What needs<br /><em>sorting?</em></h2>
               <p>Tell us a bit about the job and we will get back to you. Prefer a quick chat? Give us a call.</p>
               <a className="phone-link" href="tel:+447484605599"><span>Call</span> 07484 605 599</a>
-              <div className="service-area"><span>Based in Hitchin</span><p>Hertfordshire · Bedfordshire · Buckinghamshire<br />Nationwide for selected commercial projects</p></div>
+              <div className="service-area"><span>Based in Hitchin</span><p>Stevenage · Letchworth · Bedford · Welwyn · Hatfield · Harpenden<br />Wider areas for selected commercial projects</p></div>
             </div>
             <ContactForm source="homepage" />
           </div>

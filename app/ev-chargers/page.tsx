@@ -5,8 +5,14 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
 export const metadata: Metadata = {
-  title: "EV Charger Installation Hertfordshire",
-  description: "Home and workplace EV charger installation across Hertfordshire, Bedfordshire and Buckinghamshire. We check, fit, test and explain your charger.",
+  title: "OZEV Approved EV Charger Installer Hertfordshire",
+  description: "OZEV approved home and workplace EV charger installer serving Hitchin, Stevenage, Letchworth, Welwyn, Hatfield, Harpenden and Bedford.",
+  alternates: { canonical: "/ev-chargers" },
+  openGraph: {
+    title: "OZEV Approved EV Charger Installer Hertfordshire | TB Electrical",
+    description: "Safe, tidy home and workplace EV chargepoint installation across Hertfordshire and nearby Bedfordshire.",
+    url: "/ev-chargers",
+  },
 };
 
 const faqs = [
@@ -14,7 +20,20 @@ const faqs = [
   ["Will my electrical supply cope?", "We check that as part of the job. We look at your current setup and how much power you already use, then suggest a safe option that suits the property."],
   ["How long does an installation take?", "We can often finish a simple home installation in one day. A long cable route, groundwork or supply changes may take longer. We will explain that before the work starts."],
   ["Do you install workplace chargers?", "Yes. We fit charge points at homes, workplaces and other commercial properties. We plan the job around your parking spaces, daily use and current electrical setup."],
+  ["Can you help with an OZEV grant?", "Yes, if you and the property meet the current scheme rules. We can explain the installer requirements and handle our part of an eligible claim. You must apply and be told that you are eligible before the charger is installed."],
 ];
+
+const evServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.tbelectrical.co.uk/ev-chargers#service",
+  name: "OZEV approved EV charger installation",
+  serviceType: "Electric vehicle chargepoint installation",
+  description: "Home and workplace EV chargepoint installation by an OZEV approved electrical contractor based in Hitchin.",
+  url: "https://www.tbelectrical.co.uk/ev-chargers",
+  provider: { "@id": "https://www.tbelectrical.co.uk/#business" },
+  areaServed: ["Hitchin", "Stevenage", "Letchworth Garden City", "Bedford", "Welwyn Garden City", "Hatfield", "Harpenden"].map((name) => ({ "@type": "City", name })),
+};
 
 export default function EvChargersPage() {
   return (
@@ -24,14 +43,14 @@ export default function EvChargersPage() {
         <section className="ev-hero">
           <div className="shell ev-hero-grid">
             <div className="ev-hero-copy">
-              <p className="eyebrow"><span /> EV charger installation</p>
+              <p className="eyebrow"><span /> OZEV approved EV charger installer</p>
               <h1>Your car charges.<br /><em>Life carries on.</em></h1>
-              <p>We fit neat, safe charge points at homes and workplaces across Hertfordshire, Bedfordshire and Buckinghamshire.</p>
-              <div className="ev-hero-points"><span>Supply check</span><span>Full test</span><span>Clear handover</span></div>
+              <p>We fit neat, safe charge points at homes and workplaces across Hitchin, Stevenage, Letchworth, Welwyn and the surrounding area.</p>
+              <div className="ev-hero-points"><span>OZEV approved</span><span>Home &amp; workplace</span><span>Tested &amp; certified</span></div>
               <a className="button button-primary" href="#ev-quote">Request an EV quote <span>↗</span></a>
             </div>
             <div className="ev-hero-image">
-              <img src="/media/tbelec-2.webp" alt="Electrician installing an EV charge point at a residential property" />
+              <img src="/media/ohme-home-pro.webp" alt="Ohme Home Pro EV charger mounted on dark timber cladding" width={1600} height={1466} fetchPriority="high" decoding="async" />
               <div className="charge-line"><span /><i /></div>
             </div>
           </div>
@@ -39,7 +58,19 @@ export default function EvChargersPage() {
 
         <section className="ev-intro section shell">
           <div className="ev-intro-title"><p className="eyebrow dark"><span /> Ready when you are</p><h2>Charging that fits<br />your day.</h2></div>
-          <div className="ev-intro-copy"><p>A good charger install starts before we run a cable. We check your current setup, ask how you use the car and find the cleanest route to the charging point.</p><p>Once the charger is in, we test everything and give you the right certificate. We will also show you how to use it, so you are not left guessing.</p></div>
+          <div className="ev-intro-copy"><p>A good charger install starts before we run a cable. We check your current setup, ask how you use the car and find the cleanest route to the charging point.</p><p>Once the charger is in, we test everything and give you the right certificate. We will also show you how to use it, so you are not left guessing.</p><p>Based in Hitchin, we cover Stevenage, Letchworth Garden City, Bedford, Welwyn Garden City, Hatfield, Harpenden and nearby villages.</p></div>
+        </section>
+
+        <section className="ozev-section section">
+          <div className="shell ozev-panel">
+            <div className="ozev-mark"><strong>OZEV</strong><span>Approved installer</span></div>
+            <div className="ozev-copy">
+              <p className="eyebrow dark"><span /> Government chargepoint schemes</p>
+              <h2>Approved for home and workplace grant schemes.</h2>
+              <p>OZEV approval means we can install eligible chargepoints under the current home and workplace schemes. We will help you understand the installer side, but your grant eligibility depends on your property and circumstances.</p>
+              <a className="text-link dark-link" href="https://www.gov.uk/electric-vehicle-chargepoint-grants" target="_blank" rel="noreferrer">Check current EV chargepoint grants <span>↗</span></a>
+            </div>
+          </div>
         </section>
 
         <section className="ev-benefits section">
@@ -84,6 +115,7 @@ export default function EvChargersPage() {
           </div>
         </section>
       </main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(evServiceSchema) }} />
       <Footer />
     </>
   );

@@ -3,7 +3,12 @@ import Link from "next/link";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
-export const metadata: Metadata = { title: "Electrical Projects", description: "See how TB Electrical has helped homes, businesses and other working sites." };
+export const metadata: Metadata = {
+  title: "Electrical Work in Hertfordshire | Projects",
+  description: "See domestic, commercial, industrial and EV charger projects completed by TB Electrical across Hertfordshire and nearby areas.",
+  alternates: { canonical: "/projects" },
+  openGraph: { title: "Electrical Projects | TB Electrical", description: "A closer look at recent electrical installations, upgrades and EV charging work.", url: "/projects" },
+};
 
 const gallery = [
   ["/media/lighting_1318092111.webp", "Exterior", "Pool and landscape lighting"], ["/media/TBE-12.webp", "Domestic", "Illuminated bathroom mirror and lighting"], ["/media/tbelec-16.webp", "Domestic", "Kitchen power installation"], ["/media/consumer-unit.webp", "Distribution", "Consumer unit installation"], ["/media/TBE-33.webp", "Lighting", "Feature chandelier installation"], ["/media/TBE-56.webp", "Exterior", "Garden and pool lighting"], ["/media/rewires1509-1.webp", "Renovation", "Full property first fix"], ["/media/TBE-81.webp", "Controls", "Heating control installation"], ["/media/TBE-20.webp", "Distribution", "Consumer unit upgrade"], ["/media/tbelec-2.webp", "EV charging", "Residential EV charge point"], ["/media/TBE-44.webp", "Lighting", "Decorative lighting installation"], ["/media/TBE-62.webp", "Power", "Socket and circuit alteration"],

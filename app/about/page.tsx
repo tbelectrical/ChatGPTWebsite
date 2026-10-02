@@ -3,7 +3,12 @@ import Link from "next/link";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
-export const metadata: Metadata = { title: "About TB Electrical", description: "Meet TB Electrical, a family-run, NAPIT registered and TrustMark approved electrical business based in Hitchin." };
+export const metadata: Metadata = {
+  title: "Local Electrician in Hitchin | About",
+  description: "Meet TB Electrical, a family-run, fully insured, NAPIT registered and TrustMark approved electrical contractor based in Hitchin.",
+  alternates: { canonical: "/about" },
+  openGraph: { title: "About TB Electrical", description: "A family-run electrical contractor based in Hitchin and serving the surrounding area.", url: "/about" },
+};
 
 export default function AboutPage() {
   return <><Header /><main className="subpage about-page">
