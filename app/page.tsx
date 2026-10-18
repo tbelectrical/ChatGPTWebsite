@@ -58,7 +58,7 @@ export default function Home() {
             </div>
             <div className="hero-visual reveal reveal-delay">
               <div className="hero-image-frame">
-                <img src="/media/TBE-56.webp" alt="Illuminated garden and swimming pool electrical project" />
+                <img src="/media/lighting_1318092111.webp" alt="Illuminated swimming pool and garden uplighting at dusk" width={2000} height={796} fetchPriority="high" decoding="async" />
               </div>
               <div className="hero-float hero-float-top">
                 <span className="status-dot" />

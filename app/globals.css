@@ -519,13 +519,15 @@ html[data-home-variant="split"] .split-only { display: block; }
   margin-right: calc((100vw - min(1280px, calc(100vw - 64px))) / -2);
 }
 .home-main .hero-image-frame {
+  position: relative;
   height: 100%;
   clip-path: none;
   border-radius: 46% 0 0 4% / 17% 0 0 5%;
 }
 .home-main .hero-image-frame::after {
-  background: linear-gradient(90deg, rgba(23,22,20,.64), transparent 32%), linear-gradient(0deg, rgba(0,0,0,.46), transparent 40%);
+  background: linear-gradient(90deg, rgba(23,22,20,.42), transparent 32%), linear-gradient(0deg, rgba(0,0,0,.6), transparent 28%);
 }
+.home-main .hero-image-frame img { object-position: 22% center; }
 .home-main .hero-orbit {
   position: absolute;
   z-index: 3;
@@ -556,6 +558,7 @@ html[data-home-variant="split"] .split-only { display: block; }
   gap: 7px;
   color: var(--white);
   text-align: right;
+  text-shadow: 0 1px 5px rgba(0,0,0,.85);
 }
 .home-main .hero-location span { color: var(--yellow); font-size: 9px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
 .home-main .hero-location b { font-size: 15px; }
@@ -734,6 +737,8 @@ html[data-home-variant="split"] .split-only { display: block; }
   .home-main .hero-copy h1 { width: auto; margin-right: 0; font-size: clamp(66px,15vw,98px); }
   .home-main .hero-visual { grid-column: 1; grid-row: 2; height: 590px; margin: 0 -16px; }
   .home-main .hero-image-frame { border-radius: 110px 0 0; }
+  .home-main .hero-image-frame::after { background: linear-gradient(0deg, rgba(0,0,0,.6), transparent 28%); }
+  .home-main .hero-location { bottom: 136px; }
   .home-main .hero-orbit { top: 26px; right: 24px; width: 120px; }
   .home-main .hero-proof { grid-column: 1; grid-row: 3; width: auto; margin: -116px 0 0; }
   .home-main .hero-proof div { min-height: 100px; padding-inline: 18px; }
@@ -770,7 +775,7 @@ html[data-home-variant="split"] .split-only { display: block; }
   .home-main .hero-copy h1 { font-size: 61px; }
   .home-main .hero-visual { height: 450px; }
   .home-main .hero-orbit { width: 100px; }
-  .home-main .hero-location { right: 20px; bottom: 24px; }
+  .home-main .hero-location { right: 20px; bottom: 100px; }
   .home-main .hero-proof { grid-template-columns: 1fr 1fr; margin-top: -76px; }
   .home-main .hero-proof div { min-height: 96px; padding: 16px; }
   .home-main .hero-proof div:last-child { display: flex; grid-column: 1 / -1; border-top: 1px solid var(--line); }
