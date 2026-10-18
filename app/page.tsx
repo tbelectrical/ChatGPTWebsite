@@ -234,12 +234,11 @@ export default function Home() {
           </section>
 
           <section className="about-section section shell" id="about">
-            <div className="about-visual">
-              <div className="about-photo"><img src="/media/tyler-baker-tb-electrical-warm-v2.webp" alt="Tyler Baker in his TB Electrical uniform beside his van and toolboxes" width={1448} height={1086} loading="lazy" decoding="async" /></div>
-            </div>
-            <div className="about-copy">
+            <div className="about-heading">
               <p className="eyebrow dark"><span /> Who you are hiring</p>
               <h2>A proper local<br />electrical contractor.</h2>
+            </div>
+            <div className="about-copy">
               <p>We are a family-run electrical business based in Hitchin. We turn up when we say we will, explain the work and leave a clean finish. Honestly, that should be the standard.</p>
               <div className="about-values">
                 <div><b>01</b><span>The work agreed before we start</span></div>
