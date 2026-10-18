@@ -527,7 +527,7 @@ html[data-home-variant="split"] .split-only { display: block; }
 .home-main .hero-image-frame::after {
   background: linear-gradient(90deg, rgba(23,22,20,.42), transparent 32%), linear-gradient(0deg, rgba(0,0,0,.6), transparent 28%);
 }
-.home-main .hero-image-frame img { object-position: 22% center; }
+.home-main .hero-image-frame img { object-position: 60% center; }
 .home-main .hero-orbit {
   position: absolute;
   z-index: 3;
