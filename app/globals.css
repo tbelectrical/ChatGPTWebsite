@@ -193,7 +193,7 @@ html[data-home-variant="split"] .split-only { display: block; }
 .form-grid label { display: flex; flex-direction: column; gap: 9px; }
 .form-grid label > span { color: #77746c; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .form-full { grid-column: 1 / -1; }
-.form-grid input, .form-grid select, .form-grid textarea { width: 100%; border: 0; border-bottom: 1px solid #ceccc4; border-radius: 0; outline: none; background: transparent; color: var(--ink); padding: 8px 0 13px; font-size: 14px; transition: border .2s ease; }
+.form-grid input, .form-grid select, .form-grid textarea { width: 100%; border: 0; border-bottom: 1px solid #ceccc4; border-radius: 0; outline: none; background: transparent; color: var(--ink); padding: 8px 14px 13px; font-size: 14px; transition: border .2s ease; }
 .form-grid textarea { resize: vertical; min-height: 105px; }
 .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { border-bottom-color: var(--yellow); }
 .form-grid input::placeholder, .form-grid textarea::placeholder { color: #aaa79f; }
