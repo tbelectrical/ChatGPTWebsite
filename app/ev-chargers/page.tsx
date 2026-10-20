@@ -1,3 +1,4 @@
+import { PageBreadcrumb } from "../components/PageBreadcrumb";
 import { siteUrl } from "../lib/seo";
 import { pageMetadata } from "../lib/seo";
 import Link from "next/link";
@@ -34,10 +35,10 @@ export default function EvChargersPage() {
       <main id="main-content" className="subpage ev-page">
         <section className="ev-hero">
           <div className="shell ev-hero-grid">
-            <div className="ev-hero-copy">
+            <div className="ev-hero-copy"><PageBreadcrumb name="EV charger installation" path="/ev-chargers" />
               <p className="eyebrow"><span /> OZEV approved EV charger installer</p>
-              <h1>Your car charges.<br /><em>Life carries on.</em></h1>
-              <p>We fit neat, safe charge points at homes and workplaces across Hitchin, Stevenage, Letchworth, Welwyn and the surrounding area.</p>
+              <h1>EV charger installation.<br /><em>Life carries on.</em></h1>
+              <p>We fit neat, safe EV charge points at homes and workplaces across Hitchin, Baldock, Letchworth, Stevenage, Langford, Biggleswade and the surrounding area.</p>
               <div className="ev-hero-points"><span>OZEV approved</span><span>Home &amp; workplace</span><span>Tested &amp; certified</span></div>
               <a className="button button-primary" href="#ev-quote">Request an EV quote <span>↗</span></a>
             </div>

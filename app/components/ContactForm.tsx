@@ -15,7 +15,7 @@ declare global {
 
 export function ContactForm({ source = "website", evFocused = false }: ContactFormProps) {
   const consent = useOptionalConsent();
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error" | "email">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   async function submitEnquiry(event: FormEvent<HTMLFormElement>) {
@@ -63,7 +63,7 @@ export function ContactForm({ source = "website", evFocused = false }: ContactFo
       if (!response.ok || !result.ok) {
         if (result.code === "FORM_NOT_CONFIGURED") {
           window.location.href = `mailto:tyler@tbelectrical.co.uk?subject=${encodeURIComponent(`Website enquiry: ${form.get("service")}`)}&body=${encodeURIComponent(mailBody)}`;
-          setStatus("idle");
+          setStatus("email");
           return;
         }
         throw new Error(result.message || "Your enquiry did not send. Please try again.");
@@ -89,16 +89,17 @@ export function ContactForm({ source = "website", evFocused = false }: ContactFo
         <label><span>Phone number *</span><input name="phone" type="tel" autoComplete="tel" required placeholder="07..." /></label>
         <label><span>Email</span><input name="email" type="email" autoComplete="email" placeholder="you@example.com" /></label>
         <label><span>Postcode / area *</span><input name="postcode" autoComplete="postal-code" required placeholder="e.g. SG5" /></label>
-        <label className="form-full"><span>What can we help with? *</span>
+        {evFocused ? <input type="hidden" name="service" value="EV charger installation" /> : <label className="form-full"><span>What can we help with? *</span>
           <select name="service" required defaultValue={evFocused ? "EV charger installation" : ""}>
             <option value="" disabled>Select a service</option>
             <option>EV charger installation</option><option>Consumer unit / fuse board</option><option>Rewire or alteration</option><option>Inspection / EICR</option><option>Lighting or power</option><option>Commercial project</option><option>Industrial project</option><option>Fault finding</option><option>Something else</option>
           </select>
-        </label>
-        <label className="form-full"><span>Tell us a little about the job *</span><textarea name="message" required rows={4} placeholder={evFocused ? "Which car or charger, where should we fit it, and when do you need it?" : "What needs doing, what type of property is it, and when do you need the work?"} /></label>
+        </label>}
+        <label className="form-full"><span>{evFocused ? "Your car, charger and parking setup *" : "Tell us a little about the job *"}</span><textarea name="message" required rows={4} placeholder={evFocused ? "Which car or charger, where should we fit it, and when do you need it?" : "What needs doing, what type of property is it, and when do you need the work?"} /></label>
       </div>
-      <button className="button button-primary form-submit" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Sending..." : "Send enquiry"} <span>↗</span></button>
+      <button className="button button-primary form-submit" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Sending..." : evFocused ? "Get my free quote" : "Send enquiry"} <span>↗</span></button>
       <p className="form-note">We use your details to respond to your enquiry. <a href="/privacy">Read our privacy notice</a>.</p>
+      {status === "email" && <p className="form-success" role="status">Your email app should open with your enquiry ready. Please press Send there to finish — it has not been sent by this website. If it did not open, call <a href="tel:+447484605599">07484 605 599</a> or email <a href="mailto:tyler@tbelectrical.co.uk">tyler@tbelectrical.co.uk</a>.</p>}
       {status === "success" && <p className="form-success" role="status">Thanks, your enquiry has been sent. We will be in touch soon.</p>}
       {status === "error" && <p className="form-error" role="alert">{errorMessage} You can also call <a href="tel:+447484605599">07484 605 599</a>.</p>}
     </form>

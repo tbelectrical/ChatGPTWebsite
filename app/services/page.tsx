@@ -1,3 +1,4 @@
+import { PageBreadcrumb } from "../components/PageBreadcrumb";
 import { servicePages } from "../lib/content";
 import { pageMetadata } from "../lib/seo";
 import Link from "next/link";
@@ -14,7 +15,7 @@ const sectors = [
 
 export default function ServicesPage() {
   return <><Header /><main id="main-content" className="subpage">
-    <section className="page-hero shell"><p className="eyebrow dark"><span /> Electrical services</p><h1>One reliable team.<br /><em>Small job or big project.</em></h1><p>We plan the work, do it safely and keep you updated. You should never have to chase your electrician for an answer.</p></section>
+    <section className="page-hero shell"><PageBreadcrumb name="Electrical services" path="/services" /><p className="eyebrow dark"><span /> Electrical services</p><h1>Electrical services.<br /><em>Small job or big project.</em></h1><p>Domestic, commercial and industrial electrical services across Hitchin, Baldock, Letchworth, Stevenage, Langford and Biggleswade. We plan the work, do it safely and keep you updated.</p></section>
     <section className="shell seo-section"><h2>Find the service you need</h2><div className="area-links">{servicePages.map(s => <Link key={s.slug} href={`/services/${s.slug}`}>{s.name} →</Link>)}<Link href="/ev-chargers">EV charger installation →</Link></div><p><Link href="/areas">See the towns and villages we cover →</Link></p></section>
     <section className="scope-banner"><div className="shell"><p><b>What we do</b> Low-voltage work across homes, businesses and industrial sites.</p><p><b>What we don’t do</b> Solar PV, battery storage or high-voltage work.</p></div></section>
     {sectors.map((sector) => <section className="sector-detail section shell" id={sector.id} key={sector.id}>

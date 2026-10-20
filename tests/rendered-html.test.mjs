@@ -154,3 +154,34 @@ test("Google Maps is absent before consent and footer exposes cookie controls",a
   assert.match(html,/Cookie settings/);
   assert.match(html,/href="\/cookies"/); assert.match(html,/href="\/privacy"/);
 });
+
+test("the EV advertising page is unlisted, noindex and has an EV quote form",async()=>{
+  const response=await fetch(`${origin}/ev-charger-quote`);
+  assert.equal(response.status,200);
+  const html=await response.text();
+  assert.match(html,/<meta name="robots" content="noindex, ?follow"/);
+  assert.match(html,/Home charging/);
+  assert.match(html,/Your car, charger and parking setup/);
+  assert.match(html,/<input type="hidden" name="service" value="EV charger installation"/);
+  assert.equal((html.match(/<form\b/g)||[]).length,1);
+  assert.match(html,/href="#charger-quote"/);
+  assert.match(html,/href="tel:\+447484605599"/);
+  assert.match(html,/Cookie settings/);
+  assert.doesNotMatch(html,/aria-label="Main navigation"/);
+  const xml=await (await fetch(`${origin}/sitemap.xml`)).text();
+  assert.ok(!xml.includes("ev-charger-quote"));
+  for(const path of routes){
+    const page=await (await fetch(`${origin}${path}`)).text();
+    assert.ok(!page.includes('href="/ev-charger-quote"'),path);
+    assert.doesNotMatch(page,/<meta name="robots" content="[^"]*noindex/);
+    assert.match(page,/<meta name="description" content="[^"]+"/);
+    assert.match(page,/<meta property="og:title" content="[^"]+"/);
+  }
+});
+
+test("the homepage explains its service and location in the main heading",async()=>{
+ const html=await (await fetch(origin)).text();
+ assert.match(html,/<h1>Electrician in Hitchin/);
+ assert.match(html,/"@type":"WebSite"/);
+ for(const area of ["Baldock","Letchworth","Stevenage","Langford","Biggleswade"]) assert.ok(html.includes(area));
+});

@@ -43,6 +43,8 @@ const areaServed = [
   ["AdministrativeArea", "Buckinghamshire"],
 ].map(([type, name]) => ({ "@type": type, name }));
 
+const websiteSchema = { "@context": "https://schema.org", "@type": "WebSite", "@id": `${siteUrl}/#website`, url: siteUrl, name: "TB Electrical", alternateName: "TB Electrical Herts Ltd", inLanguage: "en-GB", publisher: { "@id": `${siteUrl}/#business` } };
+
 const electricianSchema = {
   "@context": "https://schema.org",
   "@type": "Electrician",
@@ -88,7 +90,7 @@ export default function RootLayout({
         <CookieConsent>{children}</CookieConsent>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(electricianSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([electricianSchema, websiteSchema]) }}
         />
       </body>
     </html>

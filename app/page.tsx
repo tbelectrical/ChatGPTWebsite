@@ -38,10 +38,9 @@ export default function Home() {
           <div className="hero-grid shell">
             <div className="hero-copy reveal">
               <p className="eyebrow"><span /> NAPIT registered · TrustMark approved</p>
-              <h1>Electrical work,<br /><em>done properly.</em></h1>
+              <h1>Electrician in Hitchin.<br /><em>Work done properly.</em></h1>
               <p className="hero-intro">
-                Based in Hitchin, we handle electrical work for homes, businesses and industrial sites
-                across Hertfordshire and nearby Bedfordshire. Big job or small, you get a clear answer.
+                Electrical work for homes, businesses and industrial sites. Based in Hitchin, we cover Baldock, Letchworth, Stevenage, Langford, Biggleswade and nearby villages. Big job or small, you get a clear answer.
               </p>
               <div className="button-row">
                 <a className="button button-primary" href="#quote">Get a free quote <span>↗</span></a>
