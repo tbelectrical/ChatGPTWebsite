@@ -11,7 +11,14 @@ export const metadata: Metadata = {
   description: "NAPIT registered electrician for Hitchin, Baldock, Letchworth, Stevenage, Langford and Biggleswade. Rewires, EICRs, consumer units and commercial work.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
+  icons: {
+    icon: [
+      { url: "/favicon-tb-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-tb.png", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/favicon-tb-32.png",
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+  },
   openGraph: {
     title: "Electrician in Hitchin & Hertfordshire | TB Electrical",
     description: "Domestic, commercial and industrial electricians serving Hitchin and the surrounding towns.",
