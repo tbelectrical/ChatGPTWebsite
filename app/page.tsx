@@ -19,9 +19,9 @@ const services = [
 ];
 
 const projects = [
-  { src: "/media/tbelec-16.webp", title: "Kitchen power installation", className: "project-wide" },
-  { src: "/media/consumer-unit.webp", title: "Distribution upgrade", className: "project-tall" },
-  { src: "/media/TBE-12.webp", title: "Bathroom lighting", className: "" },
+  { src: "/media/simpson-partners-ev-charger-installation.webp", title: "Simpson & Partners EV charger", className: "project-wide", width: 1500, height: 2000 },
+  { src: "/media/garage-consumer-unit-completed.webp", title: "Garage consumer unit installation", className: "project-tall", width: 1500, height: 2000 },
+  { src: "/media/tbelec-16.webp", title: "Kitchen power installation", className: "", width: 2500, height: 3333 },
 ];
 
 const googleMapsUrl =
@@ -134,7 +134,7 @@ export default function Home() {
           <div className="ev-wire" aria-hidden="true"><span /></div>
           <div className="shell ev-grid">
             <div className="ev-image-wrap">
-              <img src="/media/ohme-home-pro.webp" alt="Ohme Home Pro EV charger mounted on dark timber cladding" width={1600} height={1466} loading="lazy" decoding="async" />
+              <img src="/media/simpson-partners-ev-charger-detail.webp" alt="Simpson & Partners EV charger fitted by TB Electrical on timber cladding" width={1500} height={2000} loading="lazy" decoding="async" />
               <div className="ev-badge"><span>EV</span> charge point<br />installation</div>
             </div>
             <div className="ev-copy">
@@ -190,7 +190,7 @@ export default function Home() {
             <div className="project-grid shell project-grid-three">
               {projects.map((project) => (
                 <Link className={`project-card ${project.className}`} href="/projects" key={project.src} aria-label={`View project: ${project.title}`}>
-                  <img src={project.src} alt={project.title} />
+                  <img src={project.src} alt={project.title} width={project.width} height={project.height} loading="lazy" decoding="async" />
                   <span className="project-caption"><strong>{project.title}</strong><i>View project →</i></span>
                 </Link>
               ))}

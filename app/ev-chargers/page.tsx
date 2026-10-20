@@ -47,7 +47,7 @@ export default function EVChargersPage() {
             <p className="ev-sales-reassurance">We’re NAPIT registered and fully insured. Our installation work comes with a 12-month workmanship guarantee.</p>
             <a className="button button-primary ev-sales-mobile-cta" href="#charger-quote">Get a free quote ↗</a>
             <div className="ev-sales-photo">
-              <img src="/media/ohme-home-pro.webp" alt="Ohme Home Pro wall-mounted EV charger" width={1600} height={1466} fetchPriority="high" decoding="async" />
+              <img src="/media/simpson-partners-ev-charger-installation.webp" alt="Simpson & Partners home EV charger installed by TB Electrical on timber cladding" width={1500} height={2000} fetchPriority="high" decoding="async" />
               <div><strong>Charge at home.</strong><span>We’ll take care of the installation.</span></div>
             </div>
           </div>
