@@ -1230,7 +1230,9 @@ html[data-home-variant="split"] .split-only { display: block; }
 .ev-sales-form .form-error { color: #ffc7b8; }
 .ev-sales-mobile-cta { display: none; }
 .ev-sales-proof { background: var(--yellow); }
-.ev-sales-proof > .shell { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px 30px; padding-block: 23px; font-size: 12px; font-weight: 800; letter-spacing: .03em; }
+.ev-sales-proof > .shell { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px 28px; margin-block: 0; padding: 24px 0; list-style: none; font-size: 13px; font-weight: 700; line-height: 1.5; }
+.ev-sales-proof li { display: flex; align-items: flex-start; gap: 10px; min-width: 0; }
+.ev-sales-proof li > span { display: grid; place-items: center; flex: 0 0 22px; height: 22px; border: 1px solid rgba(23,22,20,.3); border-radius: 50%; font-size: 13px; line-height: 1; }
 .ev-sales-section h2 { font-size: clamp(44px,5vw,72px); max-width: 850px; line-height: 1.02; }
 .ev-sales-section h2 em { color: #926100; }
 .ev-sales-benefits { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 34px; margin-top: 55px; }
@@ -1274,7 +1276,7 @@ html[data-home-variant="split"] .split-only { display: block; }
  .ev-sales-intro { font-size: 20px; }
  .ev-sales-photo { height: 240px; margin-top: 26px; }
  .ev-sales-mobile-cta { display: inline-flex; }
- .ev-sales-proof > .shell { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; font-size: 11px; }
+ .ev-sales-proof > .shell { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 24px; font-size: 14px; }
  .ev-sales-benefits, .ev-sales-process ol { grid-template-columns: 1fr; gap: 28px; }
  .ev-sales-process { padding-block: 70px; }
  .ev-sales-benefits h3 { margin-bottom: 12px; }
@@ -1315,3 +1317,12 @@ html[data-home-variant="split"] .split-only { display: block; }
 }
 
 .home-main .project-grid-three .project-wide img { object-position: 50% 45%; }
+
+/* The original NAPIT mark has a red tick and a taller silhouette. */
+.credential-banner-logos a:first-child img { height: 82px; mix-blend-mode: multiply; }
+@media(max-width:540px) {
+ .ev-sales-proof > .shell { grid-template-columns: minmax(0,1fr); gap: 0; padding-block: 10px; }
+ .ev-sales-proof li { align-items: center; padding-block: 14px; }
+ .ev-sales-proof li + li { border-top: 1px solid rgba(23,22,20,.18); }
+ .credential-banner-logos a:first-child img { height: 70px; }
+}

@@ -62,7 +62,7 @@ export default function EVChargersPage() {
       </section>
 
       <section className="ev-sales-proof" aria-label="Our credentials">
-        <div className="shell"><span>NAPIT registered</span><span>OZEV approved EV charger installer</span><span>Fully insured</span><span>12-month workmanship guarantee</span></div>
+        <ul className="shell"><li><span aria-hidden="true">✓</span>NAPIT registered</li><li><span aria-hidden="true">✓</span>OZEV approved EV charger installer</li><li><span aria-hidden="true">✓</span>Fully insured</li><li><span aria-hidden="true">✓</span>12-month workmanship guarantee</li></ul>
       </section>
 
       <section className="section shell ev-sales-section">

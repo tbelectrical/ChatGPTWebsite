@@ -9,7 +9,7 @@ export function Footer() {
           <p><span>Qualified and covered</span><strong>Professional standards, backed up.</strong></p>
           <div className="credential-banner-logos">
             <a href="https://www.napit.org.uk/" target="_blank" rel="noreferrer" aria-label="Visit NAPIT">
-              <img src="/media/napit-logo.svg" alt="NAPIT" />
+              <img src="/media/napit-red-tick.png" alt="NAPIT" width={600} height={600} />
             </a>
             <a href="https://www.trustmark.org.uk/firms/TB%20Electrical%20Herts%20Ltd-4136741-SG5%204SN?id=6a0f78e4-068a-4311-bbf1-663f7f6bd737" target="_blank" rel="noreferrer" aria-label="View TB Electrical on TrustMark">
               <img src="/media/trustmark-logo.svg" alt="TrustMark Government Endorsed Quality" />
