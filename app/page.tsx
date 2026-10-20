@@ -60,7 +60,7 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-proof" aria-label="Key business information">
-              <div><strong>Fully</strong><span>insured electrical contractor</span></div>
+              <div><strong>Insured</strong><span>electrical contractor</span></div>
               <div><strong>8+</strong><span>years’ experience</span></div>
               <div><strong>12</strong><span>month workmanship guarantee</span></div>
             </div>
