@@ -9,6 +9,7 @@ on:
     paths:
       - package.json
       - pnpm-lock.yaml
+      - pnpm-workspace.yaml
       - .github/workflows/dependency-audit.yml
 
 permissions:
