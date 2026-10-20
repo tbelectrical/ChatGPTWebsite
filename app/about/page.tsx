@@ -1,6 +1,6 @@
 import { PageBreadcrumb } from "../components/PageBreadcrumb";
 import { pageMetadata } from "../lib/seo";
-import Link from "next/link";
+import { SiteLink as Link } from "../components/SiteLink";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 

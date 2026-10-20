@@ -1,5 +1,5 @@
 import { CookieSettings } from "./CookieConsent";
-import Link from "next/link";
+import { SiteLink as Link } from "./SiteLink";
 
 export function Footer() {
   return (

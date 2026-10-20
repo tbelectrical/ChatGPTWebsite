@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { SiteLink as Link } from "./SiteLink";
 import { useState } from "react";
 
 export function Header() {

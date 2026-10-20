@@ -1,7 +1,7 @@
 import { ConsentMap } from "./components/CookieConsent";
 import { locations } from "./lib/content";
 import { pageMetadata } from "./lib/seo";
-import Link from "next/link";
+import { SiteLink as Link } from "./components/SiteLink";
 import { ContactForm } from "./components/ContactForm";
 import { ExperimentGate } from "./components/ExperimentGate";
 import { Footer } from "./components/Footer";

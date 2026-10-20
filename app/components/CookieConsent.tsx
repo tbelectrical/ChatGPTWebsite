@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { SiteLink as Link } from "./SiteLink";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const key = "tb-cookie-choice-v1";

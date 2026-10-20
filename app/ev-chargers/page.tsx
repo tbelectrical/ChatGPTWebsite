@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { SiteLink as Link } from "../components/SiteLink";
 import { ContactForm } from "../components/ContactForm";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
