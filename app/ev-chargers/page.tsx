@@ -56,7 +56,7 @@ export default function EVChargersPage() {
             <h2>Tell us what<br /><em>you need.</em></h2>
             <p>Let us know which car you have and where you’d like the charger. We’ll be in touch to talk it through.</p>
             <ContactForm source="ev-chargers-page" evFocused />
-            <p className="ev-sales-form-note">Prefer to call? <a href="tel:+447484605599">Speak to Tyler on 07484 605 599</a>.</p>
+            <p className="ev-sales-form-note">Prefer to call? <a href="tel:+447484605599">Call us on 07484 605 599</a>.</p>
           </div>
         </div>
       </section>
@@ -127,7 +127,7 @@ export default function EVChargersPage() {
       </section>
 
       <section className="ev-sales-final">
-        <div className="shell"><p className="eyebrow"><span /> EV charging at home or work</p><h2>Need a charger<br /><em>fitted?</em></h2><p>Send us a few details or give Tyler a call.</p><div className="button-row"><a className="button button-primary" href="#charger-quote">Get a free quote ↗</a><a className="text-link" href="tel:+447484605599">Call 07484 605 599 →</a></div></div>
+        <div className="shell"><p className="eyebrow"><span /> EV charging at home or work</p><h2>Need a charger<br /><em>fitted?</em></h2><p>Send us a few details or give us a call.</p><div className="button-row"><a className="button button-primary" href="#charger-quote">Get a free quote ↗</a><a className="text-link" href="tel:+447484605599">Call 07484 605 599 →</a></div></div>
       </section>
     </main>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
