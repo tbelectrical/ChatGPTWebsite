@@ -212,7 +212,7 @@ html[data-home-variant="split"] .split-only { display: block; }
 .credential-banner-inner > p { margin: 0; }
 .credential-banner-inner > p span { display: block; margin-bottom: 10px; color: #7a766e; font-size: 9px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
 .credential-banner-inner > p strong { display: block; max-width: 220px; font-size: 22px; line-height: 1.08; letter-spacing: -.035em; }
-.credential-banner-logos { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); align-items: center; gap: clamp(24px,4vw,70px); }
+.credential-banner-logos { display: grid; grid-template-columns: minmax(0,1.45fr) repeat(3,minmax(0,1fr)); align-items: center; gap: clamp(24px,4vw,70px); }
 .credential-banner-logos a { display: flex; min-width: 0; height: 82px; align-items: center; justify-content: center; opacity: 1; transition: opacity .2s ease, transform .2s ease; }
 .credential-banner-logos a:hover { opacity: 1; transform: translateY(-2px); }
 .credential-banner-logos img { width: 100%; height: 58px; object-fit: contain; filter: none; }
@@ -1319,10 +1319,10 @@ html[data-home-variant="split"] .split-only { display: block; }
 .home-main .project-grid-three .project-wide img { object-position: 50% 45%; }
 
 /* The original NAPIT mark has a red tick and a taller silhouette. */
-.credential-banner-logos a:first-child img { height: 82px; mix-blend-mode: multiply; }
+.credential-banner-logos a:first-child { height: auto; }
+.credential-banner-logos a:first-child img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; mix-blend-mode: multiply; }
 @media(max-width:540px) {
  .ev-sales-proof > .shell { grid-template-columns: minmax(0,1fr); gap: 0; padding-block: 10px; }
  .ev-sales-proof li { align-items: center; padding-block: 14px; }
  .ev-sales-proof li + li { border-top: 1px solid rgba(23,22,20,.18); }
- .credential-banner-logos a:first-child img { height: 70px; }
 }
