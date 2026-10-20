@@ -77,14 +77,14 @@ pnpm exec wrangler login
 pnpm run deploy
 ```
 
-The first deployment creates a `workers.dev` test address. Add the email secret in the Cloudflare dashboard under **Workers & Pages → tb-electrical-herts → Settings → Variables and Secrets**. Use the name `RESEND_API_KEY`, mark it as encrypted, then deploy again.
+The first deployment creates a `workers.dev` test address. Add the email secret in the Cloudflare dashboard under **Workers & Pages → tbelectrical → Settings → Variables and Secrets**. Use the name `RESEND_API_KEY`, mark it as encrypted, then deploy again.
 
 ## Connect the business domain
 
 Keep the existing website online until this version has been tested.
 
 1. Add `tbelectrical.co.uk` to the Cloudflare account if it is not there already.
-2. Open **Workers & Pages → tb-electrical-herts → Settings → Domains & Routes**.
+2. Open **Workers & Pages → tbelectrical → Settings → Domains & Routes**.
 3. Choose **Add → Custom Domain**.
 4. Add `tbelectrical.co.uk` and `www.tbelectrical.co.uk`.
 5. Check the home page, EV page and contact form before changing or cancelling any old hosting.
@@ -96,8 +96,9 @@ Cloudflare creates the site DNS records and SSL certificates. Existing email DNS
 1. Use the `tbelectrical/ChatGPTWebsite` GitHub repository on its `main` branch.
 2. In Cloudflare, open the Worker and go to **Settings → Builds**.
 3. Connect the GitHub repository and use `main` as the production branch.
-4. Leave the build command empty and set the deploy command to `pnpm run deploy`.
-5. Add `RESEND_API_KEY` as an encrypted Worker secret.
+4. Set the build command to `pnpm run build:cloudflare`. This generates `dist/client` and the compiled Worker configuration before Wrangler uploads anything. Keep the production deploy command as `npx wrangler deploy` and the non-production branch command as `npx wrangler versions upload`. Wrangler uses the generated configuration in `dist/server/wrangler.json` through Vite’s `.wrangler/deploy/config.json`.
+5. Ensure the Worker is named `tbelectrical`, matching `wrangler.jsonc`.
+6. Add `RESEND_API_KEY` as an encrypted Worker secret.
 
 After this, an approved push to `main` rebuilds and publishes the website.
 
