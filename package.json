@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
     "build": "next build --webpack",
+    "build:cloudflare": "vinext build",
     "start": "next start",
     "deploy": "vinext-cloudflare deploy",
     "test": "pnpm run build && node --test tests/*.test.mjs",
