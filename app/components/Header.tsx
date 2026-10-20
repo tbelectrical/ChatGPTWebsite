@@ -13,9 +13,9 @@ export function Header() {
       </div>
       <header className="site-header">
         <div className="shell header-inner">
-          <Link href="/" className="brand" aria-label="TB Electrical home">
+          <a href="/#top" className="brand" aria-label="TB Electrical home" onClick={() => setOpen(false)}>
             <img src="/media/tb-logo.webp" alt="TB Electrical" />
-          </Link>
+          </a>
           <button className={`menu-toggle ${open ? "is-open" : ""}`} onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation">
             <span /><span />
           </button>
