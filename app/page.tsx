@@ -19,9 +19,8 @@ const services = [
 ];
 
 const projects = [
-  { src: "/media/lighting_1318092111.webp", title: "Pool & landscape lighting", className: "project-wide" },
+  { src: "/media/tbelec-16.webp", title: "Kitchen power installation", className: "project-wide" },
   { src: "/media/consumer-unit.webp", title: "Distribution upgrade", className: "project-tall" },
-  { src: "/media/tbelec-16.webp", title: "Kitchen power installation", className: "" },
   { src: "/media/TBE-12.webp", title: "Bathroom lighting", className: "" },
 ];
 
@@ -186,9 +185,9 @@ export default function Home() {
           <section className="projects-section section" id="projects">
             <div className="shell section-heading heading-row project-heading">
               <div><p className="eyebrow"><span /> Selected work</p><h2>Details matter.<br /><em>Here is the proof.</em></h2></div>
-              <div className="project-heading-side"><span>04 recent projects</span><Link className="text-link" href="/projects">See the full portfolio <b>→</b></Link></div>
+              <div className="project-heading-side"><span>{String(projects.length).padStart(2, "0")} recent projects</span><Link className="text-link" href="/projects">See the full portfolio <b>→</b></Link></div>
             </div>
-            <div className="project-grid shell">
+            <div className="project-grid shell project-grid-three">
               {projects.map((project) => (
                 <Link className={`project-card ${project.className}`} href="/projects" key={project.src} aria-label={`View project: ${project.title}`}>
                   <img src={project.src} alt={project.title} />
