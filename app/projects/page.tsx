@@ -11,7 +11,7 @@ const gallery = [
   ["/media/simpson-partners-ev-charger-detail.webp", "EV charging", "Simpson & Partners charger close-up"],
   ["/media/garage-consumer-unit-completed.webp", "Garage electrics", "Garage consumer unit and socket installation"],
   ["/media/garage-consumer-unit-wiring-detail.webp", "Electrical installation", "Garage consumer unit wiring detail"],
-  ["/media/TBE-12.webp", "Domestic", "Illuminated bathroom mirror and lighting"], ["/media/tbelec-16.webp", "Domestic", "Kitchen power installation"], ["/media/consumer-unit.webp", "Distribution", "Consumer unit installation"], ["/media/TBE-33.webp", "Lighting", "Feature chandelier installation"], ["/media/rewires1509-1.webp", "Renovation", "Full property first fix"], ["/media/TBE-81.webp", "Controls", "Heating control installation"], ["/media/TBE-20.webp", "Distribution", "Consumer unit upgrade"], ["/media/tbelec-2.webp", "EV charging", "Residential EV charge point"], ["/media/TBE-44.webp", "Lighting", "Decorative lighting installation"], ["/media/TBE-62.webp", "Power", "Socket and circuit alteration"],
+  ["/media/TBE-12.webp", "Domestic", "Illuminated bathroom mirror and lighting"], ["/media/tbelec-16.webp", "Domestic", "Kitchen power installation"], ["/media/consumer-unit.webp", "Distribution", "Consumer unit installation"], ["/media/TBE-33.webp", "Lighting", "Feature chandelier installation"], ["/media/rewires1509-1.webp", "Renovation", "Full property first fix"], ["/media/TBE-81.webp", "Controls", "Heating control installation"], ["/media/TBE-20.webp", "Distribution", "Consumer unit upgrade"], ["/media/TBE-44.webp", "Lighting", "Decorative lighting installation"], ["/media/TBE-62.webp", "Power", "Socket and circuit alteration"],
 ];
 
 export default function ProjectsPage() {
