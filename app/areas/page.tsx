@@ -1,0 +1,7 @@
+import Link from "next/link";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { locations } from "../lib/content";
+import { pageMetadata } from "../lib/seo";
+export const metadata = pageMetadata("Local Electrician | Areas We Cover", "Hitchin-based electrician covering Baldock, Letchworth, Stevenage, Langford, Biggleswade and nearby Hertfordshire and Bedfordshire villages.", "/areas");
+export default function Areas() { return <><Header /><main id="main-content" className="subpage seo-page"><section className="page-hero shell"><p className="eyebrow dark">Areas we cover</p><h1>Your local<br /><em>electrician.</em></h1><p>Based in Hitchin, serving homes, landlords and businesses across nearby Hertfordshire and Bedfordshire.</p></section><section className="shell seo-section"><div className="seo-cards">{locations.map(area => <article key={area.slug}><span>{area.county}</span><h2><Link href={`/areas/${area.slug}`}>Electrician in {area.name} ↗</Link></h2><p>{area.intro}</p></article>)}</div><h2>Nearby villages and wider projects</h2><p>We also cover Stotfold, Arlesey, Fairfield, Shefford and surrounding villages, alongside Bedford, Welwyn Garden City, Hatfield and Harpenden. For larger commercial or industrial projects, contact us to discuss the location and programme.</p><Link className="button button-dark" href="/contact">Check availability for your area ↗</Link></section></main><Footer /></>; }

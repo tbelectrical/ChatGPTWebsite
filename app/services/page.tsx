@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { servicePages } from "../lib/content";
+import { pageMetadata } from "../lib/seo";
 import Link from "next/link";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
-export const metadata: Metadata = {
-  title: "Domestic, Commercial & Industrial Electrician",
-  description: "Electrical services for homes, businesses and industrial sites in Hitchin, Stevenage, Letchworth, Welwyn, Hatfield, Harpenden and Bedford.",
-  alternates: { canonical: "/services" },
-  openGraph: { title: "Electrical Services in Hertfordshire | TB Electrical", description: "Domestic, commercial and industrial electrical work from a Hitchin-based contractor.", url: "/services" },
-};
+export const metadata = pageMetadata('Domestic, Commercial & Industrial Electrician', 'Rewires, EICRs, consumer units, commercial electrical work and repairs in Hitchin, Baldock, Letchworth, Stevenage, Langford and Biggleswade.', '/services');
 
 const sectors = [
   { id: "domestic", number: "01", label: "Domestic", title: "Good electrical work should fit your home.", image: "/media/domestic-uk-house.webp", imageAlt: "British brick house with warm exterior lighting", body: "Need one small repair or a full renovation? We look after your home, keep you in the loop and leave the work area tidy.", items: ["Full and partial rewires", "Consumer unit replacements", "Additional sockets and circuits", "Interior and garden lighting", "Fault finding and repairs", "EICRs and landlord testing", "Smoke and heat alarms", "Heating and control wiring"] },
@@ -17,8 +13,9 @@ const sectors = [
 ];
 
 export default function ServicesPage() {
-  return <><Header /><main className="subpage">
+  return <><Header /><main id="main-content" className="subpage">
     <section className="page-hero shell"><p className="eyebrow dark"><span /> Electrical services</p><h1>One reliable team.<br /><em>Small job or big project.</em></h1><p>We plan the work, do it safely and keep you updated. You should never have to chase your electrician for an answer.</p></section>
+    <section className="shell seo-section"><h2>Find the service you need</h2><div className="area-links">{servicePages.map(s => <Link key={s.slug} href={`/services/${s.slug}`}>{s.name} →</Link>)}<Link href="/ev-chargers">EV charger installation →</Link></div><p><Link href="/areas">See the towns and villages we cover →</Link></p></section>
     <section className="scope-banner"><div className="shell"><p><b>What we do</b> Low-voltage work across homes, businesses and industrial sites.</p><p><b>What we don’t do</b> Solar PV, battery storage or high-voltage work.</p></div></section>
     {sectors.map((sector) => <section className="sector-detail section shell" id={sector.id} key={sector.id}>
       <div className="sector-detail-image"><img src={sector.image} alt={sector.imageAlt} width={1122} height={1402} loading="lazy" decoding="async" /></div>

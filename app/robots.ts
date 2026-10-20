@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://www.tbelectrical.co.uk";
+import { siteUrl } from "./lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {

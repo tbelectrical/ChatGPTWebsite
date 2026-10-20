@@ -1,19 +1,11 @@
-import type { Metadata } from "next";
+import { siteUrl } from "../lib/seo";
+import { pageMetadata } from "../lib/seo";
 import Link from "next/link";
 import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
-export const metadata: Metadata = {
-  title: "OZEV Approved EV Charger Installer Hertfordshire",
-  description: "OZEV approved home and workplace EV charger installer serving Hitchin, Stevenage, Letchworth, Welwyn, Hatfield, Harpenden and Bedford.",
-  alternates: { canonical: "/ev-chargers" },
-  openGraph: {
-    title: "OZEV Approved EV Charger Installer Hertfordshire | TB Electrical",
-    description: "Safe, tidy home and workplace EV chargepoint installation across Hertfordshire and nearby Bedfordshire.",
-    url: "/ev-chargers",
-  },
-};
+export const metadata = pageMetadata('OZEV Approved EV Charger Installer Hertfordshire', 'Home and workplace EV charger installation in Hitchin, Baldock, Letchworth, Stevenage, Langford and Biggleswade. Request a quote from TB Electrical.', '/ev-chargers');
 
 const faqs = [
   ["Can you install a charger I have already bought?", "Usually, yes. We first check the charger, your electrical supply, the cable route and the maker’s instructions. If anything looks wrong, we will tell you before we start."],
@@ -26,20 +18,20 @@ const faqs = [
 const evServiceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://www.tbelectrical.co.uk/ev-chargers#service",
+  "@id": `${siteUrl}/ev-chargers#service`,
   name: "OZEV approved EV charger installation",
   serviceType: "Electric vehicle chargepoint installation",
   description: "Home and workplace EV chargepoint installation by an OZEV approved electrical contractor based in Hitchin.",
-  url: "https://www.tbelectrical.co.uk/ev-chargers",
-  provider: { "@id": "https://www.tbelectrical.co.uk/#business" },
-  areaServed: ["Hitchin", "Stevenage", "Letchworth Garden City", "Bedford", "Welwyn Garden City", "Hatfield", "Harpenden"].map((name) => ({ "@type": "City", name })),
+  url: `${siteUrl}/ev-chargers`,
+  provider: { "@id": `${siteUrl}/#business` },
+  areaServed: ["Hitchin", "Baldock", "Langford", "Biggleswade", "Stevenage", "Letchworth Garden City", "Bedford", "Welwyn Garden City", "Hatfield", "Harpenden"].map((name) => ({ "@type": "City", name })),
 };
 
 export default function EvChargersPage() {
   return (
     <>
       <Header />
-      <main className="subpage ev-page">
+      <main id="main-content" className="subpage ev-page">
         <section className="ev-hero">
           <div className="shell ev-hero-grid">
             <div className="ev-hero-copy">

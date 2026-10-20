@@ -1,5 +1,7 @@
 "use client";
 
+import { useOptionalConsent } from "./CookieConsent";
+
 import { FormEvent, useState } from "react";
 
 type ContactFormProps = {
@@ -12,6 +14,7 @@ declare global {
 }
 
 export function ContactForm({ source = "website", evFocused = false }: ContactFormProps) {
+  const consent = useOptionalConsent();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -66,8 +69,9 @@ export function ContactForm({ source = "website", evFocused = false }: ContactFo
         throw new Error(result.message || "Your enquiry did not send. Please try again.");
       }
 
-      window.dataLayer = window.dataLayer || [];
+      if (consent) { window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: "generate_lead", lead_source: source, homepage_variant: variant });
+      }
       formElement.reset();
       setStatus("success");
     } catch (error) {
@@ -94,7 +98,7 @@ export function ContactForm({ source = "website", evFocused = false }: ContactFo
         <label className="form-full"><span>Tell us a little about the job *</span><textarea name="message" required rows={4} placeholder={evFocused ? "Which car or charger, where should we fit it, and when do you need it?" : "What needs doing, what type of property is it, and when do you need the work?"} /></label>
       </div>
       <button className="button button-primary form-submit" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Sending..." : "Send enquiry"} <span>↗</span></button>
-      <p className="form-note">Your details are sent securely to TB Electrical and used only to reply to your enquiry.</p>
+      <p className="form-note">We use your details to respond to your enquiry. <a href="/privacy">Read our privacy notice</a>.</p>
       {status === "success" && <p className="form-success" role="status">Thanks, your enquiry has been sent. We will be in touch soon.</p>}
       {status === "error" && <p className="form-error" role="alert">{errorMessage} You can also call <a href="tel:+447484605599">07484 605 599</a>.</p>}
     </form>

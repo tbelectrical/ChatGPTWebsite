@@ -1,10 +1,6 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = "https://www.tbelectrical.co.uk";
-
+import { siteUrl } from "./lib/seo";
+import { locations, servicePages } from "./lib/content";
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["", "/services", "/ev-chargers", "/projects", "/about", "/contact"].map((path) => ({
-    url: `${siteUrl}${path}`,
-    lastModified: new Date("2026-09-15"),
-  }));
+ return ["", "/services", "/ev-chargers", "/projects", "/about", "/contact", "/areas", "/privacy", "/cookies", ...locations.map(a=>`/areas/${a.slug}`), ...servicePages.map(s=>`/services/${s.slug}`)].map(path=>({ url:`${siteUrl}${path}` }));
 }

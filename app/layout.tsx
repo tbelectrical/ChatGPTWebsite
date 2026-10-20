@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CookieConsent } from "./components/CookieConsent";
 
-const siteUrl = "https://www.tbelectrical.co.uk";
+import { siteUrl } from "./lib/seo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: "TB Electrical",
   title: { default: "Electrician in Hitchin & Hertfordshire | TB Electrical", template: "%s | TB Electrical" },
-  description: "NAPIT registered electricians for domestic, commercial and industrial work across Hitchin, Hertfordshire and nearby Bedfordshire.",
+  description: "NAPIT registered electrician for Hitchin, Baldock, Letchworth, Stevenage, Langford and Biggleswade. Rewires, EICRs, consumer units and commercial work.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
@@ -26,6 +27,12 @@ export const metadata: Metadata = {
 const areaServed = [
   ["City", "Hitchin"],
   ["City", "Stevenage"],
+  ["City", "Baldock"],
+  ["City", "Biggleswade"],
+  ["Place", "Langford"],
+  ["Place", "Arlesey"],
+  ["Place", "Stotfold"],
+  ["Place", "Shefford"],
   ["City", "Letchworth Garden City"],
   ["City", "Bedford"],
   ["City", "Welwyn Garden City"],
@@ -77,7 +84,8 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <body>
-        {children}
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <CookieConsent>{children}</CookieConsent>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(electricianSchema) }}

@@ -1,28 +1,20 @@
-import type { Metadata } from "next";
+import { ConsentMap } from "./components/CookieConsent";
+import { locations } from "./lib/content";
+import { pageMetadata } from "./lib/seo";
 import Link from "next/link";
 import { ContactForm } from "./components/ContactForm";
 import { ExperimentGate } from "./components/ExperimentGate";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 
-export const metadata: Metadata = {
-  title: "Electrician in Hitchin & Hertfordshire",
-  description:
-    "NAPIT registered electricians serving Hitchin, Stevenage, Letchworth, Welwyn, Hatfield, Harpenden and Bedford. Domestic, commercial and industrial work.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "Electrician in Hitchin & Hertfordshire | TB Electrical",
-    description: "Domestic, commercial and industrial electrical work across Hitchin and surrounding towns.",
-    url: "/",
-  },
-};
+export const metadata = pageMetadata('Electrician in Hitchin & Hertfordshire', 'NAPIT registered electrician in Hitchin, covering Baldock, Letchworth, Stevenage, Langford and Biggleswade. Rewires, EICRs, fuse boards and EV chargers.', '/');
 
 const services = [
-  ["01", "Rewires & alterations", "From one new circuit to a full rewire, we plan the work around your property.", "/services#domestic"],
-  ["02", "Consumer units", "We replace and upgrade consumer units, add surge protection and put faults right.", "/services#domestic"],
-  ["03", "Inspection & testing", "We carry out EICRs, find faults, issue certificates and handle regular checks.", "/services#domestic"],
+  ["01", "Rewires & alterations", "From one new circuit to a full rewire, we plan the work around your property.", "/services/rewires"],
+  ["02", "Consumer units", "We replace and upgrade consumer units, add surge protection and put faults right.", "/services/consumer-units"],
+  ["03", "Inspection & testing", "We carry out EICRs, find faults, issue certificates and handle regular checks.", "/services/eicr"],
   ["04", "Lighting & power", "Sockets, supplies and lighting for inside, outside, daily use or emergencies.", "/services#domestic"],
-  ["05", "Commercial fit-outs", "We install practical systems that work for your team and keep the job on track.", "/services#commercial"],
+  ["05", "Commercial fit-outs", "We install practical systems that work for your team and keep the job on track.", "/services/commercial"],
   ["06", "Industrial electrical", "Three-phase power, distribution, maintenance and new site installations.", "/services#industrial"],
 ];
 
@@ -41,7 +33,7 @@ export default function Home() {
     <>
       <ExperimentGate />
       <Header />
-      <main className="home-main">
+      <main id="main-content" className="home-main">
         <section className="hero" id="top">
           <div className="hero-grid shell">
             <div className="hero-copy reveal">
@@ -171,15 +163,11 @@ export default function Home() {
             <div className="areas-copy">
               <p>We regularly work in the towns below, as well as the villages in between. If you are nearby but cannot see your area, give us a call. There is a good chance we can help.</p>
               <ul className="area-list" aria-label="Main service areas">
-                <li>Hitchin</li>
-                <li>Stevenage</li>
-                <li>Letchworth Garden City</li>
-                <li>Bedford</li>
-                <li>Welwyn Garden City</li>
-                <li>Hatfield</li>
-                <li>Harpenden</li>
+                {locations.map(area => <li key={area.slug}><Link href={`/areas/${area.slug}`}>{area.name}</Link></li>)}
+                <li>Bedford</li><li>Welwyn Garden City</li><li>Hatfield</li><li>Harpenden</li>
               </ul>
               <div className="area-links">
+                <Link className="text-link dark-link" href="/areas">All service areas <span>→</span></Link>
                 <Link className="text-link dark-link" href="/services">Electrical services <span>→</span></Link>
                 <Link className="text-link dark-link" href="/ev-chargers">EV charger installation <span>→</span></Link>
               </div>
@@ -222,12 +210,7 @@ export default function Home() {
               </div>
               <div className="google-card">
                 <div className="google-card-top"><span className="google-g">G</span><div><b>TB Electrical Herts Ltd</b><span>Live Google business profile</span></div></div>
-                <iframe
-                  title="TB Electrical Herts Ltd on Google Maps"
-                  src="https://www.google.com/maps?q=TB%20Electrical%20Herts%20Ltd%2C%20Hitchin&output=embed"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <ConsentMap />
                 <a href={googleMapsUrl} target="_blank" rel="noreferrer">See live reviews on Google <span>↗</span></a>
               </div>
             </div>
