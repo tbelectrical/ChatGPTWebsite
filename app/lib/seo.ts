@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const siteUrl = "https://tb-electrical-herts.tybaker691.chatgpt.site";
 export function pageMetadata(title: string, description: string, path: string): Metadata {
   return { title, description, robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } }, alternates: { canonical: path },
-    openGraph: { title: `${title} | TB Electrical`, description, url: path, type: "website", locale: "en_GB", siteName: "TB Electrical", images: [{ url: `${siteUrl}/og.png`, width: 1731, height: 909, alt: "TB Electrical — electrical work, done properly" }] },
+    openGraph: { title: `${title} | TB Electrical`, description, url: path, type: "website", locale: "en_GB", siteName: "TB Electrical", images: [{ url: `${siteUrl}/og.png`, width: 1731, height: 909, alt: "TB Electrical | Electrical work, done properly" }] },
     twitter: { card: "summary_large_image", title: `${title} | TB Electrical`, description, images: [`${siteUrl}/og.png`] } };
 }
 export function breadcrumbs(items: {name:string; path:string}[]) {

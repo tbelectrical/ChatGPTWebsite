@@ -1285,3 +1285,24 @@ html[data-home-variant="split"] .split-only { display: block; }
 .home-main .hero h1 { font-size: clamp(58px,6.3vw,98px); }
 .ev-hero .breadcrumbs, .contact-hero .breadcrumbs { color: #c9c4b8; }
 @media(max-width:540px) { .home-main .hero h1 { font-size: clamp(49px,11vw,62px); } }
+
+/* The public EV page uses the sales layout with the standard site navigation. */
+.ev-sales-pitch .breadcrumbs { color: #d2cbbd; }
+.ev-sales-reassurance { max-width: 530px; color: #d2cbbd; font-size: 15px; line-height: 1.8; margin-bottom: 26px; }
+.ev-sales-benefits { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 40px; }
+.ev-sales-process ol { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.ev-sales-faq .faq-list { max-width: 900px; }
+.ev-sales-faq .faq-list summary { grid-template-columns: minmax(0,1fr) 24px; gap: 20px; min-height: 64px; padding: 23px 0; }
+.ev-sales-faq .faq-list .ev-faq-question { min-width: 0; font-size: 18px; line-height: 1.5; color: var(--ink); overflow-wrap: anywhere; }
+.ev-sales-faq .faq-list summary i { justify-self: end; align-self: center; line-height: 1; }
+.ev-sales-faq .faq-list details p { margin: 0 44px 26px 0; max-width: 760px; font-size: 16px; line-height: 1.8; }
+.ev-sales-faq .faq-list details[open] summary { padding-bottom: 15px; }
+.ev-sales-coverage { padding-top: 0; }
+.ev-sales-coverage > p:not(.eyebrow) { max-width: 760px; color: #5c574d; font-size: 17px; line-height: 1.8; }
+@media(max-width:760px) {
+ .ev-sales-benefits, .ev-sales-process ol { grid-template-columns: 1fr; gap: 28px; }
+ .ev-sales-faq .faq-list summary { gap: 14px; padding-block: 20px; }
+ .ev-sales-faq .faq-list .ev-faq-question { font-size: 17px; }
+ .ev-sales-faq .faq-list details p { margin-right: 0; font-size: 16px; }
+ .ev-sales-coverage { padding-top: 0; }
+}

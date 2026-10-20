@@ -95,11 +95,11 @@ export function ContactForm({ source = "website", evFocused = false }: ContactFo
             <option>EV charger installation</option><option>Consumer unit / fuse board</option><option>Rewire or alteration</option><option>Inspection / EICR</option><option>Lighting or power</option><option>Commercial project</option><option>Industrial project</option><option>Fault finding</option><option>Something else</option>
           </select>
         </label>}
-        <label className="form-full"><span>{evFocused ? "Your car, charger and parking setup *" : "Tell us a little about the job *"}</span><textarea name="message" required rows={4} placeholder={evFocused ? "Which car or charger, where should we fit it, and when do you need it?" : "What needs doing, what type of property is it, and when do you need the work?"} /></label>
+        <label className="form-full"><span>{evFocused ? "Tell us about the installation *" : "Tell us a little about the job *"}</span><textarea name="message" required rows={4} placeholder={evFocused ? "Where would you like the charger fitted? Let us know if you have already chosen one." : "What needs doing, what type of property is it, and when do you need the work?"} /></label>
       </div>
       <button className="button button-primary form-submit" type="submit" disabled={status === "submitting"}>{status === "submitting" ? "Sending..." : evFocused ? "Get my free quote" : "Send enquiry"} <span>↗</span></button>
       <p className="form-note">We use your details to respond to your enquiry. <a href="/privacy">Read our privacy notice</a>.</p>
-      {status === "email" && <p className="form-success" role="status">Your email app should open with your enquiry ready. Please press Send there to finish — it has not been sent by this website. If it did not open, call <a href="tel:+447484605599">07484 605 599</a> or email <a href="mailto:tyler@tbelectrical.co.uk">tyler@tbelectrical.co.uk</a>.</p>}
+      {status === "email" && <p className="form-success" role="status">Your email app should open with your enquiry ready. Please press Send in your email app. This website has not sent the enquiry. If it did not open, call <a href="tel:+447484605599">07484 605 599</a> or email <a href="mailto:tyler@tbelectrical.co.uk">tyler@tbelectrical.co.uk</a>.</p>}
       {status === "success" && <p className="form-success" role="status">Thanks, your enquiry has been sent. We will be in touch soon.</p>}
       {status === "error" && <p className="form-error" role="alert">{errorMessage} You can also call <a href="tel:+447484605599">07484 605 599</a>.</p>}
     </form>

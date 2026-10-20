@@ -1,38 +1,11 @@
-import Link from "next/link";
-import { ContactForm } from "../components/ContactForm";
-import { CookieSettings } from "../components/CookieConsent";
-import { pageMetadata } from "../lib/seo";
+import { permanentRedirect } from "next/navigation";
 
-export const metadata = {
-  ...pageMetadata("EV Charger Installation | Get Your Free Quote", "A neatly installed EV charger, a clear quote and a local electrician you can call. Home and workplace installation across Hitchin and nearby towns.", "/ev-charger-quote"),
-  robots: { index: false, follow: true, googleBot: { index: false, follow: true } },
-};
+type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
-const faqs = [
-  ["How much will my installation cost?", "It depends on the charger, your existing electrical supply, cable route and any extra work needed. Send us your postcode and a few details and we will explain the scope and price before you book."],
-  ["I haven’t chosen a charger. Can you help?", "Yes. Tell us what you drive, where you park and what matters to you, such as appearance, an app or charging schedules. We can discuss a suitable charger and installation."],
-  ["Can you install a charger I already own?", "Usually, subject to checking its suitability, your electrical supply and the manufacturer’s requirements. Include the make and model in your enquiry."],
-  ["How long does it take?", "A straightforward home installation can often be completed in one day. Longer cable routes, groundwork or supply changes can take longer. We confirm what is involved before booking."],
-  ["Do you cover my area?", "Our main area includes Hitchin, Baldock, Letchworth Garden City, Stevenage, Langford and Biggleswade, plus nearby villages. Send your postcode and we will confirm availability."],
-  ["Will I get a certificate?", "Yes. We inspect and test the installation, provide the relevant electrical certification and show you how to use the charger."],
-];
-
-export default function EVQuotePage() {
-  return <div className="ev-sales">
-    <header className="ev-sales-header"><div className="shell"><Link href="/" aria-label="TB Electrical home"><img src="/media/tb-logo-white.webp" alt="TB Electrical" width={140} height={70} /></Link><a href="tel:+447484605599"><span>Speak to Tyler</span><strong>07484 605 599</strong></a></div></header>
-    <main id="main-content">
-      <section className="ev-sales-hero"><div className="shell ev-sales-grid">
-        <div className="ev-sales-pitch"><p className="eyebrow"><span /> Your local EV charger installer</p><h1>Home charging.<br /><em>Sorted.</em></h1><p className="ev-sales-intro">A neatly fitted EV charger. A clear price before you book. A local electrician who takes care of the details.</p><p className="ev-sales-area">Hitchin · Baldock · Letchworth · Stevenage · Langford · Biggleswade</p><ul className="ev-sales-ticks"><li>NAPIT registered &amp; fully insured</li><li>Supply checked, charger fitted, work tested</li><li>12-month workmanship guarantee</li></ul><a className="button button-primary ev-sales-mobile-cta" href="#charger-quote">Get my free quote ↗</a><div className="ev-sales-photo"><img src="/media/ohme-home-pro.webp" alt="Ohme Home Pro wall-mounted EV charger" width={1600} height={1466} fetchPriority="high" decoding="async" /><div><strong>Plug in at home.</strong><span>Ready for your next journey.</span></div></div></div>
-        <div id="charger-quote" className="ev-sales-form"><p className="eyebrow"><span /> Free, no-obligation quote</p><h2>Let’s get you<br /><em>charging.</em></h2><p>Tell us where you park and what you need. Not sure which charger? We can help.</p><ContactForm source="ev-ads-quote" evFocused /><p className="ev-sales-form-note">Prefer a quick chat? <a href="tel:+447484605599">Call Tyler on 07484 605 599</a>.</p></div>
-      </div></section>
-      <section className="ev-sales-proof"><div className="shell"><span>NAPIT registered</span><span>Fully insured</span><span>Tested &amp; certified</span><span>Local aftercare</span></div></section>
-      <section className="section shell ev-sales-section"><p className="eyebrow dark"><span /> From quote to first charge</p><h2>You choose the car.<br />We sort the <em>charging.</em></h2><div className="ev-sales-benefits"><article><b>01</b><h3>A proper assessment</h3><p>We check your supply, consumer unit, existing loads and proposed cable route. You know what the installation needs before we start.</p></article><article><b>02</b><h3>A finish you’re happy with</h3><p>We agree the charger position and cable route with you, work carefully around your property and leave the area tidy.</p></article><article><b>03</b><h3>Ready to use</h3><p>We install, test and certify the work, then walk you through the charger. You have a local number to call afterwards.</p></article></div></section>
-      <section className="ev-sales-review"><div className="shell"><p className="eyebrow"><span /> Customer feedback</p><blockquote>“Really well put together service. I appreciate all the little details, from the branding to the clean cable runs and neatly formed conduit.”</blockquote><p>Feedback from a TB Electrical customer on our electrical work.</p></div></section>
-      <section className="section shell ev-sales-section"><div className="ev-sales-two-col"><div><p className="eyebrow dark"><span /> A clear quote. No guesswork.</p><h2>Know what<br />you’re <em>getting.</em></h2><p>We price your installation around your property. Before you book, we set out the charger being supplied or fitted, the cable route, the electrical work and any exclusions.</p><p>Already bought a charger? Tell us the make and model. Need help choosing? We’ll talk through your setup.</p><a className="button button-dark" href="#charger-quote">Get my installation quote ↗</a></div><div className="ev-sales-checklist"><h3>What we plan with you</h3><ul><li>Charger choice and mounting position</li><li>Electrical supply and protection</li><li>Cable route and any extra works</li><li>Installation, testing and certification</li><li>Setup and handover</li></ul><p>Any supply upgrades, groundwork or other additional work will be explained in your quote.</p></div></div></section>
-      <section className="ev-sales-process"><div className="shell"><p className="eyebrow"><span /> Three simple steps</p><h2>From enquiry<br />to <em>plugged in.</em></h2><ol><li><strong>Tell us about your home</strong><p>Your postcode, car or charger details and parking setup are a good start. We may ask for photos of your meter, consumer unit and cable route.</p></li><li><strong>Get a clear quote</strong><p>We confirm the scope and price, arrange a survey if needed and agree an installation date that works for you.</p></li><li><strong>We install and hand over</strong><p>We fit and test the charger, explain how to use it and leave you with the relevant certification.</p></li></ol></div></section>
-      <section className="section shell ev-sales-section"><p className="eyebrow dark"><span /> Before you book</p><h2>A few things<br />you might <em>wonder.</em></h2><div className="faq-list">{faqs.map(([q,a])=><details key={q}><summary>{q}<i>+</i></summary><p>{a}</p></details>)}</div></section>
-      <section className="ev-sales-final"><div className="shell"><p className="eyebrow"><span /> Home &amp; workplace EV charging</p><h2>Your next charge.<br /><em>On your driveway.</em></h2><p>Tell us what you need and we’ll take it from there.</p><div className="button-row"><a className="button button-primary" href="#charger-quote">Get my free quote ↗</a><a className="text-link" href="tel:+447484605599">Call 07484 605 599 →</a></div></div></section>
-    </main>
-    <footer className="ev-sales-footer"><div className="shell"><p>© 2026 TB Electrical Herts Ltd · Company no. 16596265<br />Based in Hitchin · tyler@tbelectrical.co.uk</p><div><Link href="/privacy">Privacy notice</Link><Link href="/cookies">Cookie policy</Link><CookieSettings /><Link href="/">Main website</Link></div></div></footer>
-  </div>;
+export default async function PreviousEVLandingPage({ searchParams }: Props) {
+  const query = new URLSearchParams();
+  for (const [key, value] of Object.entries(await searchParams)) {
+    for (const item of Array.isArray(value) ? value : value === undefined ? [] : [value]) query.append(key, item);
+  }
+  permanentRedirect(`/ev-chargers${query.size ? `?${query}` : ""}`);
 }

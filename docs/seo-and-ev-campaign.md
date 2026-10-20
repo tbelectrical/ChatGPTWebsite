@@ -2,11 +2,13 @@
 
 The public site has page-specific titles, descriptions, canonical URLs, social metadata, local service wording, business and WebSite structured data, breadcrumbs and a sitemap. Core service areas are Hitchin, Baldock, Letchworth Garden City, Stevenage, Langford and Biggleswade.
 
-## Advertising destination
+## EV destination
 
-Use `/ev-charger-quote` as the EV campaign destination. It is a public, direct-link page with `noindex, follow`, deliberately omitted from navigation and the sitemap. It is not password protected. Keep it crawlable so search engines can read its noindex instruction and ad systems can inspect the destination.
+Use `/ev-chargers` for both organic visitors and advertising. It uses the sales layout with the normal site navigation, remains indexable and is listed in the sitemap. The previous `/ev-charger-quote` URL permanently redirects to `/ev-chargers`, preserving query parameters so existing campaign links continue to work.
 
-The page includes an EV-specific contact form (`source: ev-ads-quote`), phone links, customer feedback, service benefits, installation process and FAQs. The public `/ev-chargers` page remains indexable for organic search.
+The EV-specific contact form identifies submissions with `source: ev-chargers-page`. The page includes customer feedback, installation information and FAQs. The FAQ uses a dedicated two-column layout for question text and its expand icon, with full-width answer text on mobile.
+
+Copy uses plain language without em dashes or repeated three-part phrasing.
 
 ## Before buying advertising
 

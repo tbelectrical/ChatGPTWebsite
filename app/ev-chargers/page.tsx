@@ -1,115 +1,136 @@
-import { PageBreadcrumb } from "../components/PageBreadcrumb";
-import { siteUrl } from "../lib/seo";
-import { pageMetadata } from "../lib/seo";
 import Link from "next/link";
 import { ContactForm } from "../components/ContactForm";
-import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
+import { PageBreadcrumb } from "../components/PageBreadcrumb";
+import { locations } from "../lib/content";
+import { pageMetadata, siteUrl } from "../lib/seo";
 
-export const metadata = pageMetadata('OZEV Approved EV Charger Installer Hertfordshire', 'Home and workplace EV charger installation in Hitchin, Baldock, Letchworth, Stevenage, Langford and Biggleswade. Request a quote from TB Electrical.', '/ev-chargers');
+export const metadata = pageMetadata(
+  "EV Charger Installation in Hitchin & Nearby Towns",
+  "Get a quote for home or workplace EV charger installation in Hitchin, Baldock, Letchworth, Stevenage, Langford or Biggleswade. Call TB Electrical.",
+  "/ev-chargers",
+);
 
 const faqs = [
-  ["Can you install a charger I have already bought?", "Usually, yes. We first check the charger, your electrical supply, the cable route and the maker’s instructions. If anything looks wrong, we will tell you before we start."],
-  ["Will my electrical supply cope?", "We check that as part of the job. We look at your current setup and how much power you already use, then suggest a safe option that suits the property."],
-  ["How long does an installation take?", "We can often finish a simple home installation in one day. A long cable route, groundwork or supply changes may take longer. We will explain that before the work starts."],
-  ["Do you install workplace chargers?", "Yes. We fit charge points at homes, workplaces and other commercial properties. We plan the job around your parking spaces, daily use and current electrical setup."],
-  ["Can you help with an OZEV grant?", "Yes, if you and the property meet the current scheme rules. We can explain the installer requirements and handle our part of an eligible claim. You must apply and be told that you are eligible before the charger is installed."],
+  ["How much does an installation cost?", "The price depends on the charger and the work needed at your property. Send us a few details and we’ll put a quote together. If we need to visit first, we’ll let you know."],
+  ["Can you help me choose a charger?", "Of course. Tell us which car you have and where you normally park. We’ll talk through the options with you, including anything you want from the charger’s app."],
+  ["I already have a charger. Can you fit it?", "Usually, yes. Send us the make and model so we can check it’s suitable before quoting for the installation."],
+  ["How long will it take?", "A straightforward home installation can often be finished in a day. If your job needs more work, we’ll explain that before you book."],
+  ["Do you cover my area?", "We’re based in Hitchin and cover nearby Hertfordshire and Bedfordshire towns. The main areas are listed below. Send us your postcode if you’re unsure whether we can get to you."],
+  ["Will I get a certificate?", "Yes. We test the work and provide the relevant electrical certificate. We’ll also show you how to use your charger before we leave."],
 ];
 
-const evServiceSchema = {
+const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteUrl}/ev-chargers#service`,
-  name: "OZEV approved EV charger installation",
-  serviceType: "Electric vehicle chargepoint installation",
-  description: "Home and workplace EV chargepoint installation by an OZEV approved electrical contractor based in Hitchin.",
+  name: "EV charger installation",
+  serviceType: "Home and workplace electric vehicle chargepoint installation",
   url: `${siteUrl}/ev-chargers`,
   provider: { "@id": `${siteUrl}/#business` },
-  areaServed: ["Hitchin", "Baldock", "Langford", "Biggleswade", "Stevenage", "Letchworth Garden City", "Bedford", "Welwyn Garden City", "Hatfield", "Harpenden"].map((name) => ({ "@type": "City", name })),
+  areaServed: locations.map(area => ({ "@type": "Place", name: area.name })),
 };
 
-export default function EvChargersPage() {
-  return (
-    <>
-      <Header />
-      <main id="main-content" className="subpage ev-page">
-        <section className="ev-hero">
-          <div className="shell ev-hero-grid">
-            <div className="ev-hero-copy"><PageBreadcrumb name="EV charger installation" path="/ev-chargers" />
-              <p className="eyebrow"><span /> OZEV approved EV charger installer</p>
-              <h1>EV charger installation.<br /><em>Life carries on.</em></h1>
-              <p>We fit neat, safe EV charge points at homes and workplaces across Hitchin, Baldock, Letchworth, Stevenage, Langford, Biggleswade and the surrounding area.</p>
-              <div className="ev-hero-points"><span>OZEV approved</span><span>Home &amp; workplace</span><span>Tested &amp; certified</span></div>
-              <a className="button button-primary" href="#ev-quote">Request an EV quote <span>↗</span></a>
-            </div>
-            <div className="ev-hero-image">
-              <img src="/media/ohme-home-pro.webp" alt="Ohme Home Pro EV charger mounted on dark timber cladding" width={1600} height={1466} fetchPriority="high" decoding="async" />
-              <div className="charge-line"><span /><i /></div>
-            </div>
-          </div>
-        </section>
-
-        <section className="ev-intro section shell">
-          <div className="ev-intro-title"><p className="eyebrow dark"><span /> Ready when you are</p><h2>Charging that fits<br />your day.</h2></div>
-          <div className="ev-intro-copy"><p>A good charger install starts before we run a cable. We check your current setup, ask how you use the car and find the cleanest route to the charging point.</p><p>Once the charger is in, we test everything and give you the right certificate. We will also show you how to use it, so you are not left guessing.</p><p>Based in Hitchin, we cover Stevenage, Letchworth Garden City, Bedford, Welwyn Garden City, Hatfield, Harpenden and nearby villages.</p></div>
-        </section>
-
-        <section className="ozev-section section">
-          <div className="shell ozev-panel">
-            <div className="ozev-mark"><strong>OZEV</strong><span>Approved installer</span></div>
-            <div className="ozev-copy">
-              <p className="eyebrow dark"><span /> Government chargepoint schemes</p>
-              <h2>Approved for home and workplace grant schemes.</h2>
-              <p>OZEV approval means we can install eligible chargepoints under the current home and workplace schemes. We will help you understand the installer side, but your grant eligibility depends on your property and circumstances.</p>
-              <a className="text-link dark-link" href="https://www.gov.uk/electric-vehicle-chargepoint-grants" target="_blank" rel="noreferrer">Check current EV chargepoint grants <span>↗</span></a>
+export default function EVChargersPage() {
+  return <div className="ev-sales">
+    <Header />
+    <main id="main-content">
+      <section className="ev-sales-hero">
+        <div className="shell ev-sales-grid">
+          <div className="ev-sales-pitch">
+            <PageBreadcrumb name="EV charger installation" path="/ev-chargers" />
+            <p className="eyebrow"><span /> Your local EV charger installer</p>
+            <h1>EV charger<br /><em>installation.</em></h1>
+            <p className="ev-sales-intro">We fit home chargers across Hitchin and the surrounding area. If you’re not sure which one to buy, we’ll help you work out what suits your car.</p>
+            <p className="ev-sales-area">Hitchin · Baldock · Letchworth · Stevenage · Langford · Biggleswade</p>
+            <p className="ev-sales-reassurance">We’re NAPIT registered and fully insured. Our installation work comes with a 12-month workmanship guarantee.</p>
+            <a className="button button-primary ev-sales-mobile-cta" href="#charger-quote">Get a free quote ↗</a>
+            <div className="ev-sales-photo">
+              <img src="/media/ohme-home-pro.webp" alt="Ohme Home Pro wall-mounted EV charger" width={1600} height={1466} fetchPriority="high" decoding="async" />
+              <div><strong>Charge at home.</strong><span>We’ll take care of the installation.</span></div>
             </div>
           </div>
-        </section>
-
-        <section className="ev-benefits section">
-          <div className="shell">
-            <div className="section-heading section-heading-light"><p className="eyebrow"><span /> What you can expect</p><h2>We handle<br /><em>the whole job.</em></h2></div>
-            <div className="benefit-grid">
-              <article><b>01</b><h3>A proper check</h3><p>We check your supply, consumer unit, earthing, power use and cable route before work starts.</p></article>
-              <article><b>02</b><h3>A tidy fit</h3><p>We choose a careful route and keep the finish neat, both inside and outside your property.</p></article>
-              <article><b>03</b><h3>A clear handover</h3><p>We test the charger, give you the certificate and talk you through how it works.</p></article>
-              <article><b>04</b><h3>Help afterwards</h3><p>You get a 12-month workmanship guarantee and a local number to call if you need us.</p></article>
-            </div>
+          <div id="charger-quote" className="ev-sales-form">
+            <p className="eyebrow"><span /> Free, no-obligation quote</p>
+            <h2>Tell us what<br /><em>you need.</em></h2>
+            <p>Let us know which car you have and where you’d like the charger. We’ll be in touch to talk it through.</p>
+            <ContactForm source="ev-chargers-page" evFocused />
+            <p className="ev-sales-form-note">Prefer to call? <a href="tel:+447484605599">Speak to Tyler on 07484 605 599</a>.</p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="ev-process section shell">
-          <div className="section-heading"><p className="eyebrow dark"><span /> How it works</p><h2>From first message<br />to first charge.</h2></div>
-          <ol className="process-list">
-            <li><span>01</span><div><h3>Tell us about your setup</h3><p>Send your postcode, car or charger details, parking setup and a few clear photos.</p></div></li>
-            <li><span>02</span><div><h3>Agree the job</h3><p>We confirm the work and the price. If anything extra is needed, we tell you before we start.</p></div></li>
-            <li><span>03</span><div><h3>We fit the charger</h3><p>We install and test it, show you how it works and leave the area clean.</p></div></li>
+      <section className="ev-sales-proof" aria-label="Our credentials">
+        <div className="shell"><span>NAPIT registered</span><span>OZEV approved EV charger installer</span><span>Fully insured</span><span>12-month workmanship guarantee</span></div>
+      </section>
+
+      <section className="section shell ev-sales-section">
+        <p className="eyebrow dark"><span /> What to expect</p>
+        <h2>A charger that<br />works for <em>you.</em></h2>
+        <div className="ev-sales-benefits">
+          <article><h3>We check your setup first</h3><p>Before we start, we check whether your electrical supply can support the charger. We’ll explain if anything needs changing.</p></article>
+          <article><h3>The cable route matters</h3><p>We agree where the charger will go and how the cable will get there. We take care over the finish, especially where it’s on show.</p></article>
+          <article><h3>You’ll know how to use it</h3><p>Once the work is tested, we’ll show you how the charger works and help you get started with its settings.</p></article>
+          <article><h3>You can call us afterwards</h3><p>If you have a question after the installation, you’ll have our number. We won’t leave you trying to work it out on your own.</p></article>
+        </div>
+      </section>
+
+      <section className="ev-sales-review">
+        <div className="shell"><p className="eyebrow"><span /> Customer feedback</p><blockquote>“He knows his stuff and is always happy to offer advice.”</blockquote><p>From a TB Electrical customer’s review of our electrical work.</p></div>
+      </section>
+
+      <section className="section shell ev-sales-section">
+        <div className="ev-sales-two-col">
+          <div>
+            <p className="eyebrow dark"><span /> Your installation quote</p>
+            <h2>Know the cost<br /><em>before we start.</em></h2>
+            <p>Every property is different, so we quote for the work your installation needs. You’ll know what’s included before you agree to go ahead.</p>
+            <p>If you’ve already bought a charger, send us the make and model. We can usually fit a suitable charger you’ve supplied.</p>
+            <a className="button button-dark" href="#charger-quote">Ask for a quote ↗</a>
+          </div>
+          <div className="ev-sales-checklist">
+            <h3>We’ll agree the details with you</h3>
+            <ul><li>Which charger we’re fitting</li><li>Where you want it installed</li><li>The route for the cable</li><li>Any changes needed to your electrics</li><li>What the installation will cost</li></ul>
+            <p>If groundwork or other additional work is needed, it will be set out in the quote.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="ev-sales-process">
+        <div className="shell">
+          <p className="eyebrow"><span /> Getting it fitted</p>
+          <h2>What happens<br /><em>next?</em></h2>
+          <ol>
+            <li><strong>Before installation</strong><p>Send us your postcode and a bit about the job. We may ask for photos or arrange a visit before quoting. Once you’re happy with the quote, we’ll agree a date.</p></li>
+            <li><strong>On the day</strong><p>We’ll fit the charger and test the work. Before we leave, we’ll show you how to use it and explain the certification.</p></li>
           </ol>
-        </section>
+        </div>
+      </section>
 
-        <section className="ev-work section">
-          <div className="shell ev-work-grid">
-            <div className="ev-work-image"><img src="/media/hero-img.webp" alt="Exterior lighting and electrical installation completed by TB Electrical" /></div>
-            <div className="ev-work-copy"><span>Home · Workplace · Fleet</span><h2>Need more than<br />a charger?</h2><p>Perhaps you also need new lighting, a consumer unit upgrade or other electrical work. We can plan it all together and save you the hassle of booking two jobs.</p><Link className="text-link" href="/services">View all electrical services <span>→</span></Link></div>
-          </div>
-        </section>
+      <section className="section shell ev-sales-section ev-sales-faq" aria-labelledby="ev-faq-heading">
+        <p className="eyebrow dark"><span /> Before you book</p>
+        <h2 id="ev-faq-heading">Got a <em>question?</em></h2>
+        <div className="faq-list">
+          {faqs.map(([question, answer]) => <details key={question}>
+            <summary><span className="ev-faq-question">{question}</span><i aria-hidden="true">+</i></summary>
+            <p>{answer}</p>
+          </details>)}
+        </div>
+      </section>
 
-        <section className="faq-section section shell">
-          <div className="section-heading"><p className="eyebrow dark"><span /> Common questions</p><h2>EV charging,<br />made clear.</h2></div>
-          <div className="faq-list">
-            {faqs.map(([q, a], index) => <details key={q} open={index === 0}><summary><span>{String(index + 1).padStart(2, "0")}</span>{q}<i>+</i></summary><p>{a}</p></details>)}
-          </div>
-        </section>
+      <section className="section shell ev-sales-section ev-sales-coverage">
+        <p className="eyebrow dark"><span /> Based in Hitchin</p>
+        <h2>Do we cover<br /><em>your area?</em></h2>
+        <p>We fit chargers in the towns below and nearby villages. We also install workplace chargers. Get in touch if you’d like us to look at a job further afield.</p>
+        <div className="area-links">{locations.map(area => <Link key={area.slug} href={`/areas/${area.slug}`}>{area.name} →</Link>)}</div>
+      </section>
 
-        <section className="quote-section section" id="ev-quote">
-          <div className="shell quote-grid">
-            <div className="quote-copy"><p className="eyebrow"><span /> Get an EV charger quote</p><h2>Ready to plug<br /><em>in at home?</em></h2><p>Tell us what you drive, where you park and which charger you have in mind. Not sure which one to choose? That is fine too.</p><a className="phone-link" href="tel:+447484605599"><span>Call</span> 07484 605 599</a></div>
-            <ContactForm source="ev-landing-page" evFocused />
-          </div>
-        </section>
-      </main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(evServiceSchema) }} />
-      <Footer />
-    </>
-  );
+      <section className="ev-sales-final">
+        <div className="shell"><p className="eyebrow"><span /> EV charging at home or work</p><h2>Need a charger<br /><em>fitted?</em></h2><p>Send us a few details or give Tyler a call.</p><div className="button-row"><a className="button button-primary" href="#charger-quote">Get a free quote ↗</a><a className="text-link" href="tel:+447484605599">Call 07484 605 599 →</a></div></div>
+      </section>
+    </main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+    <Footer />
+  </div>;
 }

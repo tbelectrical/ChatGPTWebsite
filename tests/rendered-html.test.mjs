@@ -74,9 +74,9 @@ test("server-renders the local EV charger landing page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /OZEV approved EV charger installer/i);
-  assert.match(html, /home and workplace grant schemes/i);
+  assert.match(html, /EV charger installation/i);
   assert.match(html, /Hitchin/);
-  assert.match(html, /Harpenden/);
+  assert.match(html, /Langford/);
 });
 
 test("serves search engine crawl files and approved images", async () => {
@@ -155,28 +155,35 @@ test("Google Maps is absent before consent and footer exposes cookie controls",a
   assert.match(html,/href="\/cookies"/); assert.match(html,/href="\/privacy"/);
 });
 
-test("the EV advertising page is unlisted, noindex and has an EV quote form",async()=>{
-  const response=await fetch(`${origin}/ev-charger-quote`);
+test("the sales page is the indexable, navigable EV page with mobile FAQ markup",async()=>{
+  const response=await fetch(`${origin}/ev-chargers`);
   assert.equal(response.status,200);
   const html=await response.text();
-  assert.match(html,/<meta name="robots" content="noindex, ?follow"/);
-  assert.match(html,/Home charging/);
-  assert.match(html,/Your car, charger and parking setup/);
+  assert.match(html,/<meta name="robots" content="index, ?follow"/);
+  assert.match(html,/Tell us about the installation/);
   assert.match(html,/<input type="hidden" name="service" value="EV charger installation"/);
   assert.equal((html.match(/<form\b/g)||[]).length,1);
   assert.match(html,/href="#charger-quote"/);
-  assert.match(html,/href="tel:\+447484605599"/);
-  assert.match(html,/Cookie settings/);
-  assert.doesNotMatch(html,/aria-label="Main navigation"/);
+  assert.match(html,/aria-label="Main navigation"/);
+  assert.match(html,/class="ev-faq-question"/);
+  assert.match(html,/<summary><span class="ev-faq-question">How much does an installation cost\?<\/span><i aria-hidden="true">/);
+  assert.doesNotMatch(html,/—/);
+  assert.doesNotMatch(html,/noindex/);
+  const home=await (await fetch(origin)).text();
+  assert.match(home,/href="\/ev-chargers"/);
   const xml=await (await fetch(`${origin}/sitemap.xml`)).text();
+  assert.ok(xml.includes("/ev-chargers"));
   assert.ok(!xml.includes("ev-charger-quote"));
-  for(const path of routes){
-    const page=await (await fetch(`${origin}${path}`)).text();
-    assert.ok(!page.includes('href="/ev-charger-quote"'),path);
-    assert.doesNotMatch(page,/<meta name="robots" content="[^"]*noindex/);
-    assert.match(page,/<meta name="description" content="[^"]+"/);
-    assert.match(page,/<meta property="og:title" content="[^"]+"/);
-  }
+});
+
+test("the previous EV campaign URL redirects permanently and retains campaign parameters",async()=>{
+  const response=await fetch(`${origin}/ev-charger-quote?utm_source=google&utm_campaign=home&tag=one&tag=two`,{redirect:"manual"});
+  assert.equal(response.status,308);
+  const destination=new URL(response.headers.get("location"),"http://localhost");
+  assert.equal(destination.pathname,"/ev-chargers");
+  assert.equal(destination.searchParams.get("utm_source"),"google");
+  assert.equal(destination.searchParams.get("utm_campaign"),"home");
+  assert.deepEqual(destination.searchParams.getAll("tag"),["one","two"]);
 });
 
 test("the homepage explains its service and location in the main heading",async()=>{
