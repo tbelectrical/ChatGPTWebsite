@@ -1319,8 +1319,9 @@ html[data-home-variant="split"] .split-only { display: block; }
 .home-main .project-grid-three .project-wide img { object-position: 50% 45%; }
 
 /* The original NAPIT mark has a red tick and a taller silhouette. */
-.credential-banner-logos a:first-child { height: 112px; }
-.credential-banner-logos a:first-child img { width: auto; height: 112px; max-width: 100%; object-fit: contain; mix-blend-mode: multiply; }
+/* Blend the whole link so its hover transform cannot isolate the image's white background. */
+.credential-banner-logos a:first-child { height: 112px; mix-blend-mode: multiply; }
+.credential-banner-logos a:first-child img { width: auto; height: 112px; max-width: 100%; object-fit: contain; }
 @media(max-width:540px) {
  .ev-sales-proof > .shell { grid-template-columns: minmax(0,1fr); gap: 0; padding-block: 10px; }
  .ev-sales-proof li { align-items: center; padding-block: 14px; }
