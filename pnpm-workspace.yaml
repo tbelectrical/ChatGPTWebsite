@@ -6,10 +6,11 @@ minimumReleaseAgeExclude:
 overrides:
   "ws@^8.0.0": "8.21.0"
   "esbuild@0.27.3": "0.28.2"
-  "undici@^7.0.0": "7.29.1"
+  "undici@^7.0.0": "7.30.1"
   "sharp@0.34.5": "0.35.5"
   "image-size@^2.0.0": "2.0.3"
   "fast-uri@^3.0.0": "3.1.9"
   "brace-expansion@^1.0.0": "1.1.21"
   "brace-expansion@^5.0.0": "5.0.12"
   "source-map-js@^1.0.0": "1.2.2"
+  "zod@^4.0.0": "4.6.6"
