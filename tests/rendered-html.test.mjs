@@ -256,12 +256,13 @@ test("paid EICR landing page is crawlable, unlisted and ready for qualified enqu
   assert.match(html, /2391-52/);
   assert.match(html, /Repairs are quoted separately/);
   assert.match(html, /id="eicr-enquiry"/);
-  assert.match(html, /Your EICR/);
-  assert.match(html, /Sorted properly/);
+  assert.match(html, /EICR testing/);
+  assert.match(html, /for landlords/);
+  assert.doesNotMatch(html, /<img[^>]*src="[^"]*tyler/i);
   assert.match(html, /class="eicr-hero-trust"/);
   assert.match(html, /aria-label="EICR enquiry actions"/);
   assert.ok(html.indexOf('id="eicr-enquiry"') < html.indexOf('id="eicr-choice-heading"'), "enquiry precedes the longer sales sections");
-  assert.ok(html.indexOf('href="#eicr-enquiry"') < html.indexOf('class="eicr-hero-portrait"'), "first CTA precedes the photo");
+  assert.ok(html.indexOf('href="#eicr-enquiry"') < html.indexOf('id="eicr-enquiry"'), "first CTA precedes the form");
   assert.match(html, /href="tel:\+447484605599"/);
   assert.doesNotMatch(html, /aria-label="Main navigation"|OZEV|guaranteed pass|same-day report|—/i);
   for (const json of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) {

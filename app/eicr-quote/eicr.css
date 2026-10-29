@@ -26,15 +26,15 @@
 .eicr-stars { color:var(--yellow); font-size:18px; letter-spacing:3px; white-space:nowrap; }
 .eicr-mini-review > span:last-child { font-size:14px; line-height:1.4; }
 .eicr-mini-review small { display:block; color:#c2beb4; font-size:11px; margin-top:5px; }
-.eicr-hero-portrait { position:relative; margin:0; background:#494841; border-radius:4px 4px 64px 4px; overflow:hidden; height:580px; }
-.eicr-hero-portrait > img { width:100%; height:100%; object-fit:cover; object-position:54% 42%; }
-.eicr-hero-portrait::after { content:""; position:absolute; inset:30% 0 0; background:linear-gradient(transparent,rgba(0,0,0,.84)); pointer-events:none; }
-.eicr-hero-portrait figcaption { position:absolute; z-index:1; bottom:34px; left:34px; right:24px; }
-.eicr-hero-portrait figcaption > span { color:#e0ddd3; font-size:10px; letter-spacing:.16em; font-weight:750; }
-.eicr-hero-portrait strong { display:block; font-size:35px; letter-spacing:-.045em; margin-top:10px; }
-.eicr-hero-portrait p { color:#e0ddd3; margin:8px 0 0; font-size:13px; }
-.eicr-portrait-stamp { position:absolute; top:22px; left:22px; background:var(--yellow); color:var(--ink); padding:12px 15px; font-size:12px; font-weight:750; }
-.eicr-portrait-stamp > span { margin-right:6px; }
+
+
+
+
+
+
+
+
+
 .eicr-credentials { background:#e6e2d7; border-bottom:1px solid var(--line); }
 .eicr-credentials > .shell { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; align-items:center; padding-block:25px; gap:26px; }
 .eicr-credentials .shell > div,.eicr-credentials .shell > a { display:flex; align-items:center; gap:14px; min-height:52px; }
@@ -136,9 +136,9 @@
 .eicr-footer > .shell > div:last-child { display:flex; flex-wrap:wrap; gap:20px; padding-top:18px; }
 .eicr-footer a,.eicr-footer .cookie-settings { font-size:12px; }
 .eicr-footer .cookie-settings { color:var(--white); }
-@media(max-width:1100px) { .eicr-hero-grid { gap:40px; } .eicr-page h1 { font-size:clamp(58px,6.9vw,90px); } .eicr-hero-portrait { height:570px; } .eicr-reasons { grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px 46px; } .eicr-choice > .eicr-section-heading,.eicr-review-inner,.eicr-included,.eicr-contact-grid,.eicr-next { gap:50px; } .eicr-credentials > .shell { gap:20px; } .eicr-credentials .shell > a { flex-direction:column; align-items:start; gap:3px; } }
-@media(max-width:850px) { .eicr-header-quote { display:none; } .eicr-hero-grid { grid-template-columns:1fr; gap:36px; padding-block:42px 48px; } .eicr-page h1 { font-size:clamp(58px,10vw,84px); } .eicr-hero-portrait { height:430px; max-width:640px; width:100%; border-bottom-right-radius:48px; } .eicr-hero-portrait > img { object-position:50% 42%; } .eicr-pitch { max-width:640px; } .eicr-intro { max-width:570px; } .eicr-credentials > .shell { grid-template-columns:1fr 1fr; gap:28px; } .eicr-credentials .shell > a { flex-direction:row; align-items:center; gap:16px; } .eicr-choice > .eicr-section-heading,.eicr-review-inner,.eicr-included,.eicr-contact-grid,.eicr-next,.eicr-faq { grid-template-columns:1fr; gap:34px; } .eicr-choice h2 { margin-bottom:20px; } .eicr-section { padding-block:58px; } .eicr-page h2 { font-size:clamp(38px,6.8vw,56px); } .eicr-reasons { margin-top:34px; } .eicr-review { padding-block:56px; } .eicr-review-quote { padding-left:28px; } .eicr-contact-band { padding-block:48px; } .eicr-contact-pitch { padding-top:0; } .eicr-contact-grid { gap:40px; } .eicr-quote-panel { max-width:640px; width:100%; } .eicr-contact-pitch > .eicr-local { margin-bottom:0; } .eicr-footer > .shell { flex-direction:column; } }
-@media(max-width:560px) { .eicr-page .shell { width:calc(100% - 36px); } .eicr-header-inner { min-height:80px; } .eicr-header img { width:112px; height:50px; } .eicr-header-contact > div > a { font-size:17px; } .eicr-header-contact { gap:0; } .eicr-page .eyebrow { font-size:10px; margin-bottom:20px; letter-spacing:.09em; } .eicr-page h1 { font-size:clamp(45px,10.6vw,62px); margin-bottom:24px; } .eicr-lead { font-size:22px; } .eicr-desktop-break { display:none; } .eicr-intro { font-size:16px; } .eicr-hero-actions { gap:7px; } .eicr-hero-actions .button { width:100%; } .eicr-underlink { width:100%; text-align:center; } .eicr-cta-note { text-align:center; margin:4px 0 24px; } .eicr-mini-review { gap:14px; padding-top:20px; } .eicr-mini-review > span:last-child { font-size:12px; } .eicr-stars { font-size:15px; letter-spacing:2px; } .eicr-mini-review small { font-size:10px; } .eicr-hero-portrait { height:390px; } .eicr-hero-portrait figcaption { left:24px; bottom:28px; } .eicr-hero-portrait strong { font-size:30px; } .eicr-portrait-stamp { left:18px; top:18px; font-size:11px; } .eicr-credentials > .shell { gap:24px 16px; } .eicr-credentials .shell > div:first-child { flex-direction:column; align-items:start; gap:5px; } .eicr-credentials .shell > a { flex-direction:column; align-items:start; gap:5px; } .eicr-credentials strong { font-size:15px; } .eicr-credentials span { font-size:11px; } .eicr-reasons { grid-template-columns:1fr; gap:28px; } .eicr-reasons article { position:relative; padding-left:48px; padding-top:21px; } .eicr-reasons article > span { position:absolute; top:21px; left:0; } .eicr-review h2 { font-size:40px; } .eicr-review-quote { border-left:0; padding:40px 0 0; } .eicr-quote-mark { left:0; top:-17px; } .eicr-review blockquote { font-size:21px; } .eicr-review-caption { margin-top:18px; } .eicr-included-list article { gap:18px; } .eicr-page .eicr-quote-panel h2 { font-size:34px; } .eicr-quote-panel { padding:26px 20px 24px; } .eicr-quote-panel .form-grid { grid-template-columns:1fr; gap:16px; } .eicr-faq summary { font-size:16px; gap:16px; padding-block:20px; } .eicr-faq details p { margin-right:0; } .eicr-footer > .shell > div:last-child { flex-direction:column; gap:18px; } .eicr-final { padding-block:56px; } .eicr-final-actions { flex-direction:column; gap:12px; } .eicr-final-actions .button { width:100%; } }
+@media(max-width:1100px) { .eicr-hero-grid { gap:40px; } .eicr-page h1 { font-size:clamp(58px,6.9vw,90px); }  .eicr-reasons { grid-template-columns:repeat(2,minmax(0,1fr)); gap:32px 46px; } .eicr-choice > .eicr-section-heading,.eicr-review-inner,.eicr-included,.eicr-contact-grid,.eicr-next { gap:50px; } .eicr-credentials > .shell { gap:20px; } .eicr-credentials .shell > a { flex-direction:column; align-items:start; gap:3px; } }
+@media(max-width:850px) { .eicr-header-quote { display:none; } .eicr-hero-grid { grid-template-columns:1fr; gap:36px; padding-block:42px 48px; } .eicr-page h1 { font-size:clamp(58px,10vw,84px); }   .eicr-pitch { max-width:640px; } .eicr-intro { max-width:570px; } .eicr-credentials > .shell { grid-template-columns:1fr 1fr; gap:28px; } .eicr-credentials .shell > a { flex-direction:row; align-items:center; gap:16px; } .eicr-choice > .eicr-section-heading,.eicr-review-inner,.eicr-included,.eicr-contact-grid,.eicr-next,.eicr-faq { grid-template-columns:1fr; gap:34px; } .eicr-choice h2 { margin-bottom:20px; } .eicr-section { padding-block:58px; } .eicr-page h2 { font-size:clamp(38px,6.8vw,56px); } .eicr-reasons { margin-top:34px; } .eicr-review { padding-block:56px; } .eicr-review-quote { padding-left:28px; } .eicr-contact-band { padding-block:48px; } .eicr-contact-pitch { padding-top:0; } .eicr-contact-grid { gap:40px; } .eicr-quote-panel { max-width:640px; width:100%; } .eicr-contact-pitch > .eicr-local { margin-bottom:0; } .eicr-footer > .shell { flex-direction:column; } }
+@media(max-width:560px) { .eicr-page .shell { width:calc(100% - 36px); } .eicr-header-inner { min-height:80px; } .eicr-header img { width:112px; height:50px; } .eicr-header-contact > div > a { font-size:17px; } .eicr-header-contact { gap:0; } .eicr-page .eyebrow { font-size:10px; margin-bottom:20px; letter-spacing:.09em; } .eicr-page h1 { font-size:clamp(45px,10.6vw,62px); margin-bottom:24px; } .eicr-lead { font-size:22px; } .eicr-desktop-break { display:none; } .eicr-intro { font-size:16px; } .eicr-hero-actions { gap:7px; } .eicr-hero-actions .button { width:100%; } .eicr-underlink { width:100%; text-align:center; } .eicr-cta-note { text-align:center; margin:4px 0 24px; } .eicr-mini-review { gap:14px; padding-top:20px; } .eicr-mini-review > span:last-child { font-size:12px; } .eicr-stars { font-size:15px; letter-spacing:2px; } .eicr-mini-review small { font-size:10px; }     .eicr-credentials > .shell { gap:24px 16px; } .eicr-credentials .shell > div:first-child { flex-direction:column; align-items:start; gap:5px; } .eicr-credentials .shell > a { flex-direction:column; align-items:start; gap:5px; } .eicr-credentials strong { font-size:15px; } .eicr-credentials span { font-size:11px; } .eicr-reasons { grid-template-columns:1fr; gap:28px; } .eicr-reasons article { position:relative; padding-left:48px; padding-top:21px; } .eicr-reasons article > span { position:absolute; top:21px; left:0; } .eicr-review h2 { font-size:40px; } .eicr-review-quote { border-left:0; padding:40px 0 0; } .eicr-quote-mark { left:0; top:-17px; } .eicr-review blockquote { font-size:21px; } .eicr-review-caption { margin-top:18px; } .eicr-included-list article { gap:18px; } .eicr-page .eicr-quote-panel h2 { font-size:34px; } .eicr-quote-panel { padding:26px 20px 24px; } .eicr-quote-panel .form-grid { grid-template-columns:1fr; gap:16px; } .eicr-faq summary { font-size:16px; gap:16px; padding-block:20px; } .eicr-faq details p { margin-right:0; } .eicr-footer > .shell > div:last-child { flex-direction:column; gap:18px; } .eicr-final { padding-block:56px; } .eicr-final-actions { flex-direction:column; gap:12px; } .eicr-final-actions .button { width:100%; } }
 @media(prefers-reduced-motion:reduce) { html:has(.eicr-page) { scroll-behavior:auto; } .eicr-page .button { transition:none; } .eicr-page .button:hover { transform:none; } }
 
 @media(max-width:850px) {
@@ -153,6 +153,18 @@
  .eicr-hero-grid { padding-top:30px; }
  .eicr-hero .eyebrow { margin-bottom:19px; }
  .eicr-hero-trust { font-size:11px; margin-top:-8px; margin-bottom:18px; }
- .eicr-hero-portrait { height:330px; }
+
  .eicr-mini-review { padding-top:16px; }
 }
+
+/* Service-led opening: no personal photography. */
+.eicr-hero-grid { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:72px; align-items:start; padding-block:54px 64px; }
+.eicr-pitch { padding-top:22px; }
+.eicr-page .eicr-hero h1 { font-size:clamp(55px,5.8vw,80px); letter-spacing:-.055em; margin-bottom:26px; }
+.eicr-hero .eicr-lead { font-size:22px; line-height:1.45; }
+.eicr-hero .eicr-intro { max-width:475px; }
+.eicr-hero .eicr-cta-note { margin-top:20px; max-width:470px; line-height:1.8; }
+.eicr-hero .eicr-quote-panel { scroll-margin-top:118px; }
+@media(max-width:1100px) { .eicr-hero-grid { gap:42px; } }
+@media(max-width:850px) { .eicr-hero-grid { grid-template-columns:1fr; gap:32px; padding-block:35px 48px; } .eicr-pitch { padding-top:0; } .eicr-page .eicr-hero h1 { font-size:clamp(52px,8.7vw,72px); } }
+@media(max-width:560px) { .eicr-page .eicr-hero h1 { font-size:clamp(46px,11.5vw,62px); } .eicr-hero .eicr-lead { font-size:20px; } .eicr-hero .eicr-cta-note { font-size:11px; } }

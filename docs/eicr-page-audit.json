@@ -2,7 +2,7 @@
   "audit": "EICR landing-page technical and conversion contract",
   "date": "2026-10-29",
   "summary": {
-    "passed": 19,
+    "passed": 20,
     "failed": 0
   },
   "checks": [
@@ -34,7 +34,7 @@
     {
       "name": "Service and area in opening",
       "status": "pass",
-      "detail": "Locality and service visible before photo"
+      "detail": "Locality and service visible before the form"
     },
     {
       "name": "Social metadata",
@@ -57,7 +57,7 @@
       "detail": "Fixed EICR service; existing tested contact endpoint"
     },
     {
-      "name": "CTA precedes hero portrait",
+      "name": "CTA precedes enquiry form",
       "status": "pass",
       "detail": "Mobile reading order prioritises the enquiry action"
     },
@@ -65,6 +65,11 @@
       "name": "Enquiry before extended content",
       "status": "pass",
       "detail": "No requirement to read the sales page to reach the form"
+    },
+    {
+      "name": "No personal photographs",
+      "status": "pass",
+      "detail": "Personal photographs excluded at Tyler’s request"
     },
     {
       "name": "Persistent mobile actions",
@@ -79,14 +84,13 @@
     {
       "name": "Image alternatives and dimensions",
       "status": "pass",
-      "detail": "5 image elements checked"
+      "detail": "4 image elements checked"
     },
     {
       "name": "Local image files resolve",
       "status": "pass",
       "detail": [
         "/media/tb-logo-white.webp",
-        "/media/tyler-eicr-electrician-portrait.webp",
         "/media/napit-red-tick.png",
         "/media/trustmark-logo.svg"
       ]
@@ -94,7 +98,7 @@
     {
       "name": "Image payload budget",
       "status": "pass",
-      "detail": "203284 bytes across unique page image assets; not a network performance score"
+      "detail": "117538 bytes across unique page image assets; not a network performance score"
     },
     {
       "name": "Structured data parses and matches page",

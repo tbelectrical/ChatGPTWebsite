@@ -111,3 +111,8 @@ A PageSpeed Insights API request returned HTTP 429: its daily query quota was ex
 Suggested live validation after approved launch: inspect qualified-lead and booked-job rates, missed calls and customer category. Add consent-compatible scroll/form-start measurement only after tag setup is agreed; no new trackers, session replay or heatmap scripts were installed. Test one variable at a time. Do not use duration alone as success: a quick, successful phone call may be more valuable than several minutes of browsing.
 
 Desktop visual QA of the redesign confirmed no horizontal overflow at 1363 × 936 CSS pixels, a loaded hero portrait, and both hero call/quote links within the initial viewport (quote top approximately 642px). Header quote navigation reaches the enquiry section. These are single-viewport observations, not a claim about every screen size or a measured user-attention heatmap.
+
+
+## Opening revision following Tyler's feedback
+
+This supersedes the portrait-led opening described above. Tyler does not want photos of himself reused unless he supplies new ones. The EICR page now has no personal photos. The opening uses the direct heading “EICR testing for landlords”, with Hitchin/service-area context and the enquiry form in the first section. The “Your EICR. Sorted properly.” headline was removed from the page and draft ad assets. No personal photo assets have been deleted from the repository or other existing pages. The preference is recorded in AGENTS.md for future edits.

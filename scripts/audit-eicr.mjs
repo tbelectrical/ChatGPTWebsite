@@ -12,13 +12,14 @@ check('Unique service meta description',!!meta('description')&&meta('description
 check('Production canonical without campaign parameters',canonical==='https://www.tbelectrical.co.uk/eicr-quote',canonical);
 check('Intentional search exclusion',meta('robots')==='noindex, follow'&&meta('googlebot')==='noindex, follow','Unlisted Google Ads page; organic /services/eicr retained');
 check('One meaningful H1',(html.match(/<h1\b/g)||[]).length===1&&/<h1[^>]*>.*?EICR.*?<\/h1>/s.test(html),'Single EICR headline');
-check('Service and area in opening',html.slice(html.indexOf('<main'),html.indexOf('class="eicr-hero-portrait"')).includes('Hitchin'),'Locality and service visible before photo');
+check('Service and area in opening',html.slice(html.indexOf('<main'),html.indexOf('id="eicr-enquiry"')).includes('Hitchin'),'Locality and service visible before the form');
 check('Social metadata',!!meta('og:title')&&!!meta('og:description')&&!!meta('og:image')&&!!meta('twitter:card'),'Open Graph and Twitter metadata present');
 check('Mobile viewport',!!meta('viewport')&&meta('viewport').includes('width=device-width'),meta('viewport'));
 check('Direct phone contact',html.includes('href="tel:+447484605599"'),'Tap-to-call link');
 check('One focused enquiry form',(html.match(/<form\b/g)||[]).length===1&&html.includes('value="Inspection / EICR"'),'Fixed EICR service; existing tested contact endpoint');
-check('CTA precedes hero portrait',html.indexOf('href="#eicr-enquiry"')<html.indexOf('class="eicr-hero-portrait"'),'Mobile reading order prioritises the enquiry action');
+check('CTA precedes enquiry form',html.indexOf('href="#eicr-enquiry"')<html.indexOf('id="eicr-enquiry"'),'Mobile reading order prioritises the enquiry action');
 check('Enquiry before extended content',html.indexOf('id="eicr-enquiry"')<html.indexOf('id="eicr-choice-heading"'),'No requirement to read the sales page to reach the form');
+check('No personal photographs',!/<img[^>]*src="[^"]*tyler/i.test(html),'Personal photographs excluded at Tyler’s request');
 check('Persistent mobile actions',html.includes('aria-label="EICR enquiry actions"'),'CSS-driven call and quote bar; suppressed when form has focus');
 const ids=new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
 const anchors=[...html.matchAll(/href="#([^"]+)"/g)].map(m=>m[1]);

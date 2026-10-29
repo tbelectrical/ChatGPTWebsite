@@ -44,22 +44,18 @@ export default function EicrQuotePage() {
     <main id="main-content">
       <section className="eicr-hero" aria-labelledby="eicr-heading"><div className="shell eicr-hero-grid">
         <div className="eicr-pitch">
-          <p className="eyebrow"><span /> Landlord EICRs · Hitchin & nearby towns</p><p className="eicr-hero-trust">NAPIT registered <span aria-hidden="true">·</span> Fully insured</p>
-          <h1 id="eicr-heading">Your EICR.<br /><em>Sorted properly.</em></h1>
-          <p className="eicr-lead">Electrical inspection and testing<br className="eicr-desktop-break" /> from a local electrician you can trust.</p>
-          <p className="eicr-intro">I’m Tyler, an electrician based in Hitchin. I’ll inspect your rental’s electrics and explain the report. You’ll know the price before you book, with any repairs quoted separately.</p>
+          <p className="eyebrow"><span /> Hitchin & surrounding towns</p><p className="eicr-hero-trust">NAPIT registered <span aria-hidden="true">·</span> Fully insured</p>
+          <h1 id="eicr-heading">EICR testing<br /><em>for landlords.</em></h1>
+          <p className="eicr-lead">Electrical reports for your rental property.</p>
+          <p className="eicr-intro">Arrange an Electrical Installation Condition Report with a local, NAPIT registered electrician. I’ll confirm the inspection price before you book and explain the findings afterwards.</p>
           <div className="eicr-hero-actions"><a className="button button-primary" href="#eicr-enquiry">Get my EICR quote <span aria-hidden="true">↗</span></a><a className="eicr-underlink" href="tel:+447484605599">Or call me directly</a></div>
-          <p className="eicr-cta-note">Free quote. Tell me your postcode and when the report is due.</p>
+          <p className="eicr-cta-note">Hitchin · Baldock · Letchworth · Stevenage · Langford · Biggleswade</p>
           <a className="eicr-mini-review" href="#eicr-customer-review"><span className="eicr-stars" aria-label="A five-star customer review">★★★★★</span><span>“Reliable, fairly priced sparky”<small>From a customer’s Google review ↗</small></span></a>
         </div>
-        <figure className="eicr-hero-portrait"><img src="/media/tyler-eicr-electrician-portrait.webp" alt="Tyler Baker, your local Hitchin electrician, beside his van" width={900} height={675} fetchPriority="high" decoding="async" /><figcaption><span>YOUR LOCAL ELECTRICIAN</span><strong>Tyler Baker</strong><p>TB Electrical Herts Ltd · Hitchin</p></figcaption><div className="eicr-portrait-stamp"><span aria-hidden="true">✓</span> NAPIT registered</div></figure>
+        <div className="eicr-quote-panel" id="eicr-enquiry"><p className="eicr-panel-kicker">Free, no-obligation quote</p><h2>Get your<br />EICR quote.</h2><p>Tell me about the property and when the report is due. I’ll confirm the price and discuss available dates.</p><ContactForm source="eicr-landing-page" eicrFocused /><p className="eicr-form-alternative">Homeowner or buying a property? I can help with that too.</p></div>
       </div></section>
       <section className="eicr-credentials" aria-label="Professional credentials"><div className="shell">
         <div><img src="/media/napit-red-tick.png" alt="NAPIT" width={600} height={600} /><span>NAPIT registered</span></div><div><strong>2391-52</strong><span>City & Guilds qualified</span></div><div><strong>Fully insured</strong><span>For your peace of mind</span></div><a href="https://www.trustmark.org.uk/firms/TB%20Electrical%20Herts%20Ltd-4136741-SG5%204SN?id=6a0f78e4-068a-4311-bbf1-663f7f6bd737" target="_blank" rel="noreferrer"><img src="/media/trustmark-logo.svg" alt="TrustMark" width={130} height={52} /><span>View my profile ↗</span></a>
-      </div></section>
-      <section className="eicr-contact-band" aria-labelledby="eicr-contact-heading"><div className="shell eicr-contact-grid">
-        <div className="eicr-contact-pitch"><p className="eyebrow"><span /> Let’s get yours sorted</p><h2 id="eicr-contact-heading">EICR coming due?<br /><em>Let’s get it sorted.</em></h2><p>Whether you have one rental or several, send me a few details. I’ll confirm the inspection price and discuss available dates with you.</p><div className="eicr-contact-points"><p><span aria-hidden="true">✓</span> Inspection price agreed before booking</p><p><span aria-hidden="true">✓</span> Access and disruption planned with you</p></div><div className="eicr-direct"><span>Prefer a quick conversation?</span><a href="tel:+447484605599">07484 605 599 <span aria-hidden="true">↗</span></a><small>You’ll be speaking to Tyler.</small></div><p className="eicr-local"><strong>Based in Hitchin. Working locally.</strong>Hitchin · Baldock · Letchworth<br />Stevenage · Langford · Biggleswade</p></div>
-        <div className="eicr-quote-panel" id="eicr-enquiry"><p className="eicr-panel-kicker">Free, no-obligation quote</p><h2>Tell me about<br />your property.</h2><p>A few details are all I need to get started.</p><ContactForm source="eicr-landing-page" eicrFocused /><p className="eicr-form-alternative">Homeowner or buying a property? I can help with that too.</p></div>
       </div></section>
       <section className="shell eicr-section eicr-choice" aria-labelledby="eicr-choice-heading">
         <div className="eicr-section-heading"><p className="eyebrow dark"><span /> Why choose TB Electrical?</p><h2 id="eicr-choice-heading">Easy to deal with.<br /><em>Careful with the details.</em></h2><p>Getting your rental’s electrical report sorted should feel straightforward. You want someone who takes the inspection seriously and treats your property with respect.</p></div>
