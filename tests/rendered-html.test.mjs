@@ -236,3 +236,31 @@ test("business email and Resend sending defaults remain unchanged", async () => 
   const html = await (await fetch(`${origin}/contact`)).text();
   assert.ok(html.includes('href="mailto:tyler@tbelectrical.co.uk"'));
 });
+
+
+test("paid EICR landing page is crawlable, unlisted and ready for qualified enquiries", async () => {
+  const response = await fetch(`${origin}/eicr-quote?utm_source=google&utm_campaign=landlord`);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.equal((html.match(/<h1\b/g) || []).length, 1);
+  assert.equal((html.match(/<form\b/g) || []).length, 1);
+  assert.match(html, /<meta name="robots" content="noindex, ?follow"/);
+  assert.match(html, /<meta name="googlebot" content="noindex, ?follow"/);
+  const canonical = html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"/);
+  assert.equal(canonical?.[1], `${publicOrigin}/eicr-quote`);
+  assert.match(html, /<title>EICR Testing in Hitchin \| TB Electrical<\/title>/);
+  assert.match(html, /<input type="hidden" name="service" value="Inspection \/ EICR"/);
+  assert.match(html, /name="propertyUse"/);
+  assert.match(html, /Get my EICR quote/);
+  assert.match(html, /City &amp; Guilds 2391-52/);
+  assert.match(html, /Repairs are quoted separately/);
+  assert.match(html, /id="eicr-enquiry"/);
+  assert.match(html, /href="tel:\+447484605599"/);
+  assert.doesNotMatch(html, /aria-label="Main navigation"|OZEV|guaranteed pass|same-day report|—/i);
+  for (const json of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) {
+    const schema = JSON.parse(json[1]);
+    for (const item of Array.isArray(schema) ? schema : [schema]) {
+      if (item['@type'] === 'Service') assert.equal(item.url, `${publicOrigin}/eicr-quote`);
+    }
+  }
+});

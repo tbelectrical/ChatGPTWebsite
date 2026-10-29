@@ -1,0 +1,42 @@
+{
+  "status": "draft_not_launched",
+  "campaign": "EICR | Hitchin and nearby | Landlords",
+  "finalPath": "/eicr-quote",
+  "displayPaths": ["eicr", "hitchin"],
+  "headlines": [
+    "EICR Testing In Hitchin",
+    "Landlord EICR Reports",
+    "EICR Coming Due?",
+    "NAPIT Registered Electrician",
+    "Get Your EICR Quote",
+    "Speak To Tyler Directly",
+    "Clear Quote Before Booking",
+    "Local Electrical Inspections",
+    "Rental Property Checks",
+    "Hitchin & Nearby Towns",
+    "Repairs Quoted Separately",
+    "Electrical Condition Reports"
+  ],
+  "descriptions": [
+    "EICR due at your rental property? Get a clear quote from TB Electrical in Hitchin.",
+    "Qualified inspection and testing. We explain your report. Repairs are quoted separately.",
+    "Hitchin and nearby towns. Tell us your postcode and when your electrical report is due.",
+    "One rental or a portfolio? Ask about EICR testing. We confirm the price before booking."
+  ],
+  "keywords": [
+    {"text": "eicr hitchin", "match": "EXACT"},
+    {"text": "eicr hitchin", "match": "PHRASE"},
+    {"text": "landlord electrical certificate hitchin", "match": "PHRASE"},
+    {"text": "eicr near me", "match": "EXACT"},
+    {"text": "eicr letchworth", "match": "EXACT"},
+    {"text": "eicr baldock", "match": "EXACT"},
+    {"text": "eicr stevenage", "match": "EXACT"},
+    {"text": "eicr biggleswade", "match": "EXACT"},
+    {"text": "eicr langford", "match": "EXACT"},
+    {"text": "landlord eicr", "match": "PHRASE"}
+  ],
+  "initialNegativePhrases": ["eicr course", "eicr training", "eicr jobs", "eicr salary", "eicr template", "sample eicr", "blank certificate", "eicr software", "download eicr", "how to do an eicr", "pat testing course", "free eicr"],
+  "doNotBlanketExclude": ["cost", "price", "certificate", "landlord", "tenant"],
+  "callouts": ["NAPIT Registered", "Fully Insured", "Based In Hitchin", "Clear Inspection Quote"],
+  "trackingNote": "Set final URL suffix in Google Ads after final-domain verification. Existing generate_lead event needs consent-compatible tag configuration; do not count mailto openings as leads."
+}
