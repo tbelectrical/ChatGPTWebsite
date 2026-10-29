@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "../components/ResponsiveImage";
 import { CookieSettings } from "./CookieConsent";
 import { SiteLink as Link } from "./SiteLink";
 
@@ -9,16 +10,16 @@ export function Footer() {
           <p><span>Qualified and covered</span><strong>Professional standards, backed up.</strong></p>
           <div className="credential-banner-logos">
             <a href="https://www.napit.org.uk/" target="_blank" rel="noreferrer" aria-label="Visit NAPIT">
-              <img src="/media/napit-red-tick.png" alt="NAPIT" width={600} height={600} />
+              <ResponsiveImage loading="lazy" src="/media/napit-red-tick.png" alt="NAPIT" width={600} height={600} />
             </a>
             <a href="https://www.trustmark.org.uk/firms/TB%20Electrical%20Herts%20Ltd-4136741-SG5%204SN?id=6a0f78e4-068a-4311-bbf1-663f7f6bd737" target="_blank" rel="noreferrer" aria-label="View TB Electrical on TrustMark">
-              <img src="/media/trustmark-logo.svg" alt="TrustMark Government Endorsed Quality" />
+              <ResponsiveImage loading="lazy" src="/media/trustmark-logo.svg" alt="TrustMark Government Endorsed Quality" />
             </a>
             <a href="https://www.cityandguilds.com/what-we-offer/certificates-and-credentials" target="_blank" rel="noreferrer" aria-label="Visit City and Guilds">
-              <img src="/media/city-and-guilds-logo.png" alt="City & Guilds" />
+              <ResponsiveImage loading="lazy" src="/media/city-and-guilds-logo.png" alt="City & Guilds" />
             </a>
             <a href="https://www.rhinotradeinsurance.com/" target="_blank" rel="noreferrer" aria-label="Visit Rhino Trade Insurance">
-              <img src="/media/rhino-trade-insurance-logo.svg" alt="Rhino Trade Insurance" />
+              <ResponsiveImage loading="lazy" src="/media/rhino-trade-insurance-logo.svg" alt="Rhino Trade Insurance" />
             </a>
           </div>
         </div>
@@ -26,7 +27,7 @@ export function Footer() {
       <footer className="site-footer">
         <div className="shell footer-top">
           <div className="footer-brand">
-            <img src="/media/tb-logo-white.webp" alt="TB Electrical" />
+            <ResponsiveImage loading="lazy" src="/media/tb-logo-white.webp" alt="TB Electrical" />
             <p>Electrical work, done properly.</p>
           </div>
           <div className="footer-links">

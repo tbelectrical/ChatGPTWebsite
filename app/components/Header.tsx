@@ -1,5 +1,7 @@
 "use client";
 
+import logo from "../lib/header-logo.json";
+
 import { SiteLink as Link } from "./SiteLink";
 import { useState } from "react";
 
@@ -14,7 +16,7 @@ export function Header() {
       <header className="site-header">
         <div className="shell header-inner">
           <a href="/#top" className="brand" aria-label="TB Electrical home" onClick={() => setOpen(false)}>
-            <img src="/media/tb-logo.webp" alt="TB Electrical" />
+            <img src={logo.variants[1].src} srcSet={logo.variants.map(image => `${image.src} ${image.width}w`).join(", ")} sizes="136px" width={logo.width} height={logo.height} alt="TB Electrical" decoding="async" />
           </a>
           <button className={`menu-toggle ${open ? "is-open" : ""}`} onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation">
             <span /><span />

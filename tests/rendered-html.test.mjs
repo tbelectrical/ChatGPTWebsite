@@ -272,3 +272,26 @@ test("paid EICR landing page is crawlable, unlisted and ready for qualified enqu
     }
   }
 });
+
+test("mobile images are responsive, correctly cached and discovered without JavaScript", async () => {
+  const html = await (await fetch(origin)).text();
+  const hero = html.match(/<img[^>]+alt="Warm exterior wall lighting[^>]+>/)?.[0];
+  assert.ok(hero);
+  assert.match(hero, /srcSet="[^"]+ 320w,[^"]+ 640w/);
+  assert.match(hero, /sizes="\(max-width: 820px\)/);
+  assert.match(hero, /fetchPriority="high"/);
+  assert.doesNotMatch(hero, /loading="lazy"/);
+  const mobile = hero.match(/(\/media\/optimized\/[^ ,"]+-640-[^ ,"]+\.webp) 640w/)?.[1];
+  assert.ok(mobile);
+  const response = await fetch(`${origin}${mobile}`);
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type"), /image\/webp/);
+  assert.equal(response.headers.get("cache-control"), "public, max-age=31536000, immutable");
+  assert.ok((await response.arrayBuffer()).byteLength < 50000, "640px hero should stay below 50 KB");
+  const original = await fetch(`${origin}/media/home-exterior-lighting-hero.webp`);
+  assert.match(original.headers.get("cache-control"), /max-age=86400/);
+  const cssUrls = [...html.matchAll(/<link[^>]+href="([^"]+\.css)"[^>]*>/g)].map(match => match[1]);
+  const css = (await Promise.all(cssUrls.map(async path => (await fetch(`${origin}${path}`)).text()))).join("\n");
+  assert.doesNotMatch(css, /url\(['"]?\/media\/(?:domestic-uk-house|commercial-shop-lighting|industrial-factory-lighting)/);
+  assert.doesNotMatch(css, /\.ev-sales-form\s*\{/);
+});

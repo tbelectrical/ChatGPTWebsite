@@ -40,3 +40,6 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+
+# Deterministic responsive images are generated before dev/build.
+/public/media/optimized/

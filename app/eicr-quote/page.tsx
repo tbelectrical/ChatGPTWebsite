@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "../components/ResponsiveImage";
 import type { Metadata } from "next";
 import { ContactForm } from "../components/ContactForm";
 import { CookieSettings } from "../components/CookieConsent";
@@ -38,7 +39,7 @@ const serviceSchema = {
 export default function EicrQuotePage() {
   return <div className="eicr-page">
     <header className="eicr-header"><div className="shell eicr-header-inner">
-      <a href="/" aria-label="TB Electrical home"><img src="/media/tb-logo-white.webp" alt="TB Electrical" width={164} height={72} /></a>
+      <a href="/" aria-label="TB Electrical home"><ResponsiveImage src="/media/tb-logo-white.webp" alt="TB Electrical" width={164} height={72} /></a>
       <div className="eicr-header-contact"><div><span>Speak to Tyler</span><a href="tel:+447484605599">07484 605 599</a></div><a className="button button-primary eicr-header-quote" href="#eicr-enquiry">Get a quote <span aria-hidden="true">↗</span></a></div>
     </div></header>
     <main id="main-content">
@@ -55,7 +56,7 @@ export default function EicrQuotePage() {
         <div className="eicr-quote-panel" id="eicr-enquiry"><p className="eicr-panel-kicker">Free, no-obligation quote</p><h2>Get your<br />EICR quote.</h2><p>Tell me about the property and when the report is due. I’ll confirm the price and discuss available dates.</p><ContactForm source="eicr-landing-page" eicrFocused /><p className="eicr-form-alternative">Homeowner or buying a property? I can help with that too.</p></div>
       </div></section>
       <section className="eicr-credentials" aria-label="Professional credentials"><div className="shell">
-        <div><img src="/media/napit-red-tick.png" alt="NAPIT" width={600} height={600} /><span>NAPIT registered</span></div><div><strong>2391-52</strong><span>City & Guilds qualified</span></div><div><strong>Fully insured</strong><span>For your peace of mind</span></div><a href="https://www.trustmark.org.uk/firms/TB%20Electrical%20Herts%20Ltd-4136741-SG5%204SN?id=6a0f78e4-068a-4311-bbf1-663f7f6bd737" target="_blank" rel="noreferrer"><img src="/media/trustmark-logo.svg" alt="TrustMark" width={130} height={52} /><span>View my profile ↗</span></a>
+        <div><ResponsiveImage src="/media/napit-red-tick.png" alt="NAPIT" width={600} height={600} /><span>NAPIT registered</span></div><div><strong>2391-52</strong><span>City & Guilds qualified</span></div><div><strong>Fully insured</strong><span>For your peace of mind</span></div><a href="https://www.trustmark.org.uk/firms/TB%20Electrical%20Herts%20Ltd-4136741-SG5%204SN?id=6a0f78e4-068a-4311-bbf1-663f7f6bd737" target="_blank" rel="noreferrer"><ResponsiveImage src="/media/trustmark-logo.svg" alt="TrustMark" width={130} height={52} /><span>View my profile ↗</span></a>
       </div></section>
       <section className="shell eicr-section eicr-choice" aria-labelledby="eicr-choice-heading">
         <div className="eicr-section-heading"><p className="eyebrow dark"><span /> Why choose TB Electrical?</p><h2 id="eicr-choice-heading">Easy to deal with.<br /><em>Careful with the details.</em></h2><p>Getting your rental’s electrical report sorted should feel straightforward. You want someone who takes the inspection seriously and treats your property with respect.</p></div>
@@ -82,7 +83,7 @@ export default function EicrQuotePage() {
       <section className="eicr-faq-band"><div className="shell eicr-section eicr-faq"><div><p className="eyebrow dark"><span /> Before you book</p><h2>A few things<br /><em>you might be wondering.</em></h2></div><div>{faqs.map(([question, answer]) => <details key={question}><summary><span>{question}</span><i aria-hidden="true">+</i></summary><p>{answer}</p></details>)}<p className="eicr-guidance">For rental requirements in England, see the <a href="https://www.gov.uk/government/publications/electrical-safety-standards-in-the-private-and-social-rented-sectors-guidance/electrical-safety-standards-in-the-private-and-social-rented-sectors-guidance" target="_blank" rel="noreferrer">government’s electrical safety guidance ↗</a>.</p></div></div></section>
       <section className="eicr-final"><div className="shell"><p className="eyebrow dark"><span /> Your local EICR electrician</p><h2>Feel good about<br />who you <em>let in.</em></h2><p>Let’s get your property’s electrical inspection sorted.</p><div className="eicr-final-actions"><a className="button button-dark" href="#eicr-enquiry">Get my EICR quote <span aria-hidden="true">↗</span></a><a href="tel:+447484605599">Call Tyler on 07484 605 599</a></div></div></section>
     </main>
-    <footer className="eicr-footer"><div className="shell"><div><a href="/" aria-label="TB Electrical home"><img src="/media/tb-logo-white.webp" alt="TB Electrical" width={164} height={72} loading="lazy" /></a><p>TB Electrical Herts Ltd · Company no. 16596265<br />Based in Hitchin, Hertfordshire</p></div><div><a href="mailto:tyler@tbelectrical.co.uk">tyler@tbelectrical.co.uk</a><a href="/privacy">Privacy notice</a><a href="/cookies">Cookie policy</a><CookieSettings /></div></div></footer>
+    <footer className="eicr-footer"><div className="shell"><div><a href="/" aria-label="TB Electrical home"><ResponsiveImage src="/media/tb-logo-white.webp" alt="TB Electrical" width={164} height={72} loading="lazy" /></a><p>TB Electrical Herts Ltd · Company no. 16596265<br />Based in Hitchin, Hertfordshire</p></div><div><a href="mailto:tyler@tbelectrical.co.uk">tyler@tbelectrical.co.uk</a><a href="/privacy">Privacy notice</a><a href="/cookies">Cookie policy</a><CookieSettings /></div></div></footer>
     <nav className="eicr-mobile-actions" aria-label="EICR enquiry actions"><a href="tel:+447484605599">Call Tyler</a><a href="#eicr-enquiry">Get my EICR quote <span aria-hidden="true">↗</span></a></nav>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
   </div>;

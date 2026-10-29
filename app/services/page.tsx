@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "../components/ResponsiveImage";
 import { PageBreadcrumb } from "../components/PageBreadcrumb";
 import { pageMetadata } from "../lib/seo";
 import { SiteLink as Link } from "../components/SiteLink";
@@ -17,7 +18,7 @@ export default function ServicesPage() {
     <section className="page-hero shell"><PageBreadcrumb name="Electrical services" path="/services" /><p className="eyebrow dark"><span /> Electrical services</p><h1>Electrical services.<br /><em>Small job or big project.</em></h1><p>Domestic, commercial and industrial electrical services across Hitchin, Baldock, Letchworth, Stevenage, Langford and Biggleswade. We plan the work, do it safely and keep you updated.</p></section>
     <section className="scope-banner"><div className="shell"><p><b>What we do</b> Low-voltage work across homes, businesses and industrial sites.</p><p><b>What we don’t do</b> Solar PV, battery storage or high-voltage work.</p></div></section>
     {sectors.map((sector) => <section className="sector-detail section shell" id={sector.id} key={sector.id}>
-      <div className="sector-detail-image"><img src={sector.image} alt={sector.imageAlt} width={1122} height={1402} loading="lazy" decoding="async" /></div>
+      <div className="sector-detail-image"><ResponsiveImage src={sector.image} alt={sector.imageAlt} width={1122} height={1402} loading="lazy" decoding="async" /></div>
       <div className="sector-detail-copy"><p className="eyebrow dark"><span /> {sector.number} · {sector.label}</p><h2>{sector.title}</h2><p>{sector.body}</p><ul>{sector.items.map(item => <li key={item}>{item}<span>↗</span></li>)}</ul><Link className="button button-dark" href="/contact">Tell us about the job <span>↗</span></Link></div>
     </section>)}
     <section className="cta-ribbon"><div className="shell"><div><p>Not sure what the job involves?</p><h2>Show us the problem.<br />We’ll work it out.</h2></div><Link className="button button-primary" href="/contact">Ask an electrician <span>↗</span></Link></div></section>

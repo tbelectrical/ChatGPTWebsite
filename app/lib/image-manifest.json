@@ -1,0 +1,860 @@
+{
+  "/media/TBE-12.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 82694,
+    "variants": [
+      {
+        "src": "/media/optimized/TBE-12-320-0611cfa9943b.webp",
+        "width": 320,
+        "bytes": 10632
+      },
+      {
+        "src": "/media/optimized/TBE-12-480-456818bbff1c.webp",
+        "width": 480,
+        "bytes": 18802
+      },
+      {
+        "src": "/media/optimized/TBE-12-640-4b11eb322d8a.webp",
+        "width": 640,
+        "bytes": 28748
+      },
+      {
+        "src": "/media/optimized/TBE-12-960-b89a9c5b68b8.webp",
+        "width": 960,
+        "bytes": 53768
+      },
+      {
+        "src": "/media/optimized/TBE-12-1440-0310160ecbe9.webp",
+        "width": 1440,
+        "bytes": 84294
+      }
+    ]
+  },
+  "/media/TBE-20.webp": {
+    "width": 2000,
+    "height": 1500,
+    "originalBytes": 73026,
+    "variants": [
+      {
+        "src": "/media/optimized/TBE-20-320-92dbc40058e0.webp",
+        "width": 320,
+        "bytes": 5346
+      },
+      {
+        "src": "/media/optimized/TBE-20-480-ead5b31751b7.webp",
+        "width": 480,
+        "bytes": 10674
+      },
+      {
+        "src": "/media/optimized/TBE-20-640-8fa55677923b.webp",
+        "width": 640,
+        "bytes": 16514
+      },
+      {
+        "src": "/media/optimized/TBE-20-960-3e5f16dea8db.webp",
+        "width": 960,
+        "bytes": 31204
+      },
+      {
+        "src": "/media/optimized/TBE-20-1440-4079b9ed4c1a.webp",
+        "width": 1440,
+        "bytes": 57088
+      }
+    ]
+  },
+  "/media/TBE-33.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 108530,
+    "variants": [
+      {
+        "src": "/media/optimized/TBE-33-320-ddc3f31d118e.webp",
+        "width": 320,
+        "bytes": 12942
+      },
+      {
+        "src": "/media/optimized/TBE-33-480-9d91d8dc6c65.webp",
+        "width": 480,
+        "bytes": 24798
+      },
+      {
+        "src": "/media/optimized/TBE-33-640-ad1f1d94460e.webp",
+        "width": 640,
+        "bytes": 39912
+      },
+      {
+        "src": "/media/optimized/TBE-33-960-c843b99d007c.webp",
+        "width": 960,
+        "bytes": 71576
+      },
+      {
+        "src": "/media/optimized/TBE-33-1440-42a3db216ee5.webp",
+        "width": 1440,
+        "bytes": 112860
+      }
+    ]
+  },
+  "/media/TBE-44.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 61284,
+    "variants": [
+      {
+        "src": "/media/optimized/TBE-44-320-4864b32c46d6.webp",
+        "width": 320,
+        "bytes": 7456
+      },
+      {
+        "src": "/media/optimized/TBE-44-480-ee168e658c3f.webp",
+        "width": 480,
+        "bytes": 14128
+      },
+      {
+        "src": "/media/optimized/TBE-44-640-e5cf6d400cfb.webp",
+        "width": 640,
+        "bytes": 22262
+      },
+      {
+        "src": "/media/optimized/TBE-44-960-41752d5a95fd.webp",
+        "width": 960,
+        "bytes": 39658
+      },
+      {
+        "src": "/media/optimized/TBE-44-1440-0dd902fb5341.webp",
+        "width": 1440,
+        "bytes": 63230
+      }
+    ]
+  },
+  "/media/TBE-56.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 155914,
+    "variants": [
+      {
+        "src": "/media/optimized/TBE-56-320-c6538b755e3c.webp",
+        "width": 320,
+        "bytes": 16104
+      },
+      {
+        "src": "/media/optimized/TBE-56-480-94965ea3edfd.webp",
+        "width": 480,
+        "bytes": 34330
+      },
+      {
+        "src": "/media/optimized/TBE-56-640-f4d5447f43b5.webp",
+        "width": 640,
+        "bytes": 56498
+      },
+      {
+        "src": "/media/optimized/TBE-56-960-404f1d1b71b7.webp",
+        "width": 960,
+        "bytes": 104790
+      },
+      {
+        "src": "/media/optimized/TBE-56-1440-74ed40ce9dcc.webp",
+        "width": 1440,
+        "bytes": 165478
+      }
+    ]
+  },
+  "/media/TBE-62.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 48778,
+    "variants": [
+      {
+        "src": "/media/optimized/TBE-62-320-feda7cfcfccb.webp",
+        "width": 320,
+        "bytes": 7752
+      },
+      {
+        "src": "/media/optimized/TBE-62-480-bf4ffae519c1.webp",
+        "width": 480,
+        "bytes": 13442
+      },
+      {
+        "src": "/media/optimized/TBE-62-640-e953ed16cc69.webp",
+        "width": 640,
+        "bytes": 20172
+      },
+      {
+        "src": "/media/optimized/TBE-62-960-d34c09696476.webp",
+        "width": 960,
+        "bytes": 33346
+      },
+      {
+        "src": "/media/optimized/TBE-62-1440-e1bdc8048b38.webp",
+        "width": 1440,
+        "bytes": 51082
+      }
+    ]
+  },
+  "/media/TBE-81.webp": {
+    "width": 1125,
+    "height": 1500,
+    "originalBytes": 324570,
+    "variants": [
+      {
+        "src": "/media/optimized/TBE-81-320-291dbb7c6c70.webp",
+        "width": 320,
+        "bytes": 28784
+      },
+      {
+        "src": "/media/optimized/TBE-81-480-868d7531db5a.webp",
+        "width": 480,
+        "bytes": 69684
+      },
+      {
+        "src": "/media/optimized/TBE-81-640-f6bf370d0e81.webp",
+        "width": 640,
+        "bytes": 127852
+      },
+      {
+        "src": "/media/optimized/TBE-81-960-7d908f39b4a9.webp",
+        "width": 960,
+        "bytes": 267590
+      },
+      {
+        "src": "/media/optimized/TBE-81-1125-cd9c6e550c61.webp",
+        "width": 1125,
+        "bytes": 376530
+      }
+    ]
+  },
+  "/media/TBE-84.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 192792,
+    "variants": [
+      {
+        "src": "/media/optimized/TBE-84-320-763e4bcd9876.webp",
+        "width": 320,
+        "bytes": 21746
+      },
+      {
+        "src": "/media/optimized/TBE-84-480-9d97b8763edc.webp",
+        "width": 480,
+        "bytes": 43260
+      },
+      {
+        "src": "/media/optimized/TBE-84-640-838a2576c523.webp",
+        "width": 640,
+        "bytes": 68276
+      },
+      {
+        "src": "/media/optimized/TBE-84-960-576adbe3b917.webp",
+        "width": 960,
+        "bytes": 125970
+      },
+      {
+        "src": "/media/optimized/TBE-84-1440-28f1addb9dda.webp",
+        "width": 1440,
+        "bytes": 199830
+      }
+    ]
+  },
+  "/media/city-and-guilds-logo.png": {
+    "width": 196,
+    "height": 118,
+    "originalBytes": 6275,
+    "variants": [
+      {
+        "src": "/media/optimized/city-and-guilds-logo-160-3eb5ebe09b53.webp",
+        "width": 160,
+        "bytes": 7458
+      },
+      {
+        "src": "/media/optimized/city-and-guilds-logo-196-e7c9fe0f16a3.webp",
+        "width": 196,
+        "bytes": 4048
+      }
+    ]
+  },
+  "/media/commercial-shop-lighting.webp": {
+    "width": 1122,
+    "height": 1402,
+    "originalBytes": 197078,
+    "variants": [
+      {
+        "src": "/media/optimized/commercial-shop-lighting-320-63ed3bbfb71e.webp",
+        "width": 320,
+        "bytes": 19196
+      },
+      {
+        "src": "/media/optimized/commercial-shop-lighting-480-96ac1d789ba2.webp",
+        "width": 480,
+        "bytes": 36496
+      },
+      {
+        "src": "/media/optimized/commercial-shop-lighting-640-b6ada5cde791.webp",
+        "width": 640,
+        "bytes": 56258
+      },
+      {
+        "src": "/media/optimized/commercial-shop-lighting-960-c7c03c8422b4.webp",
+        "width": 960,
+        "bytes": 95970
+      },
+      {
+        "src": "/media/optimized/commercial-shop-lighting-1122-4453ff7422b6.webp",
+        "width": 1122,
+        "bytes": 139304
+      }
+    ]
+  },
+  "/media/consumer-unit.webp": {
+    "width": 750,
+    "height": 1000,
+    "originalBytes": 114632,
+    "variants": [
+      {
+        "src": "/media/optimized/consumer-unit-320-dfbf5d410083.webp",
+        "width": 320,
+        "bytes": 22066
+      },
+      {
+        "src": "/media/optimized/consumer-unit-480-037a2620a7e7.webp",
+        "width": 480,
+        "bytes": 40202
+      },
+      {
+        "src": "/media/optimized/consumer-unit-640-ae7bb2e6feef.webp",
+        "width": 640,
+        "bytes": 57672
+      },
+      {
+        "src": "/media/optimized/consumer-unit-750-6a9c2de5cc2d.webp",
+        "width": 750,
+        "bytes": 85372
+      }
+    ]
+  },
+  "/media/domestic-uk-house.webp": {
+    "width": 1122,
+    "height": 1402,
+    "originalBytes": 188928,
+    "variants": [
+      {
+        "src": "/media/optimized/domestic-uk-house-320-c178af99e298.webp",
+        "width": 320,
+        "bytes": 13714
+      },
+      {
+        "src": "/media/optimized/domestic-uk-house-480-a1deeff4d026.webp",
+        "width": 480,
+        "bytes": 28262
+      },
+      {
+        "src": "/media/optimized/domestic-uk-house-640-da2d3e55ef10.webp",
+        "width": 640,
+        "bytes": 45042
+      },
+      {
+        "src": "/media/optimized/domestic-uk-house-960-1bac346d4e55.webp",
+        "width": 960,
+        "bytes": 83298
+      },
+      {
+        "src": "/media/optimized/domestic-uk-house-1122-150e1752d863.webp",
+        "width": 1122,
+        "bytes": 137178
+      }
+    ]
+  },
+  "/media/garage-consumer-unit-completed.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 305466,
+    "variants": [
+      {
+        "src": "/media/optimized/garage-consumer-unit-completed-320-08fb8d684fd7.webp",
+        "width": 320,
+        "bytes": 12154
+      },
+      {
+        "src": "/media/optimized/garage-consumer-unit-completed-480-8361fe81398c.webp",
+        "width": 480,
+        "bytes": 23422
+      },
+      {
+        "src": "/media/optimized/garage-consumer-unit-completed-640-cd6660e5bae2.webp",
+        "width": 640,
+        "bytes": 39632
+      },
+      {
+        "src": "/media/optimized/garage-consumer-unit-completed-960-7c9691cc68c9.webp",
+        "width": 960,
+        "bytes": 80602
+      },
+      {
+        "src": "/media/optimized/garage-consumer-unit-completed-1440-01c8dc047b13.webp",
+        "width": 1440,
+        "bytes": 144326
+      }
+    ]
+  },
+  "/media/garage-consumer-unit-wiring-detail.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 219796,
+    "variants": [
+      {
+        "src": "/media/optimized/garage-consumer-unit-wiring-detail-320-1721c6cb472e.webp",
+        "width": 320,
+        "bytes": 12494
+      },
+      {
+        "src": "/media/optimized/garage-consumer-unit-wiring-detail-480-6b94ef9e3741.webp",
+        "width": 480,
+        "bytes": 22854
+      },
+      {
+        "src": "/media/optimized/garage-consumer-unit-wiring-detail-640-3cdebe924c81.webp",
+        "width": 640,
+        "bytes": 35712
+      },
+      {
+        "src": "/media/optimized/garage-consumer-unit-wiring-detail-960-060aef967de4.webp",
+        "width": 960,
+        "bytes": 66520
+      },
+      {
+        "src": "/media/optimized/garage-consumer-unit-wiring-detail-1440-df5b64b003eb.webp",
+        "width": 1440,
+        "bytes": 109802
+      }
+    ]
+  },
+  "/media/garden_1411453191.webp": {
+    "width": 2000,
+    "height": 796,
+    "originalBytes": 156450,
+    "variants": [
+      {
+        "src": "/media/optimized/garden_1411453191-320-1f25c2baa25d.webp",
+        "width": 320,
+        "bytes": 9068
+      },
+      {
+        "src": "/media/optimized/garden_1411453191-480-c3e62d14e9c5.webp",
+        "width": 480,
+        "bytes": 18122
+      },
+      {
+        "src": "/media/optimized/garden_1411453191-640-96b3cdf4ac3f.webp",
+        "width": 640,
+        "bytes": 29836
+      },
+      {
+        "src": "/media/optimized/garden_1411453191-960-38a3fb353511.webp",
+        "width": 960,
+        "bytes": 59980
+      },
+      {
+        "src": "/media/optimized/garden_1411453191-1440-63eaddc49490.webp",
+        "width": 1440,
+        "bytes": 112278
+      }
+    ]
+  },
+  "/media/hero-img.webp": {
+    "width": 1024,
+    "height": 768,
+    "originalBytes": 122646,
+    "variants": [
+      {
+        "src": "/media/optimized/hero-img-320-f92e28b97854.webp",
+        "width": 320,
+        "bytes": 11236
+      },
+      {
+        "src": "/media/optimized/hero-img-480-60ee9f7f8251.webp",
+        "width": 480,
+        "bytes": 21970
+      },
+      {
+        "src": "/media/optimized/hero-img-640-3b4a30b5ad16.webp",
+        "width": 640,
+        "bytes": 34730
+      },
+      {
+        "src": "/media/optimized/hero-img-960-d9b5f27a54f2.webp",
+        "width": 960,
+        "bytes": 65218
+      },
+      {
+        "src": "/media/optimized/hero-img-1024-3c4fe01b6064.webp",
+        "width": 1024,
+        "bytes": 96152
+      }
+    ]
+  },
+  "/media/home-exterior-lighting-hero.webp": {
+    "width": 1448,
+    "height": 1086,
+    "originalBytes": 305502,
+    "variants": [
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-320-e2fd15bc0f0c.webp",
+        "width": 320,
+        "bytes": 12904
+      },
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-480-7bd68a2ba7c8.webp",
+        "width": 480,
+        "bytes": 26930
+      },
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-640-19f1bf34a904.webp",
+        "width": 640,
+        "bytes": 44966
+      },
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-960-1820e3b11049.webp",
+        "width": 960,
+        "bytes": 83984
+      },
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-1440-06650f1642c1.webp",
+        "width": 1440,
+        "bytes": 143494
+      }
+    ]
+  },
+  "/media/industrial-factory-lighting.webp": {
+    "width": 1122,
+    "height": 1402,
+    "originalBytes": 234816,
+    "variants": [
+      {
+        "src": "/media/optimized/industrial-factory-lighting-320-3698193ae947.webp",
+        "width": 320,
+        "bytes": 23126
+      },
+      {
+        "src": "/media/optimized/industrial-factory-lighting-480-e493822abfc5.webp",
+        "width": 480,
+        "bytes": 44592
+      },
+      {
+        "src": "/media/optimized/industrial-factory-lighting-640-c289b5e6b446.webp",
+        "width": 640,
+        "bytes": 68988
+      },
+      {
+        "src": "/media/optimized/industrial-factory-lighting-960-bf353e1065ec.webp",
+        "width": 960,
+        "bytes": 117042
+      },
+      {
+        "src": "/media/optimized/industrial-factory-lighting-1122-a41d31ad3b86.webp",
+        "width": 1122,
+        "bytes": 174720
+      }
+    ]
+  },
+  "/media/lighting_1318092111.webp": {
+    "width": 2000,
+    "height": 796,
+    "originalBytes": 163330,
+    "variants": [
+      {
+        "src": "/media/optimized/lighting_1318092111-320-004a1991ee80.webp",
+        "width": 320,
+        "bytes": 6954
+      },
+      {
+        "src": "/media/optimized/lighting_1318092111-480-c585d4bef179.webp",
+        "width": 480,
+        "bytes": 14018
+      },
+      {
+        "src": "/media/optimized/lighting_1318092111-640-ecbc7402a2ce.webp",
+        "width": 640,
+        "bytes": 23814
+      },
+      {
+        "src": "/media/optimized/lighting_1318092111-960-95f2c05d2d3f.webp",
+        "width": 960,
+        "bytes": 52112
+      },
+      {
+        "src": "/media/optimized/lighting_1318092111-1440-19b5f2c6946d.webp",
+        "width": 1440,
+        "bytes": 107540
+      }
+    ]
+  },
+  "/media/napit-red-tick.png": {
+    "width": 600,
+    "height": 600,
+    "originalBytes": 8769,
+    "variants": [
+      {
+        "src": "/media/optimized/napit-red-tick-160-ccca50e46145.webp",
+        "width": 160,
+        "bytes": 3080
+      },
+      {
+        "src": "/media/optimized/napit-red-tick-320-843d25c62a85.webp",
+        "width": 320,
+        "bytes": 5562
+      },
+      {
+        "src": "/media/optimized/napit-red-tick-480-850366d6b334.webp",
+        "width": 480,
+        "bytes": 8130
+      }
+    ]
+  },
+  "/media/ohme-home-pro.webp": {
+    "width": 1600,
+    "height": 1466,
+    "originalBytes": 304510,
+    "variants": [
+      {
+        "src": "/media/optimized/ohme-home-pro-320-6ce42bba49f1.webp",
+        "width": 320,
+        "bytes": 16586
+      },
+      {
+        "src": "/media/optimized/ohme-home-pro-480-fd58d50e61b4.webp",
+        "width": 480,
+        "bytes": 31148
+      },
+      {
+        "src": "/media/optimized/ohme-home-pro-640-543e60684401.webp",
+        "width": 640,
+        "bytes": 48128
+      },
+      {
+        "src": "/media/optimized/ohme-home-pro-960-dc56ea365213.webp",
+        "width": 960,
+        "bytes": 86282
+      },
+      {
+        "src": "/media/optimized/ohme-home-pro-1440-184d2d0b380a.webp",
+        "width": 1440,
+        "bytes": 152212
+      }
+    ]
+  },
+  "/media/rewires1509-1.webp": {
+    "width": 480,
+    "height": 640,
+    "originalBytes": 51932,
+    "variants": [
+      {
+        "src": "/media/optimized/rewires1509-1-320-b6ee4a7b9e84.webp",
+        "width": 320,
+        "bytes": 20800
+      },
+      {
+        "src": "/media/optimized/rewires1509-1-480-ea60a942ecf2.webp",
+        "width": 480,
+        "bytes": 45302
+      }
+    ]
+  },
+  "/media/simpson-partners-ev-charger-detail.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 219520,
+    "variants": [
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-detail-320-5d27ab34aff0.webp",
+        "width": 320,
+        "bytes": 12784
+      },
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-detail-480-86118fd1e957.webp",
+        "width": 480,
+        "bytes": 24360
+      },
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-detail-640-6aad72b5d0d1.webp",
+        "width": 640,
+        "bytes": 38888
+      },
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-detail-960-33e26933a137.webp",
+        "width": 960,
+        "bytes": 69732
+      },
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-detail-1440-b9220c64149b.webp",
+        "width": 1440,
+        "bytes": 116780
+      }
+    ]
+  },
+  "/media/simpson-partners-ev-charger-installation.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 548154,
+    "variants": [
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-installation-320-a425f6d57586.webp",
+        "width": 320,
+        "bytes": 15898
+      },
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-installation-480-32cff52a6ce2.webp",
+        "width": 480,
+        "bytes": 35456
+      },
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-installation-640-4a8cfb49ba15.webp",
+        "width": 640,
+        "bytes": 62534
+      },
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-installation-960-c32546fb0068.webp",
+        "width": 960,
+        "bytes": 136398
+      },
+      {
+        "src": "/media/optimized/simpson-partners-ev-charger-installation-1440-274ca2ef92ef.webp",
+        "width": 1440,
+        "bytes": 274330
+      }
+    ]
+  },
+  "/media/tb-logo-white.webp": {
+    "width": 1500,
+    "height": 945,
+    "originalBytes": 78952,
+    "variants": [
+      {
+        "src": "/media/optimized/tb-logo-white-160-b5ba2c59ce9a.webp",
+        "width": 160,
+        "bytes": 6728
+      },
+      {
+        "src": "/media/optimized/tb-logo-white-320-b30d67f049be.webp",
+        "width": 320,
+        "bytes": 14134
+      },
+      {
+        "src": "/media/optimized/tb-logo-white-480-ce9131edb345.webp",
+        "width": 480,
+        "bytes": 20280
+      }
+    ]
+  },
+  "/media/tb-logo.webp": {
+    "width": 1500,
+    "height": 945,
+    "originalBytes": 91592,
+    "variants": [
+      {
+        "src": "/media/optimized/tb-logo-160-27a4b956a2d3.webp",
+        "width": 160,
+        "bytes": 6284
+      },
+      {
+        "src": "/media/optimized/tb-logo-320-364e2eaef4df.webp",
+        "width": 320,
+        "bytes": 13246
+      },
+      {
+        "src": "/media/optimized/tb-logo-480-10a76267dcab.webp",
+        "width": 480,
+        "bytes": 20036
+      }
+    ]
+  },
+  "/media/tbelec-11.webp": {
+    "width": 1500,
+    "height": 2000,
+    "originalBytes": 233076,
+    "variants": [
+      {
+        "src": "/media/optimized/tbelec-11-320-02ab6d49dd3d.webp",
+        "width": 320,
+        "bytes": 27060
+      },
+      {
+        "src": "/media/optimized/tbelec-11-480-a7f27725c9af.webp",
+        "width": 480,
+        "bytes": 52482
+      },
+      {
+        "src": "/media/optimized/tbelec-11-640-a5b91694e154.webp",
+        "width": 640,
+        "bytes": 83678
+      },
+      {
+        "src": "/media/optimized/tbelec-11-960-2f41df8675c3.webp",
+        "width": 960,
+        "bytes": 151234
+      },
+      {
+        "src": "/media/optimized/tbelec-11-1440-eb1d8eb8628c.webp",
+        "width": 1440,
+        "bytes": 239734
+      }
+    ]
+  },
+  "/media/tbelec-16.webp": {
+    "width": 2500,
+    "height": 3333,
+    "originalBytes": 297666,
+    "variants": [
+      {
+        "src": "/media/optimized/tbelec-16-320-64fc1ebe1b37.webp",
+        "width": 320,
+        "bytes": 6260
+      },
+      {
+        "src": "/media/optimized/tbelec-16-480-7496bce0269d.webp",
+        "width": 480,
+        "bytes": 11166
+      },
+      {
+        "src": "/media/optimized/tbelec-16-640-ee02ba4f7fad.webp",
+        "width": 640,
+        "bytes": 17360
+      },
+      {
+        "src": "/media/optimized/tbelec-16-960-ec1cb65a983b.webp",
+        "width": 960,
+        "bytes": 32794
+      },
+      {
+        "src": "/media/optimized/tbelec-16-1440-419f62458f8e.webp",
+        "width": 1440,
+        "bytes": 64220
+      }
+    ]
+  },
+  "/media/tbelec-2.webp": {
+    "width": 750,
+    "height": 1000,
+    "originalBytes": 205262,
+    "variants": [
+      {
+        "src": "/media/optimized/tbelec-2-320-058e9a1ae5b7.webp",
+        "width": 320,
+        "bytes": 29662
+      },
+      {
+        "src": "/media/optimized/tbelec-2-480-556146b3bd3c.webp",
+        "width": 480,
+        "bytes": 58528
+      },
+      {
+        "src": "/media/optimized/tbelec-2-640-5d6b5b7ba7ed.webp",
+        "width": 640,
+        "bytes": 91514
+      },
+      {
+        "src": "/media/optimized/tbelec-2-750-6d24376b30b3.webp",
+        "width": 750,
+        "bytes": 155258
+      }
+    ]
+  }
+}

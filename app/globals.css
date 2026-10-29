@@ -95,9 +95,6 @@ h2 { font-size: clamp(50px, 5.5vw, 88px); margin-bottom: 26px; }
 .sector-grid { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 74px; }
 .sector-card { min-height: 430px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 30px; color: var(--white); isolation: isolate; }
 .sector-card::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.82)); }
-.sector-domestic { background: url('/media/domestic-uk-house.webp') center/cover; }
-.sector-commercial { background: url('/media/commercial-shop-lighting.webp') center/cover; }
-.sector-industrial { background: url('/media/industrial-factory-lighting.webp') center/cover; }
 .sector-number { color: rgba(255,255,255,.6); font-size: 11px; letter-spacing: .12em; }
 .sector-card div p { margin: 0 0 7px; color: var(--yellow); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .sector-card h3 { margin: 0 0 14px; font-size: 35px; letter-spacing: -.04em; }
@@ -1192,122 +1189,9 @@ html[data-home-variant="split"] .split-only { display: block; }
 }
 @media(prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 
-/* Dedicated, unlisted EV advertising destination */
-.ev-sales { background: var(--paper); }
-.ev-sales-header { position: sticky; top: 0; z-index: 50; background: #171614f5; color: var(--white); border-bottom: 1px solid #ffffff26; }
-.ev-sales-header > .shell { display: flex; justify-content: space-between; align-items: center; min-height: 88px; gap: 20px; }
-.ev-sales-header img { width: 140px; height: 66px; object-fit: contain; }
-.ev-sales-header a:last-child { text-align: right; }
-.ev-sales-header a:last-child span { display: block; font-size: 11px; margin-bottom: 5px; color: #d0ccc2; }
-.ev-sales-header strong { color: var(--yellow); font-size: 22px; }
-.ev-sales-hero { background: #171614; color: var(--white); padding-block: 66px 80px; }
-.ev-sales-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,.9fr); gap: 70px; align-items: start; }
-.ev-sales h1 { font-size: clamp(64px,7.5vw,112px); line-height: .94; margin-bottom: 28px; }
-.ev-sales-intro { font-size: 22px; line-height: 1.55; max-width: 540px; color: #e5e1d7; }
-.ev-sales-area { max-width: 500px; color: #c6c1b5; font-size: 13px; line-height: 1.8; }
-.ev-sales-ticks { list-style: none; padding: 0; margin: 28px 0; display: grid; gap: 12px; font-size: 15px; }
-.ev-sales-ticks li::before { content: "✓"; color: var(--yellow); margin-right: 12px; font-weight: 800; }
-.ev-sales-photo { position: relative; overflow: hidden; height: 270px; margin-top: 38px; border-radius: 12px; background: #333; }
-.ev-sales-photo > img { width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
-.ev-sales-photo > div { position: absolute; inset: auto 0 0; padding: 36px 25px 22px; background: linear-gradient(transparent,#000c); }
-.ev-sales-photo strong, .ev-sales-photo span { display: block; }
-.ev-sales-photo strong { font-size: 24px; margin-bottom: 5px; }
-.ev-sales-photo span { font-size: 13px; }
-.ev-sales-form { border: 1px solid #ffffff24; border-radius: 16px; background: #272520; padding: 32px; scroll-margin-top: 105px; }
-.ev-sales-form h2 { font-size: 48px; line-height: 1; margin-bottom: 20px; }
-.ev-sales-form > p:not(.eyebrow) { color: #ded9ce; line-height: 1.6; font-size: 15px; }
-.ev-sales-form .eyebrow { margin-bottom: 20px; color: var(--yellow); }
-.ev-sales-form .contact-form { padding: 0; background: transparent; border: 0; border-radius: 0; }
-.ev-sales-form .form-heading { display: none; }
-.ev-sales-form .form-grid { gap: 18px 16px; }
-.ev-sales-form .form-grid label > span { color: #ede8dc; }
-.ev-sales-form .form-grid input, .ev-sales-form .form-grid textarea, .ev-sales-form .form-grid select { color: #171614; background: #fffef9; border: 1px solid #d1cbbf; }
-.ev-sales-form .form-note, .ev-sales-form .form-note a { color: #d4cebf; }
-.ev-sales-form .form-submit { margin-top: 22px; }
-.ev-sales-form .ev-sales-form-note { margin: 16px 0 0; font-size: 13px; text-align: center; }
-.ev-sales-form-note a { text-decoration: underline; }
-.ev-sales-form .form-success { color: #c5f3cf; }
-.ev-sales-form .form-error { color: #ffc7b8; }
-.ev-sales-mobile-cta { display: none; }
-.ev-sales-proof { background: var(--yellow); }
-.ev-sales-proof > .shell { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px 28px; margin-block: 0; padding: 24px 0; list-style: none; font-size: 13px; font-weight: 700; line-height: 1.5; }
-.ev-sales-proof li { display: flex; align-items: flex-start; gap: 10px; min-width: 0; }
-.ev-sales-proof li > span { display: grid; place-items: center; flex: 0 0 22px; height: 22px; border: 1px solid rgba(23,22,20,.3); border-radius: 50%; font-size: 13px; line-height: 1; }
-.ev-sales-section h2 { font-size: clamp(44px,5vw,72px); max-width: 850px; line-height: 1.02; }
-.ev-sales-section h2 em { color: #926100; }
-.ev-sales-benefits { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 34px; margin-top: 55px; }
-.ev-sales-benefits article { padding-top: 25px; border-top: 2px solid #ccc5b7; }
-.ev-sales-benefits b { display: block; margin-bottom: 24px; color: #896000; font-size: 14px; }
-.ev-sales-benefits h3 { font-size: 25px; letter-spacing: -.03em; }
-.ev-sales-benefits p, .ev-sales-two-col p { color: #5c574d; font-size: 17px; line-height: 1.8; }
-.ev-sales-review { background: #26231f; color: var(--white); padding-block: 70px; }
-.ev-sales-review blockquote { margin: 0; max-width: 950px; font-size: clamp(25px,3.2vw,43px); line-height: 1.4; letter-spacing: -.025em; }
-.ev-sales-review .shell > p:last-child { color: #c6c0b2; font-size: 13px; margin: 24px 0 0; }
-.ev-sales-two-col { display: grid; grid-template-columns: 1fr .85fr; gap: 90px; align-items: center; }
-.ev-sales-two-col .button { margin-top: 20px; }
-.ev-sales-checklist { padding: 36px; background: #e5e0d4; border-left: 5px solid var(--yellow); }
-.ev-sales-checklist h3 { font-size: 26px; }
-.ev-sales-checklist ul { list-style: none; padding: 0; }
-.ev-sales-checklist li { padding: 16px 0; border-bottom: 1px solid #c9c0ae; }
-.ev-sales-checklist li::before { content: "✓"; margin-right: 12px; }
-.ev-sales-checklist p { font-size: 14px; margin-bottom: 0; }
-.ev-sales-process { background: #171614; color: #fffef9; padding-block: 95px; }
-.ev-sales-process h2 { font-size: clamp(44px,5vw,72px); }
-.ev-sales-process ol { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 40px; margin: 50px 0 0; padding-left: 22px; }
-.ev-sales-process li { padding-left: 8px; }
-.ev-sales-process li::marker { color: var(--yellow); font-weight: 800; }
-.ev-sales-process strong { display: block; font-size: 22px; margin-bottom: 18px; }
-.ev-sales-process p { color: #c8c2b4; line-height: 1.8; font-size: 16px; }
-.ev-sales-final { padding-block: 90px; background: #24211c; color: #fffef9; border-top: 5px solid var(--yellow); }
-.ev-sales-final h2 { font-size: clamp(48px,6vw,86px); }
-.ev-sales-final > .shell > p:not(.eyebrow) { color: #d2caba; line-height: 1.7; }
-.ev-sales-final .button-row { margin-top: 32px; }
-.ev-sales-footer { background: #171614; color: #c8c2b4; padding-block: 32px; }
-.ev-sales-footer > .shell { display: flex; justify-content: space-between; gap: 30px; font-size: 12px; line-height: 1.8; }
-.ev-sales-footer p { margin: 0; }
-.ev-sales-footer > .shell > div { display: flex; flex-wrap: wrap; gap: 12px 22px; align-content: start; }
-.ev-sales-footer a { text-decoration: underline; text-underline-offset: 3px; }
-@media(max-width: 950px) { .ev-sales-grid { gap: 32px; } .ev-sales-form { padding: 25px; } .ev-sales-two-col { gap: 40px; } }
-@media(max-width: 760px) {
- .ev-sales-header strong { font-size: 18px; }
- .ev-sales-hero { padding-block: 45px 55px; }
- .ev-sales-grid, .ev-sales-two-col { grid-template-columns: 1fr; gap: 45px; }
- .ev-sales h1 { font-size: clamp(62px,13vw,94px); }
- .ev-sales-intro { font-size: 20px; }
- .ev-sales-photo { height: 240px; margin-top: 26px; }
- .ev-sales-mobile-cta { display: inline-flex; }
- .ev-sales-proof > .shell { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px 24px; font-size: 14px; }
- .ev-sales-benefits, .ev-sales-process ol { grid-template-columns: 1fr; gap: 28px; }
- .ev-sales-process { padding-block: 70px; }
- .ev-sales-benefits h3 { margin-bottom: 12px; }
- .ev-sales-section { padding-block: 75px; }
- .ev-sales-footer > .shell { flex-direction: column; gap: 20px; }
-}
-@media(max-width: 420px) { .ev-sales-header img { width: 115px; } .ev-sales-form { padding: 22px 18px; } .ev-sales-form .form-grid { grid-template-columns: 1fr; } .ev-sales-header strong { font-size: 16px; } }
 .home-main .hero h1 { font-size: clamp(58px,6.3vw,98px); }
 .ev-hero .breadcrumbs, .contact-hero .breadcrumbs { color: #c9c4b8; }
 @media(max-width:540px) { .home-main .hero h1 { font-size: clamp(49px,11vw,62px); } }
-
-/* The public EV page uses the sales layout with the standard site navigation. */
-.ev-sales-pitch .breadcrumbs { color: #d2cbbd; }
-.ev-sales-reassurance { max-width: 530px; color: #d2cbbd; font-size: 15px; line-height: 1.8; margin-bottom: 26px; }
-.ev-sales-benefits { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 40px; }
-.ev-sales-process ol { grid-template-columns: repeat(2,minmax(0,1fr)); }
-.ev-sales-faq .faq-list { max-width: 900px; }
-.ev-sales-faq .faq-list summary { grid-template-columns: minmax(0,1fr) 24px; gap: 20px; min-height: 64px; padding: 23px 0; }
-.ev-sales-faq .faq-list .ev-faq-question { min-width: 0; font-size: 18px; line-height: 1.5; color: var(--ink); overflow-wrap: anywhere; }
-.ev-sales-faq .faq-list summary i { justify-self: end; align-self: center; line-height: 1; }
-.ev-sales-faq .faq-list details p { margin: 0 44px 26px 0; max-width: 760px; font-size: 16px; line-height: 1.8; }
-.ev-sales-faq .faq-list details[open] summary { padding-bottom: 15px; }
-.ev-sales-coverage { padding-top: 0; }
-.ev-sales-coverage > p:not(.eyebrow) { max-width: 760px; color: #5c574d; font-size: 17px; line-height: 1.8; }
-@media(max-width:760px) {
- .ev-sales-benefits, .ev-sales-process ol { grid-template-columns: 1fr; gap: 28px; }
- .ev-sales-faq .faq-list summary { gap: 14px; padding-block: 20px; }
- .ev-sales-faq .faq-list .ev-faq-question { font-size: 17px; }
- .ev-sales-faq .faq-list details p { margin-right: 0; font-size: 16px; }
- .ev-sales-coverage { padding-top: 0; }
-}
 
 /* Three featured project photos in a complete grid. */
 @media(min-width:821px) {
@@ -1322,13 +1206,12 @@ html[data-home-variant="split"] .split-only { display: block; }
 /* Blend the whole link so its hover transform cannot isolate the image's white background. */
 .credential-banner-logos a:first-child { height: 112px; mix-blend-mode: multiply; }
 .credential-banner-logos a:first-child img { width: auto; height: 112px; max-width: 100%; object-fit: contain; }
-@media(max-width:540px) {
- .ev-sales-proof > .shell { grid-template-columns: minmax(0,1fr); gap: 0; padding-block: 10px; }
- .ev-sales-proof li { align-items: center; padding-block: 14px; }
- .ev-sales-proof li + li { border-top: 1px solid rgba(23,22,20,.18); }
-}
+
 
 @media(max-width:540px) {
  .credential-banner-logos a:first-child { height: 92px; }
  .credential-banner-logos a:first-child img { height: 92px; }
 }
+
+/* Keep the first visible content available for the initial paint. */
+.hero .reveal { animation: none; }

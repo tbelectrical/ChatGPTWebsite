@@ -2,11 +2,11 @@
 
 import { useOptionalConsent } from "./CookieConsent";
 
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 export function ExperimentGate() {
   const consent = useOptionalConsent();
-  useLayoutEffect(() => {
+  useEffect(() => {
     const requested = new URLSearchParams(window.location.search).get("variant");
     const variant = requested === "split" ? "split" : "long";
     document.documentElement.dataset.homeVariant = variant;

@@ -1,0 +1,22 @@
+{
+  "width": 1500,
+  "height": 945,
+  "originalBytes": 91592,
+  "variants": [
+    {
+      "src": "/media/optimized/tb-logo-160-27a4b956a2d3.webp",
+      "width": 160,
+      "bytes": 6284
+    },
+    {
+      "src": "/media/optimized/tb-logo-320-364e2eaef4df.webp",
+      "width": 320,
+      "bytes": 13246
+    },
+    {
+      "src": "/media/optimized/tb-logo-480-10a76267dcab.webp",
+      "width": 480,
+      "bytes": 20036
+    }
+  ]
+}

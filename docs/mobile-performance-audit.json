@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-29",
+  "baselineOrigin": "https://www.tbelectrical.co.uk",
+  "hero": {
+    "width": 1448,
+    "height": 1086,
+    "originalBytes": 305502,
+    "variants": [
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-320-e2fd15bc0f0c.webp",
+        "width": 320,
+        "bytes": 12904
+      },
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-480-7bd68a2ba7c8.webp",
+        "width": 480,
+        "bytes": 26930
+      },
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-640-19f1bf34a904.webp",
+        "width": 640,
+        "bytes": 44966
+      },
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-960-1820e3b11049.webp",
+        "width": 960,
+        "bytes": 83984
+      },
+      {
+        "src": "/media/optimized/home-exterior-lighting-hero-1440-06650f1642c1.webp",
+        "width": 1440,
+        "bytes": 143494
+      }
+    ]
+  },
+  "headerLogo": {
+    "width": 1500,
+    "height": 945,
+    "originalBytes": 91592,
+    "variants": [
+      {
+        "src": "/media/optimized/tb-logo-160-27a4b956a2d3.webp",
+        "width": 160,
+        "bytes": 6284
+      },
+      {
+        "src": "/media/optimized/tb-logo-320-364e2eaef4df.webp",
+        "width": 320,
+        "bytes": 13246
+      },
+      {
+        "src": "/media/optimized/tb-logo-480-10a76267dcab.webp",
+        "width": 480,
+        "bytes": 20036
+      }
+    ]
+  },
+  "homepageCss": {
+    "baselineBytes": 71810,
+    "updatedBytes": 63681,
+    "baselineGzipBytes": 14924,
+    "updatedGzipBytes": 13373
+  },
+  "checks": {
+    "nextBuild": "passed",
+    "githubTests": 26,
+    "sitesTests": 21,
+    "lighthouseMobileScore": null,
+    "redirects": {
+      "http://tbelectrical.co.uk/": "301 to https://tbelectrical.co.uk/ then 200",
+      "https://tbelectrical.co.uk/": 200,
+      "https://www.tbelectrical.co.uk/": 200
+    }
+  }
+}

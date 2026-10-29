@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "./components/ResponsiveImage";
 import { ConsentMap } from "./components/CookieConsent";
 import { locations } from "./lib/content";
 import { pageMetadata } from "./lib/seo";
@@ -48,7 +49,7 @@ export default function Home() {
             </div>
             <div className="hero-visual reveal reveal-delay">
               <div className="hero-image-frame">
-                <img src="/media/home-exterior-lighting-hero.webp" alt="Warm exterior wall lighting on a UK brick home at dusk" width={1448} height={1086} fetchPriority="high" decoding="async" />
+                <ResponsiveImage src="/media/home-exterior-lighting-hero.webp" alt="Warm exterior wall lighting on a UK brick home at dusk" width={1448} height={1086} fetchPriority="high" decoding="async" />
               </div>
               <div className="hero-float hero-float-top">
                 <span className="status-dot" />
@@ -91,15 +92,15 @@ export default function Home() {
           </div>
           <div className="shell sector-flow">
             <Link className="sector-story sector-domestic" href="/services#domestic" aria-label="View domestic electrical services">
-              <span className="sector-photo"><img src="/media/domestic-uk-house.webp" alt="British brick house with warm exterior lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
+              <span className="sector-photo"><ResponsiveImage src="/media/domestic-uk-house.webp" alt="British brick house with warm exterior lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
               <span className="sector-copy"><i>01 / Homes</i><strong>Domestic</strong><small>Rewires, upgrades, lighting, extra power and fault finding.</small><b>View domestic services <span>→</span></b></span>
             </Link>
             <Link className="sector-story sector-commercial" href="/services#commercial" aria-label="View commercial electrical services">
-              <span className="sector-photo"><img src="/media/commercial-shop-lighting.webp" alt="Modern shop interior with ceiling track lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
+              <span className="sector-photo"><ResponsiveImage src="/media/commercial-shop-lighting.webp" alt="Modern shop interior with ceiling track lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
               <span className="sector-copy"><i>02 / Businesses</i><strong>Commercial</strong><small>Fit-outs, maintenance and testing that works around your business.</small><b>View commercial services <span>→</span></b></span>
             </Link>
             <Link className="sector-story sector-industrial" href="/services#industrial" aria-label="View industrial electrical services">
-              <span className="sector-photo"><img src="/media/industrial-factory-lighting.webp" alt="Factory workshop with machinery, electrical distribution and high-bay lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
+              <span className="sector-photo"><ResponsiveImage src="/media/industrial-factory-lighting.webp" alt="Factory workshop with machinery, electrical distribution and high-bay lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
               <span className="sector-copy"><i>03 / Sites</i><strong>Industrial</strong><small>Reliable power, distribution and maintenance for busy sites.</small><b>View industrial services <span>→</span></b></span>
             </Link>
             <div className="sector-signoff" aria-hidden="true"><span>One team</span><b>Three sectors.</b></div>
@@ -134,7 +135,7 @@ export default function Home() {
           <div className="ev-wire" aria-hidden="true"><span /></div>
           <div className="shell ev-grid">
             <div className="ev-image-wrap">
-              <img src="/media/simpson-partners-ev-charger-detail.webp" alt="Simpson & Partners EV charger fitted by TB Electrical on timber cladding" width={1500} height={2000} loading="lazy" decoding="async" />
+              <ResponsiveImage src="/media/simpson-partners-ev-charger-detail.webp" alt="Simpson & Partners EV charger fitted by TB Electrical on timber cladding" width={1500} height={2000} loading="lazy" decoding="async" />
               <div className="ev-badge"><span>EV</span> charge point<br />installation</div>
             </div>
             <div className="ev-copy">
@@ -190,7 +191,7 @@ export default function Home() {
             <div className="project-grid shell project-grid-three">
               {projects.map((project) => (
                 <Link className={`project-card ${project.className}`} href="/projects" key={project.src} aria-label={`View project: ${project.title}`}>
-                  <img src={project.src} alt={project.title} width={project.width} height={project.height} loading="lazy" decoding="async" />
+                  <ResponsiveImage src={project.src} alt={project.title} width={project.width} height={project.height} loading="lazy" decoding="async" />
                   <span className="project-caption"><strong>{project.title}</strong><i>View project →</i></span>
                 </Link>
               ))}

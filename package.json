@@ -13,9 +13,11 @@
     "deploy": "vinext-cloudflare deploy",
     "test": "pnpm run build && node --test tests/*.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "prebuild": "node scripts/check-security-versions.mjs",
+    "prebuild": "node scripts/check-security-versions.mjs && node scripts/optimize-images.mjs",
     "security:check": "node scripts/check-security-versions.mjs",
-    "security:audit": "pnpm audit"
+    "security:audit": "pnpm audit",
+    "images:build": "node scripts/optimize-images.mjs",
+    "predev": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "next": "16.4.1",
