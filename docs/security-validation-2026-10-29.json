@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-29",
+  "node": "v24.22.1",
+  "packageManager": "pnpm@11.25.0",
+  "pnpmBefore": {
+    "info": 0,
+    "low": 0,
+    "moderate": 1,
+    "high": 0,
+    "critical": 0
+  },
+  "pnpmAfter": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "npmCleanResolution": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "sitesAfter": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "resolvedVersions": {
+    "undici": "7.30.1",
+    "ws": "8.21.0",
+    "sharp": "0.35.5",
+    "esbuild": "0.28.2",
+    "image-size": "2.0.3",
+    "satori": "0.33.5",
+    "@vercel/og": "1.0.3",
+    "fflate": "0.8.3"
+  },
+  "builds": {
+    "nextjs": "passed",
+    "sitesVinext": "passed"
+  },
+  "tests": {
+    "nextjs": {
+      "passed": 25,
+      "failed": 0
+    },
+    "sites": {
+      "passed": 21,
+      "failed": 0
+    }
+  },
+  "hostingerRescan": "Not performed; requires deployment of the patched source."
+}
