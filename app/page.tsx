@@ -49,7 +49,7 @@ export default function Home() {
             </div>
             <div className="hero-visual reveal reveal-delay">
               <div className="hero-image-frame">
-                <ResponsiveImage src="/media/home-exterior-lighting-hero.webp" alt="Warm exterior wall lighting on a UK brick home at dusk" width={1448} height={1086} fetchPriority="high" decoding="async" />
+                <ResponsiveImage src="/media/home-exterior-lighting-hero.webp" sizes="(max-width: 820px) calc(100vw - 32px), 55vw" alt="Warm exterior wall lighting on a UK brick home at dusk" width={1448} height={1086} fetchPriority="high" decoding="async" />
               </div>
               <div className="hero-float hero-float-top">
                 <span className="status-dot" />
@@ -92,7 +92,7 @@ export default function Home() {
           </div>
           <div className="shell sector-flow">
             <Link className="sector-story sector-domestic" href="/services#domestic" aria-label="View domestic electrical services">
-              <span className="sector-photo"><ResponsiveImage src="/media/domestic-uk-house.webp" alt="British brick house with warm exterior lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
+              <span className="sector-photo"><ResponsiveImage src="/media/domestic-uk-house.webp" sizes="(max-width: 820px) calc(100vw - 40px), 60vw" alt="British brick house with warm exterior lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
               <span className="sector-copy"><i>01 / Homes</i><strong>Domestic</strong><small>Rewires, upgrades, lighting, extra power and fault finding.</small><b>View domestic services <span>→</span></b></span>
             </Link>
             <Link className="sector-story sector-commercial" href="/services#commercial" aria-label="View commercial electrical services">
@@ -100,7 +100,7 @@ export default function Home() {
               <span className="sector-copy"><i>02 / Businesses</i><strong>Commercial</strong><small>Fit-outs, maintenance and testing that works around your business.</small><b>View commercial services <span>→</span></b></span>
             </Link>
             <Link className="sector-story sector-industrial" href="/services#industrial" aria-label="View industrial electrical services">
-              <span className="sector-photo"><ResponsiveImage src="/media/industrial-factory-lighting.webp" alt="Factory workshop with machinery, electrical distribution and high-bay lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
+              <span className="sector-photo"><ResponsiveImage src="/media/industrial-factory-lighting.webp" sizes="(max-width: 820px) calc(100vw - 40px), 55vw" alt="Factory workshop with machinery, electrical distribution and high-bay lighting" width={1122} height={1402} loading="lazy" decoding="async" /></span>
               <span className="sector-copy"><i>03 / Sites</i><strong>Industrial</strong><small>Reliable power, distribution and maintenance for busy sites.</small><b>View industrial services <span>→</span></b></span>
             </Link>
             <div className="sector-signoff" aria-hidden="true"><span>One team</span><b>Three sectors.</b></div>

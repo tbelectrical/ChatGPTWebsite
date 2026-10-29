@@ -17,7 +17,7 @@ const gallery = [
 export default function ProjectsPage() {
   return <><Header /><main id="main-content" className="subpage projects-page">
     <section className="page-hero shell"><PageBreadcrumb name="Electrical projects" path="/projects" /><p className="eyebrow dark"><span /> Recent work</p><h1>Electrical work.<br /><em>Worth a closer look.</em></h1><p>Explore our domestic, commercial and industrial electrical work, from lighting and consumer units to rewires and EV charging. Based in Hitchin, serving Hertfordshire and nearby Bedfordshire.</p></section>
-    <section className="gallery-section shell section"><div className="masonry-gallery">{gallery.map(([src, type, title], i) => <figure className={i % 5 === 0 ? "gallery-feature" : ""} key={src}><ResponsiveImage src={src} alt={title} loading="lazy" decoding="async" /><figcaption><span>{type}</span><b>{title}</b></figcaption></figure>)}</div></section>
+    <section className="gallery-section shell section"><div className="masonry-gallery">{gallery.map(([src, type, title], i) => <figure className={i % 5 === 0 ? "gallery-feature" : ""} key={src}><ResponsiveImage sizes="(max-width: 540px) calc(100vw - 40px), (max-width: 980px) 45vw, 30vw" src={src} alt={title} loading="lazy" decoding="async" /><figcaption><span>{type}</span><b>{title}</b></figcaption></figure>)}</div></section>
     <section className="cta-ribbon"><div className="shell"><div><p>Got a project in mind?</p><h2>Tell us what<br />you’re planning.</h2></div><Link className="button button-primary" href="/contact">Get a free quote <span>↗</span></Link></div></section>
   </main><Footer /></>;
 }
