@@ -1,0 +1,116 @@
+{
+  "audit": "EICR landing-page technical and conversion contract",
+  "date": "2026-10-29",
+  "summary": {
+    "passed": 19,
+    "failed": 0
+  },
+  "checks": [
+    {
+      "name": "Descriptive page title",
+      "status": "pass",
+      "detail": "EICR Testing in Hitchin | TB Electrical"
+    },
+    {
+      "name": "Unique service meta description",
+      "status": "pass",
+      "detail": "EICR due at your rental property? Book a qualified local electrician in Hitchin and nearby towns. Clear quote before testing. Request your EICR quote."
+    },
+    {
+      "name": "Production canonical without campaign parameters",
+      "status": "pass",
+      "detail": "https://www.tbelectrical.co.uk/eicr-quote"
+    },
+    {
+      "name": "Intentional search exclusion",
+      "status": "pass",
+      "detail": "Unlisted Google Ads page; organic /services/eicr retained"
+    },
+    {
+      "name": "One meaningful H1",
+      "status": "pass",
+      "detail": "Single EICR headline"
+    },
+    {
+      "name": "Service and area in opening",
+      "status": "pass",
+      "detail": "Locality and service visible before photo"
+    },
+    {
+      "name": "Social metadata",
+      "status": "pass",
+      "detail": "Open Graph and Twitter metadata present"
+    },
+    {
+      "name": "Mobile viewport",
+      "status": "pass",
+      "detail": "width=device-width, initial-scale=1"
+    },
+    {
+      "name": "Direct phone contact",
+      "status": "pass",
+      "detail": "Tap-to-call link"
+    },
+    {
+      "name": "One focused enquiry form",
+      "status": "pass",
+      "detail": "Fixed EICR service; existing tested contact endpoint"
+    },
+    {
+      "name": "CTA precedes hero portrait",
+      "status": "pass",
+      "detail": "Mobile reading order prioritises the enquiry action"
+    },
+    {
+      "name": "Enquiry before extended content",
+      "status": "pass",
+      "detail": "No requirement to read the sales page to reach the form"
+    },
+    {
+      "name": "Persistent mobile actions",
+      "status": "pass",
+      "detail": "CSS-driven call and quote bar; suppressed when form has focus"
+    },
+    {
+      "name": "All local anchors resolve",
+      "status": "pass",
+      "detail": "7 anchor links checked"
+    },
+    {
+      "name": "Image alternatives and dimensions",
+      "status": "pass",
+      "detail": "5 image elements checked"
+    },
+    {
+      "name": "Local image files resolve",
+      "status": "pass",
+      "detail": [
+        "/media/tb-logo-white.webp",
+        "/media/tyler-eicr-electrician-portrait.webp",
+        "/media/napit-red-tick.png",
+        "/media/trustmark-logo.svg"
+      ]
+    },
+    {
+      "name": "Image payload budget",
+      "status": "pass",
+      "detail": "203284 bytes across unique page image assets; not a network performance score"
+    },
+    {
+      "name": "Structured data parses and matches page",
+      "status": "pass",
+      "detail": "No invented aggregate review rating or fixed-price offer"
+    },
+    {
+      "name": "Plain copy without em dashes",
+      "status": "pass",
+      "detail": "Visible copy and source metadata checked"
+    }
+  ],
+  "limits": [
+    "This is a reproducible checklist, not a Lighthouse SEO score or Google Ads Quality Score.",
+    "No real-user attention, heatmap, conversion-rate or Core Web Vitals data is available for this new design.",
+    "Hidden page intentionally uses noindex; no organic ranking promise.",
+    "Mobile device-width browser emulation unavailable in this environment; responsive CSS checks are not a substitute for a physical-device review."
+  ]
+}

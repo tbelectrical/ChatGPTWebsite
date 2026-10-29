@@ -1,0 +1,37 @@
+import {readFileSync,existsSync,statSync} from 'node:fs';
+import {join} from 'node:path';
+const root=process.cwd();
+const html=readFileSync(join(root,'.next/server/app/eicr-quote.html'),'utf8');
+const checks=[];
+function check(name,pass,detail){checks.push({name,status:pass?'pass':'fail',detail});}
+const meta=(name)=>html.match(new RegExp(`<meta[^>]*(?:name|property)="${name}"[^>]*content="([^"]*)"`))?.[1];
+const canonical=html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"/)?.[1];
+const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
+check('Descriptive page title',!!title&&title.includes('EICR')&&title.includes('Hitchin')&&title.includes('TB Electrical'),title);
+check('Unique service meta description',!!meta('description')&&meta('description').includes('EICR'),meta('description'));
+check('Production canonical without campaign parameters',canonical==='https://www.tbelectrical.co.uk/eicr-quote',canonical);
+check('Intentional search exclusion',meta('robots')==='noindex, follow'&&meta('googlebot')==='noindex, follow','Unlisted Google Ads page; organic /services/eicr retained');
+check('One meaningful H1',(html.match(/<h1\b/g)||[]).length===1&&/<h1[^>]*>.*?EICR.*?<\/h1>/s.test(html),'Single EICR headline');
+check('Service and area in opening',html.slice(html.indexOf('<main'),html.indexOf('class="eicr-hero-portrait"')).includes('Hitchin'),'Locality and service visible before photo');
+check('Social metadata',!!meta('og:title')&&!!meta('og:description')&&!!meta('og:image')&&!!meta('twitter:card'),'Open Graph and Twitter metadata present');
+check('Mobile viewport',!!meta('viewport')&&meta('viewport').includes('width=device-width'),meta('viewport'));
+check('Direct phone contact',html.includes('href="tel:+447484605599"'),'Tap-to-call link');
+check('One focused enquiry form',(html.match(/<form\b/g)||[]).length===1&&html.includes('value="Inspection / EICR"'),'Fixed EICR service; existing tested contact endpoint');
+check('CTA precedes hero portrait',html.indexOf('href="#eicr-enquiry"')<html.indexOf('class="eicr-hero-portrait"'),'Mobile reading order prioritises the enquiry action');
+check('Enquiry before extended content',html.indexOf('id="eicr-enquiry"')<html.indexOf('id="eicr-choice-heading"'),'No requirement to read the sales page to reach the form');
+check('Persistent mobile actions',html.includes('aria-label="EICR enquiry actions"'),'CSS-driven call and quote bar; suppressed when form has focus');
+const ids=new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]));
+const anchors=[...html.matchAll(/href="#([^"]+)"/g)].map(m=>m[1]);
+check('All local anchors resolve',anchors.every(a=>ids.has(a)),`${anchors.length} anchor links checked`);
+const images=[...html.matchAll(/<img\b[^>]*>/g)].map(m=>m[0]);
+check('Image alternatives and dimensions',images.every(i=>/alt="[^"]+"/.test(i)&&/width="\d+"/.test(i)&&/height="\d+"/.test(i)),`${images.length} image elements checked`);
+const sources=[...new Set(images.map(i=>i.match(/src="([^"]+)"/)?.[1]).filter(s=>s?.startsWith('/')))];
+check('Local image files resolve',sources.every(s=>existsSync(join(root,'public',s))),sources);
+const bytes=sources.reduce((sum,s)=>sum+(existsSync(join(root,'public',s))?statSync(join(root,'public',s)).size:0),0);
+check('Image payload budget',bytes<300000,`${bytes} bytes across unique page image assets; not a network performance score`);
+let schemas=[];let valid=true;try{schemas=[...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].flatMap(m=>{const d=JSON.parse(m[1]);return Array.isArray(d)?d:[d]});}catch{valid=false;}
+check('Structured data parses and matches page',valid&&schemas.some(s=>s['@type']==='Service'&&s.url===canonical)&&schemas.some(s=>s['@type']==='Electrician'),'No invented aggregate review rating or fixed-price offer');
+check('Plain copy without em dashes',!html.includes('—'),'Visible copy and source metadata checked');
+const output={audit:'EICR landing-page technical and conversion contract',date:'2026-10-29',summary:{passed:checks.filter(c=>c.status==='pass').length,failed:checks.filter(c=>c.status==='fail').length},checks,limits:['This is a reproducible checklist, not a Lighthouse SEO score or Google Ads Quality Score.','No real-user attention, heatmap, conversion-rate or Core Web Vitals data is available for this new design.','Hidden page intentionally uses noindex; no organic ranking promise.','Mobile device-width browser emulation unavailable in this environment; responsive CSS checks are not a substitute for a physical-device review.']};
+console.log(JSON.stringify(output,null,2));
+if(output.summary.failed)process.exitCode=1;
