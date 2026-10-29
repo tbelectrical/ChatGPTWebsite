@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
+import { readFile } from "node:fs/promises";
 import { createServer } from "node:net";
 import { once } from "node:events";
 import { after, before, test } from "node:test";
@@ -87,12 +88,12 @@ test("serves search engine crawl files and approved images", async () => {
   ]);
 
   assert.equal(robotsResponse.status, 200);
-  assert.match(await robotsResponse.text(), /https:\/\/tb-electrical-herts\.tybaker691\.chatgpt\.site\/sitemap\.xml/);
+  assert.match(await robotsResponse.text(), /https:\/\/www\.tbelectrical\.co\.uk\/sitemap\.xml/);
 
   assert.equal(sitemapResponse.status, 200);
   const sitemap = await sitemapResponse.text();
-  assert.match(sitemap, /https:\/\/tb-electrical-herts\.tybaker691\.chatgpt\.site\/ev-chargers/);
-  assert.match(sitemap, /https:\/\/tb-electrical-herts\.tybaker691\.chatgpt\.site\/contact/);
+  assert.match(sitemap, /https:\/\/www\.tbelectrical\.co\.uk\/ev-chargers/);
+  assert.match(sitemap, /https:\/\/www\.tbelectrical\.co\.uk\/contact/);
 
   assert.equal(imageResponse.status, 200);
   assert.match(imageResponse.headers.get("content-type") ?? "", /^image\/webp/);
@@ -108,7 +109,7 @@ test("contact endpoint validates enquiries on the Node.js server", async () => {
   assert.equal((await response.json()).ok, false);
 });
 
-const publicOrigin = "https://tb-electrical-herts.tybaker691.chatgpt.site";
+const publicOrigin = "https://www.tbelectrical.co.uk";
 const locations = ["hitchin", "baldock", "letchworth", "langford", "stevenage", "biggleswade"];
 const services = ["rewires", "consumer-units", "eicr", "commercial", "fault-finding"];
 const routes = ["/", "/about", "/services", "/contact", "/ev-chargers", "/projects", "/areas", "/cookies", "/privacy", ...locations.map(a=>`/areas/${a}`), ...services.map(s=>`/services/${s}`)];
@@ -123,10 +124,35 @@ test("all twenty public pages render with unique canonical URLs and valid struct
     assert.equal(new URL(canonical?.[1]).href, new URL(path, publicOrigin).href,path);
     assert.equal((html.match(/<h1\b/g)||[]).length,1,path);
     assert.match(html,/id="main-content"/);
-    assert.doesNotMatch(html, /https:\/\/www\.tbelectrical\.co\.uk/);
+    assert.doesNotMatch(html, /tb-electrical-herts\.tybaker691\.chatgpt\.site|https:\/\/(?:www\.)?tbelectricalherts\.co\.uk/);
+    const meta = (attribute, name) => html.match(new RegExp(`<meta[^>]*${attribute}="${name}"[^>]*content="([^"]+)"`))?.[1];
+    assert.equal(new URL(meta("property", "og:url")).href, new URL(path, publicOrigin).href, `Open Graph URL: ${path}`);
+    assert.equal(meta("property", "og:image"), `${publicOrigin}/og.png`, `Open Graph image: ${path}`);
+    assert.equal(meta("name", "twitter:image"), `${publicOrigin}/og.png`, `Twitter image: ${path}`);
     const title=html.match(/<title>(.*?)<\/title>/s)?.[1];
     assert.ok(title && !titles.has(title),`unique title: ${path}`); titles.add(title);
-    for(const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) JSON.parse(match[1]);
+    const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)]
+      .flatMap(match => JSON.parse(match[1]));
+    const business = schemas.find(schema => schema["@type"] === "Electrician");
+    const website = schemas.find(schema => schema["@type"] === "WebSite");
+    assert.equal(business?.url, publicOrigin);
+    assert.equal(business?.["@id"], `${publicOrigin}/#business`);
+    assert.equal(business?.logo, `${publicOrigin}/media/tb-logo.webp`);
+    assert.equal(business?.image, `${publicOrigin}/og.png`);
+    assert.equal(business?.email, "tyler@tbelectrical.co.uk");
+    assert.equal(website?.url, publicOrigin);
+    assert.equal(website?.["@id"], `${publicOrigin}/#website`);
+    assert.equal(website?.publisher?.["@id"], `${publicOrigin}/#business`);
+    for (const schema of schemas) {
+      if (schema["@type"] === "Service") {
+        assert.equal(schema.url, `${publicOrigin}${path}`);
+        assert.equal(schema.provider?.["@id"], `${publicOrigin}/#business`);
+      }
+      if (schema["@type"] === "BreadcrumbList") {
+        assert.equal(schema.itemListElement.at(-1).item, `${publicOrigin}${path}`);
+        for (const item of schema.itemListElement) assert.equal(new URL(item.item).origin, publicOrigin);
+      }
+    }
     for(const match of html.matchAll(/href="(\/[^"#?]*)(?:[?#][^"]*)?"/g)) {
       const href=match[1];
       if(!href.startsWith("/_") && !/\.[a-z]+$/.test(href)) assert.ok(routes.includes(href),`${path} links to unknown route ${href}`);
@@ -139,7 +165,14 @@ test("all twenty public pages render with unique canonical URLs and valid struct
 
 test("new landing pages appear in the sitemap and invalid locations return 404",async()=>{
   const xml=await (await fetch(`${origin}/sitemap.xml`)).text();
-  for(const path of routes) assert.ok(xml.includes(`${publicOrigin}${path}`),path);
+  const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]);
+  assert.equal(urls.length, routes.length);
+  assert.equal(new Set(urls).size, routes.length);
+  for (const url of urls) assert.equal(new URL(url).origin, publicOrigin);
+  for(const path of routes) assert.ok(urls.some(url => new URL(url).href === new URL(path, publicOrigin).href),path);
+  const robots = await (await fetch(`${origin}/robots.txt`)).text();
+  assert.match(robots, /^Host: https:\/\/www\.tbelectrical\.co\.uk$/m);
+  assert.match(robots, /^Sitemap: https:\/\/www\.tbelectrical\.co\.uk\/sitemap\.xml$/m);
   for(const path of ["/areas/not-a-town","/services/not-a-service"]) {
     const response=await fetch(`${origin}${path}`);
     assert.equal(response.status,404,path);
@@ -191,4 +224,15 @@ test("the homepage explains its service and location in the main heading",async(
  assert.match(html,/<h1>Electrician in Hitchin/);
  assert.match(html,/"@type":"WebSite"/);
  for(const area of ["Baldock","Letchworth","Stevenage","Langford","Biggleswade"]) assert.ok(html.includes(area));
+});
+
+// Website SEO changes must not migrate the separately configured email domain.
+test("business email and Resend sending defaults remain unchanged", async () => {
+  for (const path of ["../.env.example", "../wrangler.jsonc"]) {
+    const config = await readFile(new URL(path, import.meta.url), "utf8");
+    assert.ok(config.includes("tyler@tbelectrical.co.uk"), path);
+    assert.ok(config.includes("TB Electrical Website <enquiries@forms.tbelectrical.co.uk>"), path);
+  }
+  const html = await (await fetch(`${origin}/contact`)).text();
+  assert.ok(html.includes('href="mailto:tyler@tbelectrical.co.uk"'));
 });

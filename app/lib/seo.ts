@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-// Switch this single origin when the custom-domain migration is complete.
-export const siteUrl = "https://tb-electrical-herts.tybaker691.chatgpt.site";
+// Production origin shared by metadata, structured data, robots and sitemap URLs.
+export const siteUrl = "https://www.tbelectrical.co.uk";
 export function pageMetadata(title: string, description: string, path: string): Metadata {
   return { title, description, robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } }, alternates: { canonical: path },
     openGraph: { title: `${title} | TB Electrical`, description, url: path, type: "website", locale: "en_GB", siteName: "TB Electrical", images: [{ url: `${siteUrl}/og.png`, width: 1731, height: 909, alt: "TB Electrical | Electrical work, done properly" }] },
