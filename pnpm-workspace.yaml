@@ -24,3 +24,5 @@ overrides:
   "zod@^4.0.0": "4.6.6"
   "@vercel/og": "1.0.3"
   "fflate": "0.8.3"
+  # CVE-2026-118764 affects v7-v11.0.0; legacy v3 has a different API and is unaffected.
+  "minimatch@>=7 <11.0.1": "11.0.1"

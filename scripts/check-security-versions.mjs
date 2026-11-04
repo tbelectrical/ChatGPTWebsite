@@ -8,8 +8,20 @@ export const minimumVersions = {
   'image-size':'2.0.3', satori:'0.33.5', '@vercel/og':'1.0.3', fflate:'0.8.3',
 };
 
+// The CVE record was corrected on 3 Nov 2026: minimatch 3.x is not affected.
+// https://github.com/CVEProject/cvelistV5/blob/main/cves/2026/118xxx/CVE-2026-118764.json
+const vulnerableRanges = {
+  minimatch: {introduced:'7.0.0', fixed:'11.0.1', advisory:'CVE-2026-118764'},
+};
+
+function compareVersions(actual, expected) {
+  for(let i=0;i<3;i++) if(actual[i]!==expected[i]) return actual[i]-expected[i];
+  return 0;
+}
+
 export function scanDependencies(root) {
-  const installed = new Map(Object.keys(minimumVersions).map(name=>[name,new Set()]));
+  const names=new Set([...Object.keys(minimumVersions),...Object.keys(vulnerableRanges)]);
+  const installed = new Map([...names].map(name=>[name,new Set()]));
   const visited = new Set();
   const visitedModules = new Set();
   function packageDirectory(directory) {
@@ -53,11 +65,19 @@ export function securityFailures(installed) {
   for(const [name,versions] of Object.entries(installed)) for(const version of versions) {
     const match=/^(\d+)\.(\d+)\.(\d+)$/.exec(version);
     const minimum=minimumVersions[name]?.split('.').map(Number);
-    if(!minimum) continue;
+    const range=vulnerableRanges[name];
+    if(!minimum&&!range) continue;
     const actual=match?.slice(1).map(Number);
-    let comparison=0;
-    if(actual) for(let i=0;i<3;i++) { if(actual[i]!==minimum[i]) {comparison=actual[i]-minimum[i];break;} }
-    if(!actual||comparison<0) failures.push(`${name}@${version} is below the required ${minimumVersions[name]}`);
+    if(minimum&&(!actual||compareVersions(actual,minimum)<0)) {
+      failures.push(`${name}@${version} is below the required ${minimumVersions[name]}`);
+    }
+    if(range) {
+      if(!actual) failures.push(`${name}@${version} cannot be verified against ${range.advisory}`);
+      else if(compareVersions(actual,range.introduced.split('.').map(Number))>=0
+        &&compareVersions(actual,range.fixed.split('.').map(Number))<0) {
+        failures.push(`${name}@${version} is affected by ${range.advisory}; upgrade to ${range.fixed} or later`);
+      }
+    }
   }
   return failures;
 }
