@@ -1,6 +1,6 @@
 "use client";
 
-import { useOptionalConsent } from "./CookieConsent";
+import { getGoogleAdsTracker } from "../lib/google-ads";
 
 import { FormEvent, useState } from "react";
 
@@ -10,12 +10,7 @@ type ContactFormProps = {
   eicrFocused?: boolean;
 };
 
-declare global {
-  interface Window { dataLayer?: Record<string, unknown>[]; }
-}
-
 export function ContactForm({ source = "website", evFocused = false, eicrFocused = false }: ContactFormProps) {
-  const consent = useOptionalConsent();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error" | "email">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -25,6 +20,8 @@ export function ContactForm({ source = "website", evFocused = false, eicrFocused
     const form = new FormData(formElement);
     const variant = new URLSearchParams(window.location.search).get("variant") || "long";
     const submissionId = window.crypto.randomUUID();
+    const ads = getGoogleAdsTracker();
+    const consentAtSubmission = ads?.beginSubmission() ?? null;
     const message = eicrFocused
       ? `Property enquiry: ${form.get("propertyUse")}\n\n${form.get("message")}`
       : String(form.get("message"));
@@ -62,7 +59,7 @@ export function ContactForm({ source = "website", evFocused = false, eicrFocused
           submissionId,
         }),
       });
-      const result = await response.json() as { ok?: boolean; code?: string; message?: string };
+      const result = await response.json() as { ok?: boolean; code?: string; message?: string; reference?: string };
 
       if (!response.ok || !result.ok) {
         if (result.code === "FORM_NOT_CONFIGURED") {
@@ -73,9 +70,8 @@ export function ContactForm({ source = "website", evFocused = false, eicrFocused
         throw new Error(result.message || "Your enquiry did not send. Please try again.");
       }
 
-      if (consent) { window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "generate_lead", lead_source: source, homepage_variant: variant });
-      }
+      // Measurement is optional and must never delay or change the enquiry result.
+      void ads?.recordLead(result.reference, submissionId, consentAtSubmission).catch(() => {});
       formElement.reset();
       setStatus("success");
     } catch (error) {

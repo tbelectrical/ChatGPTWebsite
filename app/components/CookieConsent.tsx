@@ -2,38 +2,67 @@
 
 import { SiteLink as Link } from "./SiteLink";
 import { createContext, useContext, useEffect, useState } from "react";
+import { getGoogleAdsTracker } from "../lib/google-ads";
+import {
+  COOKIE_PREFERENCES_KEY, LEGACY_COOKIE_KEY, noOptionalCookies, readCookiePreferences,
+  saveCookiePreferences, type CookiePreferences,
+} from "../lib/cookie-preferences";
 
-const key = "tb-cookie-choice-v1";
-const lifetime = 180 * 24 * 60 * 60 * 1000;
-type Choice = "accepted" | "denied" | null;
-const ConsentContext = createContext({ choice: null as Choice, open: () => {} });
+const ConsentContext = createContext({ preferences: noOptionalCookies, open: () => {} });
 
 export function CookieConsent({ children }: { children: React.ReactNode }) {
-  const [choice, setChoice] = useState<Choice>(null);
+  const [preferences, setPreferences] = useState<CookiePreferences>(noOptionalCookies);
+  const [draft, setDraft] = useState<CookiePreferences>(noOptionalCookies);
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem(key) || "null");
-      if (saved && ["accepted", "denied"].includes(saved.choice) && saved.expires > Date.now()) {
-        setChoice(saved.choice);
-        return;
-      }
-    } catch { /* Storage may be unavailable; default to no optional content. */ }
-    setVisible(true);
+    function restore() {
+      let restored = { preferences: { ...noOptionalCookies }, needsChoice: true };
+      try { restored = readCookiePreferences(window.localStorage); } catch { /* Storage can be blocked. */ }
+      getGoogleAdsTracker()?.setConsent(restored.preferences.advertising);
+      setPreferences(restored.preferences);
+      setDraft(restored.preferences);
+      setVisible(restored.needsChoice);
+    }
+    restore();
+    function changed(event: StorageEvent) {
+      if (event.key === null || [COOKIE_PREFERENCES_KEY, LEGACY_COOKIE_KEY].includes(event.key)) restore();
+    }
+    window.addEventListener("storage", changed);
+    return () => window.removeEventListener("storage", changed);
   }, []);
 
-  function choose(next: Exclude<Choice, null>) {
-    try { localStorage.setItem(key, JSON.stringify({ choice: next, expires: Date.now() + lifetime })); } catch { /* Choice still applies for this visit. */ }
-    setChoice(next);
+  function choose(next: CookiePreferences) {
+    // Revoke tracking immediately, including any pending form or script load.
+    getGoogleAdsTracker()?.setConsent(next.advertising);
+    try { saveCookiePreferences(window.localStorage, next); } catch { /* Applies for this visit even without storage. */ }
+    setPreferences(next);
+    setDraft(next);
     setVisible(false);
-    if (next === "denied") window.dataLayer = [];
   }
 
-  return <ConsentContext.Provider value={{ choice, open: () => setVisible(true) }}>
+  function open() {
+    setDraft(preferences);
+    setVisible(true);
+  }
+
+  return <ConsentContext.Provider value={{ preferences, open }}>
     {children}
     {visible && <section className="cookie-banner" role="region" aria-label="Cookie preferences">
-      <div><strong>Your cookie choice</strong><p>We remember your choice on this device. Accept to load Google Maps, which may use cookies. Deny keeps it off. <Link href="/cookies">Cookie details</Link>.</p></div>
-      <div className="cookie-actions"><button onClick={() => choose("accepted")}>Accept</button><button onClick={() => choose("denied")}>Deny</button></div>
+      <div className="cookie-copy">
+        <strong>Your cookie choices</strong>
+        <p>Choose whether to load Google Maps and help us measure Google Ads enquiries. Both are optional; the enquiry form works with either choice. <Link href="/cookies">Cookie details</Link>.</p>
+        <fieldset className="cookie-options">
+          <legend>Optional services</legend>
+          <label><input type="checkbox" checked={draft.maps} onChange={event => setDraft({ ...draft, maps: event.target.checked })} /><span><b>Google Maps</b>Load the embedded map, which shares technical information with Google and may use cookies.</span></label>
+          <label><input type="checkbox" checked={draft.advertising} onChange={event => setDraft({ ...draft, advertising: event.target.checked })} /><span><b>Advertising measurement</b>Let Google use cookies, ad-click and technical information to measure visits and successful enquiries from our ads. We do not send your form details or enable personalised advertising.</span></label>
+        </fieldset>
+      </div>
+      <div className="cookie-actions">
+        <button onClick={() => choose({ maps: true, advertising: true })}>Accept all</button>
+        <button onClick={() => choose({ maps: false, advertising: false })}>Reject all</button>
+        <button onClick={() => choose(draft)}>Save choices</button>
+      </div>
     </section>}
   </ConsentContext.Provider>;
 }
@@ -44,9 +73,7 @@ export function CookieSettings() {
 }
 
 export function ConsentMap() {
-  const { choice, open } = useContext(ConsentContext);
-  if (choice !== "accepted") return <div className="map-consent"><p>The Google map is off until you accept optional cookies. You can still read our reviews using the link below.</p><button className="button button-dark" onClick={open}>Cookie settings</button></div>;
+  const { preferences, open } = useContext(ConsentContext);
+  if (!preferences.maps) return <div className="map-consent"><p>The Google map is off until you allow Google Maps in cookie settings. You can still read our reviews using the link below.</p><button className="button button-dark" onClick={open}>Cookie settings</button></div>;
   return <iframe title="TB Electrical Herts Ltd on Google Maps" src="https://www.google.com/maps?q=TB%20Electrical%20Herts%20Ltd%2C%20Hitchin&output=embed" loading="lazy" referrerPolicy="no-referrer" />;
 }
-
-export function useOptionalConsent() { return useContext(ConsentContext).choice === "accepted"; }

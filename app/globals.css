@@ -1154,7 +1154,13 @@ html[data-home-variant="split"] .split-only { display: block; }
 .cookie-banner strong { font-size: 16px; }
 .cookie-banner p { margin: 6px 0 0; font-size: 14px; line-height: 1.5; }
 .cookie-banner p a, .seo-section p a, .form-note a { text-decoration: underline; text-underline-offset: 3px; }
-.cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-copy { flex: 1; min-width: 0; }
+.cookie-options { border: 0; padding: 0; margin: 12px 0 0; display: grid; gap: 12px; }
+.cookie-options legend { font-size: 13px; font-weight: 750; padding: 0 0 8px; }
+.cookie-options label { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; cursor: pointer; }
+.cookie-options input { flex-shrink: 0; width: 18px; height: 18px; margin: 2px 0 0; accent-color: #171614; }
+.cookie-options b { display: block; }
+.cookie-actions { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
 .cookie-actions button { min-width: 100px; padding: 12px 20px; border: 1px solid #171614; background: var(--yellow); color: #171614; font-weight: 750; cursor: pointer; border-radius: 4px; }
 .cookie-actions button:hover { background: #ffdf6a; }
 .cookie-actions button:focus-visible, .cookie-settings:focus-visible { outline: 3px solid #b57900; outline-offset: 4px; }

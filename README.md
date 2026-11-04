@@ -102,6 +102,16 @@ Cloudflare creates the site DNS records and SSL certificates. Existing email DNS
 
 After this, an approved push to `main` rebuilds and publishes the website.
 
+## Google Ads enquiry measurement
+
+The Google tag `AW-17708437290` loads only after the visitor allows advertising measurement in Cookie settings. Maps has a separate choice; the previous Maps-only consent never enables advertising. Analytics and ad personalisation stay denied.
+
+The existing lead action `AW-17708437290/I0MgCLKs-robEKqehfxB` receives a conversion only when `/api/contact` returns a successful response with the matching submission reference. That UUID is the `transaction_id`; no form fields are included. Mailto fallback, errors and spam-trap acknowledgements do not count. Withdrawing consent cancels pending conversions and updates any loaded tag without refreshing an unfinished enquiry.
+
+Before publishing this change, verify contact delivery configuration, keep automatic enhanced-conversion collection disabled in the Google tag settings, and validate accepted/denied choices and one authorised test enquiry using Tag Assistant. Check both Resend delivery and the business inbox; the code can only confirm provider acceptance. The Google Ads campaign should remain unpublished until those checks pass.
+
+Run focused offline checks with `node --test tests/google-ads.test.mjs tests/contact-api.test.mjs tests/eicr-form.test.mjs`, then run the normal production build and site checks in a complete checkout.
+
 ## Form safeguards
 
 The contact endpoint includes:
