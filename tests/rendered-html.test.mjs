@@ -183,7 +183,7 @@ test("Google Maps is absent before consent and footer exposes cookie controls",a
   const html=await (await fetch(origin)).text();
   assert.doesNotMatch(html,/<iframe\b/);
   assert.doesNotMatch(html,/<script[^>]+src="https:\/\/(?:www\.google|www\.googletagmanager)/);
-  assert.match(html,/Google map is off until you accept/);
+  assert.match(html,/Google map is off until you allow Google Maps in cookie settings/);
   assert.match(html,/Cookie settings/);
   assert.match(html,/href="\/cookies"/); assert.match(html,/href="\/privacy"/);
 });
