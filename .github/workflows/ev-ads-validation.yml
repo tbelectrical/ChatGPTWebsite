@@ -1,0 +1,34 @@
+name: EV Ads tracking validation
+
+on:
+  push:
+    branches:
+      - codex/ev-ads-tracking-20261104
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+      WRANGLER_SEND_METRICS: "false"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa
+        with:
+          version: 11.25.0
+          run_install: false
+      - run: pnpm install --frozen-lockfile
+      - name: Production Next.js build and all tests
+        run: pnpm test
+      - name: Cloudflare build compatibility
+        run: pnpm run build:cloudflare
