@@ -31,7 +31,7 @@ export function Footer() {
             <p>Electrical work, done properly.</p>
           </div>
           <div className="footer-links">
-            <div><span>Explore</span><Link href="/services">Services</Link><Link href="/areas">Areas we cover</Link><Link href="/projects">Projects</Link><Link href="/about">About</Link><Link href="/ev-chargers">EV charging</Link></div>
+            <div><span>Explore</span><Link href="/services">Services</Link><Link href="/services/fault-finding#call-out-rates">Call-out rates</Link><Link href="/areas">Areas we cover</Link><Link href="/projects">Projects</Link><Link href="/about">About</Link><Link href="/ev-chargers">EV charging</Link></div>
             <div><span>Contact</span><a href="tel:+447484605599">07484 605 599</a><a href="mailto:tyler@tbelectrical.co.uk">tyler@tbelectrical.co.uk</a><a href="https://wa.me/447484605599" target="_blank" rel="noreferrer">WhatsApp</a></div>
             <div><span>Follow</span><a href="https://www.facebook.com/tbelectricalherts/" target="_blank" rel="noreferrer">Facebook</a><a href="https://www.instagram.com/tbelectricalhertsltd" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.trustmark.org.uk/firms/TB%20Electrical%20Herts%20Ltd-4136741-SG5%204SN?id=6a0f78e4-068a-4311-bbf1-663f7f6bd737" target="_blank" rel="noreferrer">TrustMark</a></div>
           </div>

@@ -21,6 +21,7 @@ export default function ServicesPage() {
       <div className="sector-detail-image"><ResponsiveImage src={sector.image} alt={sector.imageAlt} width={1122} height={1402} loading="lazy" decoding="async" /></div>
       <div className="sector-detail-copy"><p className="eyebrow dark"><span /> {sector.number} · {sector.label}</p><h2>{sector.title}</h2><p>{sector.body}</p><ul>{sector.items.map(item => <li key={item}>{item}<span>↗</span></li>)}</ul><Link className="button button-dark" href="/contact">Tell us about the job <span>↗</span></Link></div>
     </section>)}
+    <section className="shell services-callout-link"><div><h2>Need help with an electrical fault?</h2><p>Local weekday call-outs: £80 including the first hour. Additional labour: £50 per hour.</p></div><Link className="button button-dark" href="/services/fault-finding#call-out-rates">View call-out rates <span>↗</span></Link></section>
     <section className="cta-ribbon"><div className="shell"><div><p>Not sure what the job involves?</p><h2>Show us the problem.<br />We’ll work it out.</h2></div><Link className="button button-primary" href="/contact">Ask an electrician <span>↗</span></Link></div></section>
   </main><Footer /></>;
 }

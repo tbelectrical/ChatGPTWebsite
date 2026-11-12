@@ -1221,3 +1221,35 @@ html[data-home-variant="split"] .split-only { display: block; }
 
 /* Keep the first visible content available for the initial paint. */
 .hero .reveal { animation: none; }
+
+/* Call-out prices: shared by the fault-finding page and booking links. */
+.callout-rates { padding-block: clamp(52px, 7vw, 88px); background: #e9e6dd; scroll-margin-top: 110px; }
+.callout-rates-heading { max-width: 760px; margin-bottom: 34px; }
+.callout-rates-heading h2 { font-size: clamp(38px, 5vw, 64px); line-height: 1.02; }
+.callout-rates-heading > p:last-child { max-width: 650px; color: #56534c; font-size: 18px; line-height: 1.65; }
+.callout-rate-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.callout-rate-card { padding: clamp(24px, 3vw, 38px); background: var(--white); border-top: 4px solid var(--ink); }
+.callout-rate-featured { border-color: var(--yellow); }
+.callout-rate-label { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; line-height: 1.6; }
+.callout-rate-price { margin-block: 20px; font-size: clamp(46px, 5vw, 66px); font-weight: 800; letter-spacing: -.05em; line-height: 1.1; }
+.callout-rate-price span { display: block; margin-top: 8px; font-size: 16px; letter-spacing: 0; font-weight: 500; }
+.callout-rate-card h3, .callout-rate-details h3 { font-size: 19px; line-height: 1.35; letter-spacing: -.02em; }
+.callout-rate-card > p:last-child, .callout-rate-details p { margin-bottom: 0; color: #56534c; font-size: 16px; line-height: 1.75; }
+.callout-rate-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; margin-block: 32px; }
+.callout-hero-link { display: block; width: fit-content; margin-top: 22px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; line-height: 1.6; }
+.contact-callout-note { margin-top: 28px; padding: 20px; border-left: 3px solid var(--yellow); background: rgba(255,255,255,.05); line-height: 1.65; }
+.contact-callout-note p { margin-block: 8px; color: #d2cec4; font-size: 16px; }
+.contact-callout-note a { color: var(--yellow); font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.services-callout-link { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-block: 48px; border-top: 1px solid var(--line); }
+.services-callout-link h2 { font-size: clamp(28px, 3vw, 42px); line-height: 1.15; margin-bottom: 16px; }
+.services-callout-link p { color: #56534c; line-height: 1.7; margin-bottom: 0; }
+.services-callout-link .button { flex-shrink: 0; }
+@media (max-width: 900px) {
+  .callout-rate-grid { grid-template-columns: 1fr; }
+  .callout-rate-price span { display: inline; margin-left: 6px; }
+  .services-callout-link { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .callout-rate-details { grid-template-columns: 1fr; gap: 24px; }
+  .callout-rates .button { width: 100%; gap: 16px; }
+}
