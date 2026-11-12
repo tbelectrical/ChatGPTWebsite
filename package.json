@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "next": "16.4.1",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react": "19.2.9",
+    "react-dom": "19.2.9"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "1.37.1",
@@ -40,7 +40,7 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
     "globals": "16.4.0",
-    "react-server-dom-webpack": "19.2.8",
+    "react-server-dom-webpack": "19.2.9",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.59.3",
@@ -63,7 +63,8 @@
     "zod@^4.0.0": "4.6.6",
     "@vercel/og": "1.0.3",
     "fflate": "0.8.3",
-    "minimatch@>=7 <11.0.1": "11.0.1"
+    "minimatch@>=7 <11.0.1": "11.0.1",
+    "react-server-dom-webpack": "19.2.9"
   },
   "packageManager": "pnpm@11.25.0"
 }

@@ -6,6 +6,8 @@ import {pathToFileURL} from 'node:url';
 export const minimumVersions = {
   undici:'7.30.1', ws:'8.21.0', sharp:'0.35.5', esbuild:'0.28.2',
   'image-size':'2.0.3', satori:'0.33.5', '@vercel/og':'1.0.3', fflate:'0.8.3',
+  // GHSA-xqc2-xf4c-x3h3: pin this project's React 19.2 line to the patched release.
+  'react-server-dom-webpack':'19.2.9',
 };
 
 // The CVE record was corrected on 3 Nov 2026: minimatch 3.x is not affected.
